@@ -1,9 +1,17 @@
+/* eslint-disable no-console */
 const createError = require('http-errors');
 const express = require('express');
 const path = require('path');
 const cookieParser = require('cookie-parser');
 const logger = require('morgan');
 const sassMiddleware = require('node-sass-middleware');
+const mongoose = require('mongoose');
+
+mongoose
+  .connect('mongodb+srv://powerdevgirls:plantifulapp@plantiful-2druw.mongodb.net/test?retryWrites=true&w=majority', { useNewUrlParser: true })
+  .then(() => console.log('Connected to Mongo!'))
+  .catch((err) => console.error('Error connecting to mongo', err));
+
 
 const indexRouter = require('./routes/index');
 const authRouter = require('./routes/auth');
