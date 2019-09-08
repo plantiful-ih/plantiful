@@ -10,4 +10,31 @@ router.get('/login', (req, res) => {
   res.render('login');
 });
 
+router.post('/login', (req, res) => {
+  const { username, password } = req.body;
+  if (username !== '' && password !== '') {
+    User.findOne({ username })
+      .then((user) => {
+        if (user) {
+          if (bcrypt.compareSync(password, user.hashedPassword)) {
+            // password valido
+            // guardo la session
+            req.session.currentUser = user;
+            res.redirect('/plants');
+          } else {
+            // password invalido
+            res.render('login', { error: 'usuario o contraseña incorrectos' });
+          }
+        } else {
+          res.redirect('/signup');
+        }
+      })
+      .catch(() => {
+        res.render('login', { error: 'error vuelve a intentarlo' });
+      });
+  } else {
+    res.render('login', { error: 'campos no pueden estar vacios' });
+  }
+});
+
 module.exports = router;
