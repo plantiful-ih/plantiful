@@ -8,7 +8,7 @@ const sassMiddleware = require('node-sass-middleware');
 const mongoose = require('mongoose');
 
 mongoose
-  .connect('mongodb+srv://admin:powerdevgirls@cluster0-60pj5.mongodb.net/plantiful?retryWrites=true&w=majority', { useNewUrlParser: true })
+  .connect('mongodb+srv://powerdevgirls:plantifulapp@plantiful-2druw.mongodb.net/test?retryWrites=true&w=majority', { useNewUrlParser: true })
   .then(() => console.log('Connected to Mongo!'))
   .catch((err) => console.error('Error connecting to mongo', err));
 
