@@ -11,9 +11,9 @@ router.get('/login', (req, res) => {
 });
 
 router.post('/login', (req, res) => {
-  const { username, password } = req.body;
-  if (username !== '' && password !== '') {
-    User.findOne({ username })
+  const { userEmail, password } = req.body;
+  if (userEmail !== '' && password !== '') {
+    User.findOne({ userEmail })
       .then((user) => {
         if (user) {
           if (bcrypt.compareSync(password, user.hashedPassword)) {
