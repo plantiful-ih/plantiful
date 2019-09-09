@@ -72,26 +72,14 @@ Plant model
 
 ```js
 {
-    common_name: String,
+    commonName: String,
     family: String,
-    care_difficulty: Number,
+    careDifficulty: Number,
     watering: String,
-    life_length: String,
+    lifeLength: String,
     img: String,
-    care_tips: Array,
+    careTips: Array,
     place: Array
-}
-```
-
-User model
-
-```js
-{
-    user_email: String,
-    hashedPassword: String,
-    location: String,
-    age: Number,
-    plants: Array (myplant submodel)
 }
 ```
 
@@ -101,23 +89,41 @@ MyPlant submodel
 {
     nickname: String,
     rating: Number,
-    type_plant: Id,
-    user_pics: Array,
-    shopping_point: Array
+    typePlant: {type: Schema.Types.ObjectId, ref: 'Plant'},
+    userPics: Array,
+    shoppingPoint: Array
 }
 ```
+
+User model
+
+```js
+{
+    userEmail: String,
+    hashedPassword: String,
+    location: Array,
+    age: Number,
+    userPlants: [{ type: Schema.Types.ObjectId, ref: 'MyPlant' }]
+}
+```
+
+
 
 ## Links
 
 ### Github project
 
-[Link url](https://github.com/plantiful)
+[Github project](https://github.com/plantiful)
 
 ### Git
 
 URls for the project repo and deploy
 [Link Repo]()
 [Link Deploy]()
+
+### Wireframes
+
+[InVision with Wireframes](https://invis.io/XBTTIDH2JP7#/382854673_Layout_Hbs)
 
 ### Slides
 
