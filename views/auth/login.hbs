@@ -6,12 +6,12 @@
 
     <label for="password">Password</label>
     <input type="password" name="password" required>
-
-    {{#if errorMessage }}
-    <div class="error-message">{{ errorMessage }}</div>
+    <button>Log in</button>
+    {{#if error }}
+    <div class="error-message">{{ error }}</div>
     {{/if}}
 
-    <button>Log in</button>
+
     <hr>
     <p class="account-message">
         Don't have an account? <a href="/signup">Sign up</a>

@@ -71,14 +71,14 @@ router.post('/login', (req, res, next) => {
           if (bcrypt.compareSync(password, user.hashedPassword)) {
             // password valido
             // guardo la session
-            req.session.currentUser = user;
-            res.redirect('/plants');
+            // req.session.currentUser = user;
+            res.redirect('/');
           } else {
             // password invalido
             res.render('auth/login', { error: 'Wrong email or password.' });
           }
         } else {
-          res.redirect('/signup');
+          res.redirect('/signup', { error: 'User does not exist, please sign up.' });
         }
       })
       .catch(() => {
