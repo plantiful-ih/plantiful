@@ -10,34 +10,34 @@ const bcryptSalt = 10;
 
 const router = express.Router();
 
-/* Get Home page */
-router.get('/', (req, res) => {
-  res.render('index', { title: 'Auth' });
-});
+/* Get Home page / Este aquí no hace falta */
+// router.get('/', (req, res) => {
+//   res.render('index', { title: 'Auth' });
+// });
 
 /* Get Sign up page */
-router.get('signup', (req, res) => {
-  res.render('signup');
+router.get('/signup', (req, res) => {
+  res.render('auth/signup');
 });
 
 /* Create a User */
 router.post('/signup', (req, res, next) => {
-  const { userEmail, hashedPassword } = req.body;
+  const { userEmail, password } = req.body;
 
   /* Form validation */
-  if (userEmail !== '' || hashedPassword !== '') {
+  if (userEmail !== '' || password !== '') {
     User.findOne({ userEmail })
       .then((email) => {
         if (email) {
           console.log('this email already exists');
-          res.render('signup', { error: 'email ya existe' });
+          res.render('auth/signup', { error: 'This email is already registered.' });
         } else {
-          console.log('email doesnt exists', email);
+          console.log('email does not exist', email);
           /* Password encryptation */
           const salt = bcrypt.genSaltSync(bcryptSalt);
-          const hashPass = bcrypt.hashSync(hashedPassword, salt);
+          const hashedPassword = bcrypt.hashSync(password, salt);
           /* New user */
-          User.create({ userEmail, hashPass })
+          User.create({ userEmail, hashedPassword })
             .then(() => {
               console.log('new user has been created');
               res.redirect('/');
@@ -49,20 +49,20 @@ router.post('/signup', (req, res, next) => {
       })
       .catch((error) => {
         console.log(error);
-        res.render('signup', { error: 'error try again' });
+        res.render('auth/signup', { error: 'error try again' });
       });
   } else {
-    res.render('signup', { error: 'all the fields must be filled' })
+    res.render('auth/signup', { error: 'all the fields must be filled' })
   }
 });
 
 /* Get Login page */
 router.get('/login', (req, res) => {
-  res.render('login');
+  res.render('auth/login');
 });
 
 
-router.post('/login', (req, res) => {
+router.post('/login', (req, res, next) => {
   const { userEmail, password } = req.body;
   if (userEmail !== '' && password !== '') {
     User.findOne({ userEmail })
@@ -75,18 +75,24 @@ router.post('/login', (req, res) => {
             res.redirect('/plants');
           } else {
             // password invalido
-            res.render('login', { error: 'usuario o contraseña incorrectos' });
+            res.render('auth/login', { error: 'Wrong email or password.' });
           }
         } else {
           res.redirect('/signup');
         }
       })
       .catch(() => {
-        res.render('login', { error: 'error vuelve a intentarlo' });
+        res.render('auth/login', { error: 'There was an error. Please try again.' });
       });
   } else {
-    res.render('login', { error: 'campos no pueden estar vacios' });
+    res.render('auth/login', { error: 'All fields must be filled' });
   }
+});
+
+router.post('/logout', (req, res, next) => {
+  req.session.destroy((err) => {
+    res.redirect('/');
+  });
 });
 
 module.exports = router;
