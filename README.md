@@ -4,6 +4,8 @@ Plantiful
 
 ## Description
 
+Plantiful is a catalog of plants that allows users to track the evolution of their plants
+
 ## USER STORIES
 
 **404** - As a user I want to see a nice 404 page when I go to a page that doesn’t exist so that I know it was my fault

@@ -6,6 +6,7 @@ const cookieParser = require('cookie-parser');
 const logger = require('morgan');
 const sassMiddleware = require('node-sass-middleware');
 const mongoose = require('mongoose');
+require('dotenv').config();
 
 mongoose
   .connect('mongodb+srv://powerdevgirls:plantifulapp@plantiful-2druw.mongodb.net/test?retryWrites=true&w=majority', { useNewUrlParser: true })
