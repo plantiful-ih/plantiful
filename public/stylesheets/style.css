@@ -5,4 +5,16 @@ body {
 a {
   color: #00B7FF; }
 
+  .plants-showcase {
+    display: flex;
+    flex-flow: row wrap;
+    justify-content: space-between;
+ }
+ .plant-card{
+  width: 30%;
+  margin: 1em;
+ }
+ .plant-img{
+  width:100%;
+ }
 /*# sourceMappingURL=style.css.map */
