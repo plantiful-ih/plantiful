@@ -1,2 +1,11 @@
 <h1>{{title}}</h1>
-<p>Welcome to {{title}}</p>
+<div id="container">
+  <div class="plants-showcase">
+    {{#each this.data}}
+    <div class="plant-card">
+      <h3>{{this.commonName}}</h3>
+      <a href="#"><img class="plant-img" src="{{this.img}}"></a>
+    </div>
+    {{/each}}
+  </div>
+</div>
