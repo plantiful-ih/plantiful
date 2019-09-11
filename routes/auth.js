@@ -83,9 +83,12 @@ router.post('/login', (req, res, next) => {
 
 /* Get logout page */
 router.post('/logout', (req, res, next) => {
-  req.session.destroy((err) => {
+  try {
+    req.session.destroy();
     res.redirect('/');
-  });
+  } catch (error) {
+    next(error);
+  }
 });
 
 /* Get profile page with user info */

@@ -1,0 +1,45 @@
+// Estos son los colores del moodboard para usarlos por estos nombres en vez del código hexadecimal
+$blue: #006981;
+$green: #00c98e;
+$lightgreen: #cdf0bb;
+
+/************ MAIN LAYOUT ************/
+
+.sticky-nav {
+    width: 100vw; 
+    display: block;
+    position: sticky;
+    bottom: 0;
+    background-color: white;
+    padding: 10px 0 10px 0;
+    text-align: center;
+    ul{   
+        li{
+        display: inline;
+        margin-right: 20px;
+        a {
+        text-decoration: none;
+        color: black;
+        &:hover {
+            color: $blue;
+        }
+       }
+      }
+    }
+}
+
+
+/************ HOME VIEWS ************/
+
+.plants-showcase {
+    display: flex;
+    flex-flow: row wrap;
+    justify-content: space-between;
+    .plant-card{
+    width: 30%;
+    margin: 1em;
+    }
+    .plant-img{
+    width:100%;
+    }
+ }

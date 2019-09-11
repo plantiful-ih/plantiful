@@ -1,8 +1,30 @@
-body {
-  padding: 50px;
-  font: 14px "Lucida Grande", Helvetica, Arial, sans-serif; }
+/************ MAIN LAYOUT ************/
+.sticky-nav {
+  width: 100vw;
+  display: block;
+  position: sticky;
+  bottom: 0;
+  background-color: white;
+  padding: 10px 0 10px 0;
+  text-align: center; }
+  .sticky-nav ul li {
+    display: inline;
+    margin-right: 20px; }
+    .sticky-nav ul li a {
+      text-decoration: none;
+      color: black; }
+      .sticky-nav ul li a:hover {
+        color: #006981; }
 
-a {
-  color: #00B7FF; }
+/************ HOME VIEWS ************/
+.plants-showcase {
+  display: flex;
+  flex-flow: row wrap;
+  justify-content: space-between; }
+  .plants-showcase .plant-card {
+    width: 30%;
+    margin: 1em; }
+  .plants-showcase .plant-img {
+    width: 100%; }
 
 /*# sourceMappingURL=style.css.map */
