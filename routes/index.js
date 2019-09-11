@@ -2,13 +2,13 @@
 const express = require('express');
 
 const router = express.Router();
-const data = require('../data');
+//const data = require('../data');
 const Plant = require('../models/Plant');
 
 /* GET home page. */
 router.get('/', (req, res, next) => {
   Plant.find()
-    .then(() => {
+    .then((data) => {
       data.forEach((plant) => {
         console.log(plant.commonName);
       });

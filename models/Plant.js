@@ -12,6 +12,7 @@ const plantSchema = new Schema(
         img: String,
         careTips: Array,
         place: Array,
+        description: String,
     },
     {
         timestamps: {

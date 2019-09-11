@@ -169,9 +169,8 @@ module.exports = [
       'the sunnier the location should be, shade from strong midday sun is absolutely necessary',
     ],
     place: ['indoor', 'office', 'living room', 'balcony'],
-    description: [
+    description:
       'Ficus benjamina is actually a real tree, with its hard trunk crowned with branches full of green leaves.',
-    ],
   },
   {
     commonName: 'Yucca',
