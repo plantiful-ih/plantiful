@@ -2,7 +2,6 @@
 const express = require('express');
 
 const router = express.Router();
-//const data = require('../data');
 const Plant = require('../models/Plant');
 
 /* GET home page. */

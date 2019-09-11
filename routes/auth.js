@@ -1,19 +1,11 @@
 /* eslint-disable no-console */
 const express = require('express');
 const bcrypt = require('bcrypt');
-
-/* User model */
 const User = require('../models/User');
-
 const bcryptSalt = 10;
-
-
 const router = express.Router();
-
-/* Get Home page / Este aquí no hace falta */
-// router.get('/', (req, res) => {
-//   res.render('index', { title: 'Auth' });
-// });
+const session = require('express-session');
+const MongoStore = require('connect-mongo')(session);
 
 /* Get Sign up page */
 router.get('/signup', (req, res) => {
@@ -71,7 +63,7 @@ router.post('/login', (req, res, next) => {
           if (bcrypt.compareSync(password, user.hashedPassword)) {
             // password valido
             // guardo la session
-            // req.session.currentUser = user;
+            req.session.currentUser = user;
             res.redirect('/');
           } else {
             // password invalido
@@ -89,10 +81,21 @@ router.post('/login', (req, res, next) => {
   }
 });
 
+/* Get logout page */
 router.post('/logout', (req, res, next) => {
   req.session.destroy((err) => {
     res.redirect('/');
   });
+});
+
+/* Get profile page with user info */
+router.get('/profile', async (req, res, next) => {
+  try {
+    const user = await req.session.currentUser;
+    res.render('auth/profile', { user });
+  } catch (error) {
+    next(error);
+  }
 });
 
 module.exports = router;
