@@ -2,7 +2,6 @@
 const express = require('express');
 const bcrypt = require('bcrypt');
 const User = require('../models/User');
-const bcryptSalt = 10;
 const router = express.Router();
 const session = require('express-session');
 const MongoStore = require('connect-mongo')(session);
@@ -27,7 +26,7 @@ router.post('/signup', (req, res, next) => {
         } else {
           console.log('email does not exist', email);
           /* Password encryptation */
-          const salt = bcrypt.genSaltSync(bcryptSalt);
+          const salt = bcrypt.genSaltSync(process.env.BCRYPTSALT);
           const hashedPassword = bcrypt.hashSync(password, salt);
           /* New user */
           User.create({ userEmail, hashedPassword })
