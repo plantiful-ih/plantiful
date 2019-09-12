@@ -6,6 +6,7 @@ const bcryptSalt = 10;
 const router = express.Router();
 const session = require('express-session');
 const MongoStore = require('connect-mongo')(session);
+const checkIfLoggedIn = require('../middlewares/auth');
 
 /* Get Sign up page */
 router.get('/signup', (req, res) => {
@@ -82,19 +83,20 @@ router.post('/login', (req, res, next) => {
 });
 
 /* Get logout page */
-router.post('/logout', (req, res, next) => {
-  try {
-    req.session.destroy();
-    res.redirect('/');
-  } catch (error) {
-    next(error);
-  }
+router.get('/logout', (req, res, next) => {
+  req.session.destroy((err) => {
+    // cannot access session here
+    if (err) {
+      next(err);
+    }
+    res.redirect('/login');
+  });
 });
 
 /* Get profile page with user info */
-router.get('/profile', async (req, res, next) => {
+router.get('/profile', checkIfLoggedIn, (req, res, next) => {
   try {
-    const user = await req.session.currentUser;
+    const user = req.session.currentUser;
     res.render('auth/profile', { user });
   } catch (error) {
     next(error);

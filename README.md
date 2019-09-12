@@ -57,7 +57,7 @@ Plantiful is a catalog of plants that allows users to track the evolution of the
 | Log in          | POST   | /login                        | Log in the user                                  | {mail, password}                      | /               |
 | Sign Up form    | GET    | /signup                       | See the form to sign up                          |                                       |                 |
 | Sign Up         | POST   | /signup                       | Sign up a user                                   | {mail, password}                      | /profile        |
-| Log out         | POST   | /logout                       | Log out a user                                   |                                       | /               |
+| Log out         | GET   | /logout                       | Log out a user                                   |                                       | /               |
 | Profile         | GET    | /profile                      | See the profile page with editable form          |                                       |                 |
 | Profile edited  | POST   | /profile                      | Send user's data changed                         | {user_email, password                 | /profile}       |
 | Garden          | GET    | /garden                       | See user's garden collection                     |                                       |                 |
