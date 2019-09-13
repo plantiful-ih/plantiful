@@ -1,0 +1,39 @@
+<h1>Add new plant to my garden</h1>
+<form action="/mygarden/edit" method="POST">
+
+    <div class="form-group">
+        <label for="name">Your plant's nickname:</label>
+        <input type="text" name="nickname" placeholder="How would you call this plant?">
+    </div><br />
+
+    <div class="form-group">
+        <p>Take a picture of your plant</p>
+        <input type="file" name="userPics">
+        {{!--Funcion push al array de userPics--}}
+    </div><br />
+
+    <div class="form-group">
+        <p>What kind of plant is it?</p>
+        <select>
+            <option value="5d791a9456fd64059dcd38fc" name="typePlant">Palm tree</option>
+            <option value="5d791a9456fd64059dcd38fd" name="typePlant">Avocado</option>
+            <option value="5d791a9456fd64059dcd38fe" name="typePlant">Lavander</option>
+            <option value="5d791a9456fd64059dcd3901" name="typePlant">Aloe vera</option>
+            <option value="5d791a9456fd64059dcd3900" name="typePlant">Lemon</option>
+        </select>
+    </div><br />
+
+    <div class="form-group">
+        <label for="name">Rate this plant:</label>
+        <input type="range" name="rating" min="0" max="5">
+    </div><br />
+
+    <div class="form-group">
+        <p>Start your plant diary:</p>
+        <input type="file" name="userPics">
+        {{!--This should take also the default date--}}
+    </div><br />
+
+    <button type="submit">Save</button>
+    <button type="submit"><a href="/mygarden">Cancel</a></button>
+</form>

@@ -11,7 +11,7 @@ const userSchema = new Schema(
         age: Number,
         image: {
             type: String,
-            default: 'images/default_profile_pic.png',
+            default: './images/default_profile_pic.png',
         },
         userPlants: [{ type: Schema.Types.ObjectId, ref: 'MyPlant' }]
     },
