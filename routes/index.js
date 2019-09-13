@@ -17,4 +17,20 @@ router.get('/', (req, res, next) => {
     });
 });
 
+router.get('/:plantId', (req, res, next) => {
+  const { plantId } = req.params;
+
+  Plant.findById(plantId)
+    .then((plant) => {
+      if (plant) {
+        res.render('plantDetail', { plant });
+      } else {
+        const error = new Error('Oops, no details found.');
+        Error.status = 404;
+        throw error;
+      }
+    })
+    .catch(next);
+});
+
 module.exports = router;
