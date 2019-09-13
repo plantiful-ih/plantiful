@@ -8,10 +8,10 @@ const sassMiddleware = require('node-sass-middleware');
 const mongoose = require('mongoose');
 const session = require('express-session');
 const MongoStore = require('connect-mongo')(session);
-// require('dotenv').config();
+require('dotenv').config();
 
 mongoose
-  .connect('mongodb+srv://powerdevgirls:plantifulapp@plantiful-2druw.mongodb.net/test?retryWrites=true&w=majority', { useNewUrlParser: true })
+  .connect(process.env.MONGODB, { useNewUrlParser: true })
   .then(() => console.log('Connected to Mongo!'))
   .catch((err) => console.error('Error connecting to mongo', err));
 
@@ -45,7 +45,7 @@ app.use(
       mongooseConnection: mongoose.connection,
       ttl: 24 * 60 * 60, // 1 day
     }),
-    secret: 'ironhack',
+    secret: process.env.SECRET,
     resave: true,
     saveUninitialized: true,
     cookie: {
