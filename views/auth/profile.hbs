@@ -1,5 +1,19 @@
 <h1>My profile</h1>
-<p>Welcome {{ user.userEmail }}!</p>
+<p>Welcome {{ user.userName }}!</p>
+<p>{{ user.userEmail }}</p>
+<img src="{{ user.image }}"><br />
+<p>{{ user.location }} &nbsp; | &nbsp; {{ user.age }} years</p>
 <p>Plants in my garden:</p>
+{{#if user.userPlants}}
+<ul>
+  {{#each userPlants}}
+  <li>{{ this }}</li>
+  <a href="/"><button>Collect more plants</button></a><br />
+  {{/each}}
+</ul>
+{{else}}
+<p>You have 0 plants in your garden, let's start collecting!</p>
+<a href="/"><button>Go to catalogue</button></a><br />
+{{/if}}
 <a href="/profile/edit"><button>EDIT PROFILE</button></a>
 <a href="/logout">Log out</a>

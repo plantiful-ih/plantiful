@@ -6,16 +6,16 @@
     <input type="file">
   </div><br />
   <div class="form-group">
-    <label for="name">Username:</label>
+    <label for="username">Username:</label>
     {{#if user.userName}}
-    <input type="text" name="name" placeholder="{{user.userName}}">
+    <input type="text" name="username" placeholder="{{user.userName}}" value="{{user.userName}}">
     {{else}}
-    <input type="text" name="name" placeholder="My username">
+    <input type="text" name="username" placeholder="My username">
     {{/if}}
   </div><br />
   <div class="form-group">
     <label for="mail">E-mail:</label>
-    <input type="text" name="mail" placeholder="{{ user.userEmail }}">
+    <input type="text" name="mail" placeholder="{{ user.userEmail }}" value="{{user.userEmail}}">
   </div><br />
   <div class="form-group">
     <label for="age">Age:</label>
@@ -37,7 +37,7 @@
     <label for="plants">Plants:</label>
     {{#if user.plants}}
     {{#each}}
-    <li>{{this}}</li>
+    <li name="plants">{{this}}</li>
     {{/each}}
     {{else}}
     <p>You don't have any plant, why don't you start now?</p>
