@@ -1,0 +1,11 @@
+<h1>My garden</h1>
+<p>Welcome {{ user.userEmail }}!</p>
+<p>Plants in my garden:</p>
+
+{{#each user.userPlants}}
+<h3>{{ this.nickname }}</h3>
+<p>{{ this.shoppingPoint }}</p>
+<p>Rating: {{ this.rating }}</p>
+{{/each}}
+
+<button><a href="mygarden/add">Add plant</a></button>

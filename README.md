@@ -4,6 +4,8 @@ Plantiful
 
 ## Description
 
+Plantiful is a catalog of plants that allows users to track the evolution of their plants
+
 ## USER STORIES
 
 **404** - As a user I want to see a nice 404 page when I go to a page that doesn’t exist so that I know it was my fault
@@ -55,7 +57,7 @@ Plantiful
 | Log in          | POST   | /login                        | Log in the user                                  | {mail, password}                      | /               |
 | Sign Up form    | GET    | /signup                       | See the form to sign up                          |                                       |                 |
 | Sign Up         | POST   | /signup                       | Sign up a user                                   | {mail, password}                      | /profile        |
-| Log out         | POST   | /logout                       | Log out a user                                   |                                       | /               |
+| Log out         | GET   | /logout                       | Log out a user                                   |                                       | /               |
 | Profile         | GET    | /profile                      | See the profile page with editable form          |                                       |                 |
 | Profile edited  | POST   | /profile                      | Send user's data changed                         | {user_email, password                 | /profile}       |
 | Garden          | GET    | /garden                       | See user's garden collection                     |                                       |                 |
@@ -72,26 +74,14 @@ Plant model
 
 ```js
 {
-    common_name: String,
+    commonName: String,
     family: String,
-    care_difficulty: Number,
+    careDifficulty: Number,
     watering: String,
-    life_length: String,
+    lifeLength: String,
     img: String,
-    care_tips: Array,
+    careTips: Array,
     place: Array
-}
-```
-
-User model
-
-```js
-{
-    user_email: String,
-    hashedPassword: String,
-    location: String,
-    age: Number,
-    plants: Array (myplant submodel)
 }
 ```
 
@@ -101,23 +91,41 @@ MyPlant submodel
 {
     nickname: String,
     rating: Number,
-    type_plant: Id,
-    user_pics: Array,
-    shopping_point: Array
+    typePlant: {type: Schema.Types.ObjectId, ref: 'Plant'},
+    userPics: Array,
+    shoppingPoint: Array
 }
 ```
+
+User model
+
+```js
+{
+    userEmail: String,
+    hashedPassword: String,
+    location: Array,
+    age: Number,
+    userPlants: [{ type: Schema.Types.ObjectId, ref: 'MyPlant' }]
+}
+```
+
+
 
 ## Links
 
 ### Github project
 
-[Link url](https://github.com/plantiful)
+[Github project](https://github.com/plantiful)
 
 ### Git
 
 URls for the project repo and deploy
 [Link Repo]()
 [Link Deploy]()
+
+### Wireframes
+
+[InVision with Wireframes](https://invis.io/XBTTIDH2JP7#/382854673_Layout_Hbs)
 
 ### Slides
 

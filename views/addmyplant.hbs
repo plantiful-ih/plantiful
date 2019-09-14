@@ -1,0 +1,36 @@
+<h1>Add new plant to my garden</h1>
+<form action="/mygarden/add" method="POST">
+
+    <div class="form-group">
+        <label for="nickname">Your plant's nickname:</label>
+        <input type="text" name="nickname" placeholder="How would you call this plant?">
+    </div><br />
+
+    <div class="form-group">
+        <label for="typePlant">What kind of plant is it?</label>
+        <select name='typePlant'>
+            {{#each plants}}
+            <option value={{ this._id }}>{{ this.commonName }}</option>
+            {{/each}}
+        </select>
+    </div><br />
+
+    <div class="form-group">
+        <label for="shoppingPoint">Where did you get this plant?:</label>
+        <input type="text" name="shoppingPoint" placeholder="Nevermind St. 34">
+    </div><br />
+
+    <div class="form-group">
+        <label for="rating">Rate this plant:</label>
+        <input type="range" name="rating" min="0" max="5">
+    </div><br />
+
+    <div class="form-group">
+        <label for="userPics">Start your plant diary:</label>
+        <input type="file" name="userPics">
+        {{!--This should take also the default date & push to the pictures array--}}
+    </div><br />
+
+    <button type="submit">Save</button>
+    <button type="submit"><a href="/mygarden">Cancel</a></button>
+</form>
