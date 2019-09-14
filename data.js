@@ -117,7 +117,7 @@ module.exports = [
       'Bamboo grows differently than most other plants. It is difficult to grasp what is happening. It did not get the title of “fastest growing woody plant on earth!',
   },
   {
-    common_name: 'Snake',
+    commonName: 'Snake',
     family: 'Asparagaceae',
     careDifficulty: 1,
     watering: 'twice a month',
@@ -129,7 +129,7 @@ module.exports = [
       "it is a stemless evergreen perennial. In its native habitat, plant foliage may rise to as much as 4' tall, but is often smaller (to 2' tall) on indoor plants. Erect, fleshy, sharply-pointed, sword-shaped leaves are deep green with light gray-green horizontal stripes.",
   },
   {
-    common_name: 'Jade',
+    commonName: 'Jade',
     family: 'Crassulaceae',
     careDifficulty: 1,
     watering: 'once every 2 or 3 weeks',

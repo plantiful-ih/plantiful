@@ -1,12 +1,12 @@
 /* eslint-disable no-console */
 const express = require('express');
 const bcrypt = require('bcrypt');
-const User = require('../models/User');
+
 const bcryptSalt = 10;
 const router = express.Router();
 const session = require('express-session');
 const MongoStore = require('connect-mongo')(session);
-const checkIfLoggedIn = require('../middlewares/auth');
+const User = require('../models/User');
 
 /* Get Sign up page */
 router.get('/signup', (req, res) => {
@@ -14,7 +14,7 @@ router.get('/signup', (req, res) => {
 });
 
 /* Create a User */
-router.post('/signup', (req, res, next) => {
+router.post('/signup', (req, res) => {
   const { userEmail, password } = req.body;
 
   /* Form validation */
@@ -45,7 +45,7 @@ router.post('/signup', (req, res, next) => {
         res.render('auth/signup', { error: 'error try again' });
       });
   } else {
-    res.render('auth/signup', { error: 'all the fields must be filled' })
+    res.render('auth/signup', { error: 'all the fields must be filled' });
   }
 });
 
@@ -55,7 +55,7 @@ router.get('/login', (req, res) => {
 });
 
 
-router.post('/login', (req, res, next) => {
+router.post('/login', (req, res) => {
   const { userEmail, password } = req.body;
   if (userEmail !== '' && password !== '') {
     User.findOne({ userEmail })
