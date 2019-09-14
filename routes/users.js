@@ -28,4 +28,46 @@ router.get('/profile/edit', checkIfLoggedIn, (req, res, next) => {
   }
 });
 
+/* POST edit profile */
+// router.post('/profile/edit', checkIfLoggedIn, (req, res, next) => {
+//   const {
+//     username, mail, age, location,
+//   } = req.body;
+//   const user = req.session.currentUser;
+//   // eslint-disable-next-line no-underscore-dangle
+//   User.update({ _id: user._id }, {
+//     $set: {
+//       username, mail, age, location,
+//     },
+//   }, { new: true })
+//     .then((userUpdated) => {
+//       console.log(userUpdated);
+//       res.redirect('/profile');
+//     })
+//     .catch((error) => {
+//       console.log(error);
+//     });
+// });
+
+// /* POST edit profile */
+router.post('/profile/edit', checkIfLoggedIn, async (req, res, next) => {
+  const {
+    username, mail, age, location,
+  } = req.body;
+  const { _id } = req.session.currentUser;
+  console.log('user is:', _id);
+  try {
+    const userUpdate = await User.findByIdAndUpdate(_id, {
+      userName: username,
+      userEmail: mail,
+      age,
+      location,
+    }, { new: true });
+    req.session.currentUser = userUpdate;
+    res.redirect('/profile');
+  } catch (error) {
+    next(error);
+  }
+});
+
 module.exports = router;
