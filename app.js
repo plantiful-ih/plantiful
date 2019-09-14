@@ -16,9 +16,11 @@ mongoose
   .catch((err) => console.error('Error connecting to mongo', err));
 
 
-const indexRouter = require('./routes/index');
+// const indexRouter = require('./routes/index');
 const authRouter = require('./routes/auth');
 const usersRouter = require('./routes/users');
+const plantsRouter = require('./routes/plants');
+const mygardenRouter = require('./routes/mygarden');
 
 const app = express();
 
@@ -58,9 +60,12 @@ app.use((req, res, next) => {
   next();
 });
 
-app.use('/', indexRouter);
+
+// app.use('/', indexRouter);
 app.use('/', authRouter);
-app.use('/', usersRouter);
+app.use('/profile', usersRouter);
+app.use('/plants', plantsRouter);
+app.use('/mygarden', mygardenRouter);
 
 // catch 404 and forward to error handler
 app.use((req, res, next) => {

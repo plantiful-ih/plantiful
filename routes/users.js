@@ -1,24 +1,26 @@
 /* eslint-disable no-console */
 const express = require('express');
-const User = require('../models/User');
-const bcryptSalt = 10;
+
 const router = express.Router();
-const session = require('express-session');
-const MongoStore = require('connect-mongo')(session);
+// const session = require('express-session');
+// const MongoStore = require('connect-mongo')(session);
+// const MyPlant = require('../models/MyPlant');
+const User = require('../models/User');
+// const Plant = require('../models/Plant');
 const checkIfLoggedIn = require('../middlewares/auth');
 
-/* GET myGarden view. */
-router.get('/mygarden', checkIfLoggedIn, (req, res, next) => {
+/* Get profile page with user info */
+router.get('/', checkIfLoggedIn, (req, res, next) => {
   try {
     const user = req.session.currentUser;
-    res.render('mygarden', { user });
+    res.render('auth/profile', { user });
   } catch (error) {
     next(error);
   }
 });
 
 /* GET edit profile */
-router.get('/profile/edit', checkIfLoggedIn, (req, res, next) => {
+router.get('/edit', checkIfLoggedIn, (req, res, next) => {
   try {
     const user = req.session.currentUser;
     console.log(user);
@@ -28,29 +30,8 @@ router.get('/profile/edit', checkIfLoggedIn, (req, res, next) => {
   }
 });
 
-/* POST edit profile */
-// router.post('/profile/edit', checkIfLoggedIn, (req, res, next) => {
-//   const {
-//     username, mail, age, location,
-//   } = req.body;
-//   const user = req.session.currentUser;
-//   // eslint-disable-next-line no-underscore-dangle
-//   User.update({ _id: user._id }, {
-//     $set: {
-//       username, mail, age, location,
-//     },
-//   }, { new: true })
-//     .then((userUpdated) => {
-//       console.log(userUpdated);
-//       res.redirect('/profile');
-//     })
-//     .catch((error) => {
-//       console.log(error);
-//     });
-// });
-
 // /* POST edit profile */
-router.post('/profile/edit', checkIfLoggedIn, async (req, res, next) => {
+router.post('/edit', checkIfLoggedIn, async (req, res, next) => {
   const {
     username, mail, age, location,
   } = req.body;

@@ -1,10 +1,11 @@
 /* eslint-disable no-console */
 const express = require('express');
+
 const router = express.Router();
 const Plant = require('../models/Plant');
 
 /* GET home page. */
-router.get('/', (req, res, next) => {
+router.get('/', (req, res) => {
   Plant.find()
     .then((data) => {
       data.forEach((plant) => {

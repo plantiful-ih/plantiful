@@ -8,7 +8,7 @@ const myPlantSchema = new Schema(
         nickname: String,
         rating: Number,
         userPics: Array,
-        shoppingPoint: Array
+        shoppingPoint: String,
     },
     {
         timestamps: {

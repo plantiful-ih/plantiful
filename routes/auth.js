@@ -1,11 +1,16 @@
 /* eslint-disable no-console */
 const express = require('express');
 const bcrypt = require('bcrypt');
-const User = require('../models/User');
+
+const bcryptSalt = parseInt(process.env.BCRYPTSALT);
 const router = express.Router();
-const session = require('express-session');
-const MongoStore = require('connect-mongo')(session);
-const checkIfLoggedIn = require('../middlewares/auth');
+// const session = require('express-session');
+// const MongoStore = require('connect-mongo')(session);
+const User = require('../models/User');
+
+router.get('/', (req, res) => {
+  res.redirect('/plants');
+});
 
 /* Get Sign up page */
 router.get('/signup', (req, res) => {
@@ -13,7 +18,7 @@ router.get('/signup', (req, res) => {
 });
 
 /* Create a User */
-router.post('/signup', (req, res, next) => {
+router.post('/signup', (req, res) => {
   const { userEmail, password } = req.body;
 
   /* Form validation */
@@ -26,7 +31,7 @@ router.post('/signup', (req, res, next) => {
         } else {
           console.log('email does not exist', email);
           /* Password encryptation */
-          const salt = bcrypt.genSaltSync(process.env.BCRYPTSALT);
+          const salt = bcrypt.genSaltSync(bcryptSalt);
           const hashedPassword = bcrypt.hashSync(password, salt);
           /* New user */
           User.create({ userEmail, hashedPassword })
@@ -44,7 +49,7 @@ router.post('/signup', (req, res, next) => {
         res.render('auth/signup', { error: 'error try again' });
       });
   } else {
-    res.render('auth/signup', { error: 'all the fields must be filled' })
+    res.render('auth/signup', { error: 'all the fields must be filled' });
   }
 });
 
@@ -54,7 +59,7 @@ router.get('/login', (req, res) => {
 });
 
 
-router.post('/login', (req, res, next) => {
+router.post('/login', (req, res) => {
   const { userEmail, password } = req.body;
   if (userEmail !== '' && password !== '') {
     User.findOne({ userEmail })
@@ -64,7 +69,7 @@ router.post('/login', (req, res, next) => {
             // password valido
             // guardo la session
             req.session.currentUser = user;
-            res.redirect('/');
+            res.redirect('/mygarden');
           } else {
             // password invalido
             res.render('auth/login', { error: 'Wrong email or password.' });
@@ -83,23 +88,16 @@ router.post('/login', (req, res, next) => {
 
 /* Get logout page */
 router.get('/logout', (req, res, next) => {
-  req.session.destroy((err) => {
-    // cannot access session here
-    if (err) {
-      next(err);
-    }
-    res.redirect('/login');
-  });
-});
-
-/* Get profile page with user info */
-router.get('/profile', checkIfLoggedIn, (req, res, next) => {
-  try {
-    const user = req.session.currentUser;
-    res.render('auth/profile', { user });
-  } catch (error) {
-    next(error);
-  }
+  // req.session.currentUser = null;
+  req.session.destroy();
+  res.redirect('/login');
+  // req.session.destroy((err) => {
+  //   // cannot access session here
+  //   if (err) {
+  //     next(err);
+  //   }
+  //   res.redirect('/login');
+  // });
 });
 
 module.exports = router;
