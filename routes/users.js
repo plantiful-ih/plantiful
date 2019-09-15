@@ -45,7 +45,8 @@ router.post('/edit', checkIfLoggedIn, async (req, res, next) => {
       location,
     }, { new: true });
     req.session.currentUser = userUpdate;
-    res.redirect('/profile');
+    req.flash('GOOD', 'Updated', '/profile');
+    // res.redirect('/profile');
   } catch (error) {
     next(error);
   }

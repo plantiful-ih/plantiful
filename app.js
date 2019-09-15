@@ -9,6 +9,8 @@ const mongoose = require('mongoose');
 const session = require('express-session');
 const MongoStore = require('connect-mongo')(session);
 require('dotenv').config();
+const flash = require("express-flash-notification");
+const flashNotificationOptions = require("./middlewares/flash");
 
 mongoose
   .connect(process.env.MONGODB, { useNewUrlParser: true, useCreateIndex: true })
@@ -55,6 +57,9 @@ app.use(
     },
   }),
 );
+
+app.use(flash(app, flashNotificationOptions));
+
 app.use((req, res, next) => {
   app.locals.currentUser = req.session.currentUser;
   next();
