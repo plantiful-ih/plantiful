@@ -11,7 +11,7 @@ const MongoStore = require('connect-mongo')(session);
 require('dotenv').config();
 
 mongoose
-  .connect(process.env.MONGODB, { useNewUrlParser: true })
+  .connect(process.env.MONGODB, { useNewUrlParser: true, useCreateIndex: true })
   .then(() => console.log('Connected to Mongo!'))
   .catch((err) => console.error('Error connecting to mongo', err));
 
