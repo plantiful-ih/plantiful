@@ -1,14 +1,15 @@
 <h1>Edit {{ myplant.nickname }}'s information:</h1>
-<form action="/{{ myplant._id }}/edit" method="POST">
+<form action="/mygarden/{{ myplant._id }}/edit" method="POST">
 
   <div class="form-group">
     <label for="nickname">Your plant's nickname:</label>
-    <input type="text" name="nickname" placeholder="{{ myplant.nickname }}">
+    <input type="text" name="nickname" placeholder="{{ myplant.nickname }}" value="{{ myplant.nickname }}">
   </div><br />
 
   <div class="form-group">
     <label for="typePlant">Is it not a {{ myplant.typePlant.commonName }}?</label>
     <select name='typePlant'>
+      <option value={{ myplant.typePlant._id }} selected="selected">{{ myplant.typePlant.commonName }}</option>
       {{#each plants}}
       <option value={{ this._id }}>{{ this.commonName }}</option>
       {{/each}}
@@ -17,7 +18,8 @@
 
   <div class="form-group">
     <label for="shoppingPoint">Where did you get this plant?:</label>
-    <input type="text" name="shoppingPoint" placeholder="{{ myplant.shoppingPoint }}">
+    <input type="text" name="shoppingPoint" placeholder="{{ myplant.shoppingPoint }}"
+      value="{{ myplant.shoppingPoint }}">
   </div><br />
 
   <div class="form-group">

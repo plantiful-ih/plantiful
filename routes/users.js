@@ -13,7 +13,8 @@ const checkIfLoggedIn = require('../middlewares/auth');
 router.get('/', checkIfLoggedIn, (req, res, next) => {
   try {
     const user = req.session.currentUser;
-    res.render('auth/profile', { user });
+    const numberOfPlants = user.userPlants.length;
+    res.render('auth/profile', { user, numberOfPlants });
   } catch (error) {
     next(error);
   }

@@ -78,4 +78,23 @@ router.get('/:myplantId/edit', checkIfLoggedIn, async (req, res, next) => {
   }
 });
 
+/* POST PlantId EDIT. */
+router.post('/:myplantId/edit', checkIfLoggedIn, async (req, res, next) => {
+  const {
+    nickname, rating, shoppingPoint, typePlant,
+  } = req.body;
+  const { myplantId } = req.params;
+  try {
+    await MyPlant.findByIdAndUpdate(myplantId, {
+      nickname,
+      rating,
+      shoppingPoint,
+      typePlant,
+    }, { new: true });
+    res.redirect(`/mygarden/${myplantId}`);
+  } catch (error) {
+    next(error);
+  }
+});
+
 module.exports = router;

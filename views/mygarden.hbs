@@ -4,9 +4,8 @@
 
 <div class="myplant-card">
   {{#each user.userPlants}}
+  {{!-- Should display a picture --}}
   <h3><a href="/mygarden/{{ this._id }}">{{ this.nickname }}</a></h3>
-  <p>{{ this.shoppingPoint }}</p>
-  <p>Rating: {{ this.rating }}</p>
   {{/each}}
 </div>
 
