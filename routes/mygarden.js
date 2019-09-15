@@ -37,7 +37,8 @@ router.post('/add', checkIfLoggedIn, async (req, res, next) => {
   const { _id } = req.session.currentUser;
   console.log('user is:', _id);
   if (nickname === '' || rating === '' || shoppingPoint === '') {
-    res.render('/mygarden/add', { error: 'Please fill all fields before submitting' });
+    req.flash('BAD', 'Please fill all fields before submitting', '/mygarden/add');
+    // res.render('/mygarden/add', { error: 'Please fill all fields before submitting' });
   } else {
     try {
       const plant = await MyPlant.create({
@@ -47,7 +48,8 @@ router.post('/add', checkIfLoggedIn, async (req, res, next) => {
         $push: { userPlants: plant._id },
       }, { new: true }).populate('userPlants');
       req.session.currentUser = userUpdate;
-      res.redirect('/mygarden');
+      req.flash('GOOD', 'Plant added', '/mygarden');
+      // res.redirect('/mygarden');
     } catch (error) {
       next(error);
     }
