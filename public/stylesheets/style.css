@@ -27,4 +27,26 @@
   .plants-showcase .plant-img {
     width: 100%; }
 
+/************ ALERTS ************/
+.alert {
+  padding: 15px;
+  margin-bottom: 20px;
+  border: 1px solid transparent;
+  border-radius: 4px; }
+
+.alert-success {
+  color: #fff;
+  background-color: #19b698;
+  border-color: #0fac8e; }
+
+.alert-info {
+  color: #fff;
+  background-color: #4aa3df;
+  border-color: #4099d5; }
+
+.alert-danger {
+  color: #fff;
+  background-color: #ea6153;
+  border-color: #e05749; }
+
 /*# sourceMappingURL=style.css.map */

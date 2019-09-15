@@ -98,8 +98,8 @@ router.post('/login', (req, res) => {
 router.get('/logout', (req, res, next) => {
   // req.session.currentUser = null;
   req.session.destroy();
-  req.flash('GOOD', 'See you next time!', '/login');
-  // res.redirect('/login');
+  // req.flash('GOOD', 'See you next time!', '/login');
+  res.redirect('/login');
   // req.session.destroy((err) => {
   //   // cannot access session here
   //   if (err) {
