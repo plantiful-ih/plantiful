@@ -1,0 +1,38 @@
+<h1>Edit {{ myplant.nickname }}'s information:</h1>
+<form action="/{{ myplant._id }}/edit" method="POST">
+
+  <div class="form-group">
+    <label for="nickname">Your plant's nickname:</label>
+    <input type="text" name="nickname" placeholder="{{ myplant.nickname }}">
+  </div><br />
+
+  <div class="form-group">
+    <label for="typePlant">Is it not a {{ myplant.typePlant.commonName }}?</label>
+    <select name='typePlant'>
+      {{#each plants}}
+      <option value={{ this._id }}>{{ this.commonName }}</option>
+      {{/each}}
+    </select>
+  </div><br />
+
+  <div class="form-group">
+    <label for="shoppingPoint">Where did you get this plant?:</label>
+    <input type="text" name="shoppingPoint" placeholder="{{ myplant.shoppingPoint }}">
+  </div><br />
+
+  <div class="form-group">
+    <label for="rating">Rate this plant:</label>
+    <input type="range" name="rating" min="0" max="5" value="{{ myplant.rating }}">
+  </div><br />
+
+  <div class="form-group">
+    <label for="userPics">Start your plant diary:</label>
+    <input type="file" name="userPics">
+    {{!--This should take also the default date & push to the pictures array--}}
+  </div><br />
+
+  <button type="submit">Update</button>
+  <button type="submit"><a href="/mygarden">Cancel</a></button>
+</form>
+
+{{!-- placeholder={{ myplant.typePlant.commonName }} --}}

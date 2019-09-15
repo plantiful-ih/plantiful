@@ -66,4 +66,16 @@ router.get('/:myplantId', checkIfLoggedIn, async (req, res, next) => {
   }
 });
 
+/* GET PlantId EDIT view. */
+router.get('/:myplantId/edit', checkIfLoggedIn, async (req, res, next) => {
+  try {
+    const { myplantId } = req.params;
+    const plants = await Plant.find();
+    const myplant = await MyPlant.findOne({ _id: myplantId }).populate('typePlant');
+    res.render('myPlantEdit', { myplant, plants });
+  } catch (error) {
+    next(error);
+  }
+});
+
 module.exports = router;
