@@ -2,10 +2,13 @@
 <p>Welcome {{ user.userEmail }}!</p>
 <p>Plants in my garden:</p>
 
-{{#each user.userPlants}}
-<h3>{{ this.nickname }}</h3>
-<p>{{ this.shoppingPoint }}</p>
-<p>Rating: {{ this.rating }}</p>
-{{/each}}
+<div class="myplant-card">
+  {{#each user.userPlants}}
+  <h3><a href="/mygarden/{{ this._id }}">{{ this.nickname }}</a></h3>
+  <p>{{ this.shoppingPoint }}</p>
+  <p>Rating: {{ this.rating }}</p>
+  {{/each}}
+</div>
 
-<button><a href="mygarden/add">Add plant</a></button>
+
+<button><a href="/mygarden/add">Add plant</a></button>

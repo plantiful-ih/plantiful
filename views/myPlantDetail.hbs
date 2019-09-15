@@ -1,0 +1,16 @@
+<h3>{{ plant.nickname }}</h3>
+<p>Plant type: {{ plant.typePlant.commonName }}</p>
+<p>{{ plant.typePlant.description }}</p>
+<p>Bought in {{ plant.shoppingPoint }}</p>
+<p>Rating: {{ plant.rating }}</p>
+<p>Family: {{ plant.typePlant.family }}</p>
+<p>{{ plant.typePlant.commonName }}'s care difficulty: {{ plant.typePlant.careDifficulty }}</p>
+<p>Should be watered {{ plant.typePlant.watering }}</p>
+<p>{{ plant.typePlant.img }}</p>
+<p>Care tips:</p>
+{{#each plant.typePlant.careTips}}
+<ul>
+  <li>{{ this }}</li>
+</ul>
+{{/each}}
+<p>Best environment: {{ plant.typePlant.place }}</p>

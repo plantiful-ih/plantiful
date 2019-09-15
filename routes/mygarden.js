@@ -2,8 +2,6 @@
 const express = require('express');
 
 const router = express.Router();
-// const session = require('express-session');
-// const MongoStore = require('connect-mongo')(session);
 const MyPlant = require('../models/MyPlant');
 const User = require('../models/User');
 const Plant = require('../models/Plant');
@@ -32,7 +30,6 @@ router.get('/add', (req, res) => {
 });
 
 /* POST myGarden send form information */
-
 router.post('/add', checkIfLoggedIn, async (req, res, next) => {
   const {
     nickname, rating, shoppingPoint, typePlant,
@@ -54,6 +51,18 @@ router.post('/add', checkIfLoggedIn, async (req, res, next) => {
     } catch (error) {
       next(error);
     }
+  }
+});
+
+/* GET PlantId view. */
+router.get('/:myplantId', checkIfLoggedIn, async (req, res, next) => {
+  try {
+    const { myplantId } = req.params;
+    const plant = await MyPlant.findOne({ _id: myplantId }).populate('typePlant');
+    console.log(plant, plant.typePlant);
+    res.render('myPlantDetail', { plant });
+  } catch (error) {
+    next(error);
   }
 });
 
