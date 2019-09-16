@@ -6,6 +6,7 @@
 <p>Family: {{ plant.typePlant.family }}</p>
 <p>{{ plant.typePlant.commonName }}'s care difficulty: {{ plant.typePlant.careDifficulty }}</p>
 <p>Should be watered {{ plant.typePlant.watering }}</p>
+<p>This plant can live up tp {{ plant.typePlant.lifeLength }}</p>
 <p>{{ plant.typePlant.img }}</p>
 <p>Care tips:</p>
 {{#each plant.typePlant.careTips}}
@@ -14,3 +15,5 @@
 </ul>
 {{/each}}
 <p>Best environment: {{ plant.typePlant.place }}</p>
+
+<button><a href="/mygarden/{{ plant._id }}/edit">Edit plant</a></button>
