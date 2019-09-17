@@ -71,6 +71,7 @@ router.post('/login', (req, res) => {
             // guardo la session
             req.session.currentUser = user;
             req.flash('GOOD', 'You are connected with your plants :).', '/mygarden');
+            console.log(user);
             // res.redirect('/mygarden');
           } else {
             // password invalido

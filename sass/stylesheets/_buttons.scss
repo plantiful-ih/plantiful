@@ -1,0 +1,19 @@
+@import 'global';
+
+//These are the default parameters
+@mixin button($round: 10px, $padding: 3px){
+  border-radius: $round;
+  padding: $padding;
+}
+
+//Button redondo 100% border-radius! When only the corners are round
+
+.btn-primary {
+  @include button(20px, 5px); //If I change the values, these are more important
+  background-color: blue;
+}
+
+.btn-alert {
+  @include button(20px, 4px);
+  background-color: red;
+}

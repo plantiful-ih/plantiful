@@ -1,3 +1,6 @@
+@import 'buttons';
+
+
 // Estos son los colores del moodboard para usarlos por estos nombres en vez del código hexadecimal
 $blue: #006981;
 $green: #00c98e;
@@ -20,7 +23,7 @@ $lightgreen: #cdf0bb;
         a {
         text-decoration: none;
         color: black;
-        &:hover {
+        &:hover{
             color: $blue;
         }
        }

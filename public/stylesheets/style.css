@@ -1,3 +1,7 @@
+@import url("https://fonts.googleapis.com/css?family=Domine:400,700&display=swap&subset=latin-ext");
+.btn-primary {
+  padding: tomato; }
+
 /************ MAIN LAYOUT ************/
 .sticky-nav {
   width: 100vw;
