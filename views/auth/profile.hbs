@@ -3,13 +3,12 @@
 <p>{{ user.userEmail }}</p>
 <img src="{{ user.image }}"><br />
 <p>{{ user.location }} &nbsp; | &nbsp; {{ user.age }} years</p>
-<p>Plants in my garden:</p>
 {{#if user.userPlants}}
-<ul>
-  {{#each userPlants}}
-  <li>{{ this }}</li>
-  <a href="/"><button>Collect more plants</button></a><br />
-  {{/each}}
+{{!-- {{#each userPlants}}
+  <li>{{ this }}</li> --}}
+<p>Plants in your garden: {{ numberOfPlants }}</p>
+<a href="/"><button>Collect more plants</button></a><br />
+{{!-- {{/each}} --}}
 </ul>
 {{else}}
 <p>You have 0 plants in your garden, let's start collecting!</p>
