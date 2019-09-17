@@ -4,8 +4,6 @@ const bcrypt = require('bcrypt');
 
 const bcryptSalt = parseInt(process.env.BCRYPTSALT);
 const router = express.Router();
-// const session = require('express-session');
-// const MongoStore = require('connect-mongo')(session);
 const User = require('../models/User');
 
 router.get('/', (req, res) => {

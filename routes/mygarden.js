@@ -99,4 +99,17 @@ router.post('/:myplantId/edit', checkIfLoggedIn, async (req, res, next) => {
   }
 });
 
+/* GET delete plantId */
+router.get('/:myplantId/delete', checkIfLoggedIn, async (req, res, next) => {
+  try {
+    const { myplantId } = req.params;
+    const plant = await MyPlant.deleteOne({ _id: myplantId });
+    console.log('deleted plant: ', plant);
+    req.flash('GOOD', 'Plant deleted', '/mygarden');
+    // res.redirect('/mygarden');
+  } catch (error) {
+    next(error);
+  }
+});
+
 module.exports = router;
