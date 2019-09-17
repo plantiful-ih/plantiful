@@ -5,24 +5,29 @@
   <title>Plantiful</title>
   <meta name="viewport" content='width=device-width, initial-scale=1.0'>
   <link rel='stylesheet' href='/stylesheets/style.css' />
-  <link rel='icon' src='../public/images/plantiful_logo.png' alt='Plantiful logo' />
+  <link rel='icon' src='/images/plantiful_logo.png' alt='Plantiful logo' />
 </head>
 
 <body>
-  {{{flash}}}
 
+  {{{flash}}}
   {{{body}}}
 
   <nav class='sticky-nav'>
     <ul>
-      <li>Back</li>
+      <button onclick="goBack()">Back</button>
       <li><a href='/'>Home</a></li>
       <li><a href='/mygarden'>My garden</a></li>
       <li><a href='/profile'>Profile</a></li>
     </ul>
   </nav>
 
-  </nav>
+
+  <script>
+    function goBack() {
+      window.history.back();
+    }
+  </script>
 </body>
 
 </html>
