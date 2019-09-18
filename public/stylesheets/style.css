@@ -1,6 +1,50 @@
-@import url("https://fonts.googleapis.com/css?family=Domine:400,700&display=swap&subset=latin-ext");
 .btn-primary {
-  padding: tomato; }
+  border-radius: 20px;
+  padding: 5px;
+  background-color: blue; }
+
+.btn-alert {
+  border-radius: 20px;
+  padding: 4px;
+  background-color: red; }
+
+input[type=text], input[type=password] {
+  font-family: 'Roboto', sans-serif;
+  border: none;
+  border-bottom: 2px solid #1A697F;
+  width: 280px;
+  padding: 12px;
+  margin: 24px;
+  font-size: 16px;
+  line-height: 24px;
+  color: #110F24; }
+  input[type=text]::placeholder, input[type=password]::placeholder {
+    color: #CCCED0; }
+
+.input-error {
+  background-image: url("../../public/images/error.png");
+  background-repeat: no-repeat;
+  background-position: 278px 18px;
+  background-size: 25px; }
+
+.input-success {
+  background-image: url("../../public/images/check.png");
+  background-repeat: no-repeat;
+  background-position: 278px 18px;
+  background-size: 25px; }
+
+.form-info {
+  position: absolute;
+  width: 97px;
+  height: 24px;
+  left: 32px;
+  top: 78px;
+  font-family: 'Roboto', sans-serif;
+  font-style: normal;
+  font-weight: normal;
+  font-size: 12px;
+  line-height: 24px;
+  color: #62C890; }
 
 /************ MAIN LAYOUT ************/
 .sticky-nav {
@@ -18,7 +62,7 @@
       text-decoration: none;
       color: black; }
       .sticky-nav ul li a:hover {
-        color: #006981; }
+        color: blue; }
 
 /************ HOME VIEWS ************/
 .plants-showcase {
