@@ -9,3 +9,44 @@ $color-gray-light: #F6F6F9;
 
 // font-family: 'Domine', serif;
 // font-family: 'Roboto', sans-serif;
+
+h1, h2, h3 {
+  font-family: 'Domine', serif;
+}
+
+h1 {
+  font-size: 3em;
+} 
+
+h2 {
+  font-size: 2.5em;
+} 
+
+h3 {
+  font-size: 2em;
+} 
+
+h4, h5, p {
+  font-family: 'Roboto', sans-serif;
+}
+
+h4 {
+  font-weight: bold;
+  font-size: 1.5em;
+}
+
+h5 {
+  font-weight: 300;
+  text-transform: uppercase;
+  font-size: 1.5em;
+}
+
+p {
+  font-size: 1.5em;
+  .p-small {
+    font-size: 1em;
+  }
+}
+
+
+
