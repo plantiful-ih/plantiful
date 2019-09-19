@@ -1,28 +1,18 @@
 <form action="/login" method="POST" id="form">
-  <h2>Login</h2>
+    <h2>Login</h2>
 
-  <label for="userEmail">User email</label>
-  <input type="text" name="userEmail" placeholder="user@email.com" required>
+    <label for="userEmail">User email</label>
+    <input type="text" name="userEmail" placeholder="user@email.com" required>
 
-<<<<<<< HEAD
-  <label for="password">Password</label>
-  <input type="password" name="password" placeholder="*******" required>
-  <button>Log in</button>
-  {{#if error }}
-  <div class="error-message">{{ error }}</div>
-  {{/if}}
-=======
     <label for="password">Password</label>
-    <input type="password" name="password" required>
-    <button class="btn">Log in</button>
+    <input type="password" name="password" placeholder="*******" required>
+    <button>Log in</button>
     {{#if error }}
     <div class="error-message">{{ error }}</div>
     {{/if}}
->>>>>>> feature/#90-buttons-css
 
-
-  <hr>
-  <p class="account-message">
-    Don't have an account? <a href="/signup">Sign up</a>
-  </p>
+    <hr>
+    <p class="account-message">
+        Don't have an account? <a href="/signup">Sign up</a>
+    </p>
 </form>
