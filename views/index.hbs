@@ -3,10 +3,11 @@
   <div class="plants-showcase">
     {{#each this.data}}
     <div class="plant-card">
+      <h3>{{this.commonName}}</h3>
+      <img class="plant-img" src="{{this.img}}">
       <a href="/plants/{{this._id}}">
-        <h3>{{this.commonName}}</h3>
+        <button class="btn btn-round">+</button>
       </a>
-      <a href="#"><img class="plant-img" src="{{this.img}}"></a>
     </div>
     {{/each}}
   </div>

@@ -1,14 +1,35 @@
 @import url("https://fonts.googleapis.com/css?family=Domine:400,700&display=swap&subset=latin-ext");
 @import url("https://fonts.googleapis.com/css?family=Domine:400,700&display=swap&subset=latin-ext");
-.btn-primary {
-  border-radius: 20px;
-  padding: 5px;
-  background-color: blue; }
+.btn {
+  background: #1A697F;
+  border-radius: 4px;
+  font-family: Roboto;
+  font-style: normal;
+  font-weight: 500;
+  font-size: 18px;
+  line-height: 24px;
+  text-align: center;
+  color: #F6F6F9;
+  padding-top: 1em;
+  padding-bottom: 1em;
+  padding-left: 1.563em;
+  padding-right: 1.563em; }
 
-.btn-alert {
-  border-radius: 20px;
-  padding: 4px;
-  background-color: red; }
+.btn-round {
+  background: #1A697F;
+  border-radius: 4px;
+  font-family: Roboto;
+  font-style: normal;
+  font-weight: 500;
+  font-size: 18px;
+  line-height: 24px;
+  text-align: center;
+  color: #F6F6F9;
+  padding-top: 1em;
+  padding-bottom: 1em;
+  padding-left: 1.563em;
+  padding-right: 1.563em;
+  border-radius: 100%; }
 
 label {
   font-size: .875em;
@@ -43,7 +64,7 @@ label {
   z-index: 3;
   outline: none;
   cursor: pointer;
-  /*background: url(http://www.stackoverflow.com/favicon.ico) 100% / 8% no-repeat transparent;*/
+  /*background: url(../public/images/icon-arrow-down.png) 100% / 8% no-repeat transparent;*/
   /*reset default styles*/
   margin: 0px;
   -webkit-box-sizing: border-box;
