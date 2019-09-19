@@ -1,5 +1,3 @@
-@import url('https://fonts.googleapis.com/css?family=Domine:400,700&display=swap&subset=latin-ext');
-
 $color-primary: #1A697F;
 $color-green: #62C890;
 $color-light-green:#d7f0bc;
@@ -12,3 +10,44 @@ $color-text-opacity:rgba(17, 15, 36, 0.4);
 
 // font-family: 'Domine', serif;
 // font-family: 'Roboto', sans-serif;
+
+h1, h2, h3 {
+  font-family: 'Domine', serif;
+}
+
+h1 {
+  font-size: 3em;
+} 
+
+h2 {
+  font-size: 2.5em;
+} 
+
+h3 {
+  font-size: 2em;
+} 
+
+h4, h5, p {
+  font-family: 'Roboto', sans-serif;
+}
+
+h4 {
+  font-weight: bold;
+  font-size: 1.5em;
+}
+
+h5 {
+  font-weight: 300;
+  text-transform: uppercase;
+  font-size: 1.5em;
+}
+
+p {
+  font-size: 1.5em;
+  .p-small {
+    font-size: 1em;
+  }
+}
+
+
+
