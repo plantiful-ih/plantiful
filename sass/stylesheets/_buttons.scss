@@ -1,19 +1,34 @@
 @import 'global';
 
 //These are the default parameters
-@mixin button($round: 10px, $padding: 3px){
-  border-radius: $round;
-  padding: $padding;
+@mixin btn-default($round: 10px, $padding: 3px){
+  background: #1A697F;
+  border-radius: 4px;
+  font-family: Roboto;
+  font-style: normal;
+  font-weight: 500;
+  font-size: 18px;
+  line-height: 24px;
+  text-align: center;
+  color: #F6F6F9;
+  padding-top: 1em;
+  padding-bottom: 1em;
+  padding-left: 1.563em;
+  padding-right: 1.563em;
+  // border-radius: $round;
+  // padding: $padding;
 }
 
-//Button redondo 100% border-radius! When only the corners are round
-
-.btn-primary {
-  @include button(20px, 5px); //If I change the values, these are more important
-  background-color: blue;
+.btn {
+  @include btn-default(20px, 5px); //If I change the values, these are more important
 }
 
-.btn-alert {
-  @include button(20px, 4px);
-  background-color: red;
+.btn-round {
+  @include btn-default(20px, 5px); //If I change the values, these are more important
+  border-radius: 100%;
 }
+
+// .btn-alert {
+//   @include button(20px, 4px);
+//   background-color: red;
+// }
