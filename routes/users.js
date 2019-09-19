@@ -7,7 +7,7 @@ const router = express.Router();
 // const MyPlant = require('../models/MyPlant');
 const User = require('../models/User');
 // const Plant = require('../models/Plant');
-const checkIfLoggedIn = require('../middlewares/auth');
+const { checkIfLoggedIn } = require('../middlewares/auth');
 
 /* Get profile page with user info */
 router.get('/', checkIfLoggedIn, (req, res, next) => {
