@@ -7,12 +7,15 @@
     </div><br />
 
     <div class="form-group">
-        <label for="typePlant">What kind of plant is it?</label>
-        <select name='typePlant'>
-            {{#each plants}}
-            <option value={{ this._id }}>{{ this.commonName }}</option>
-            {{/each}}
-        </select>
+        <div class="select-field">
+            <label for="typePlant">Type of plant</label>
+            <select name='typePlant'>
+                <option selected hidden>Choose a plant</option>
+                {{#each plants}}
+                <option value={{ this._id }}>{{ this.commonName }}</option>
+                {{/each}}
+            </select>
+        </div>
     </div><br />
 
     <div class="form-group">
