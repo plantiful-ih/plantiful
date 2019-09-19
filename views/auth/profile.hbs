@@ -1,7 +1,7 @@
 <h1>My profile</h1>
 <p>Welcome {{ user.userName }}!</p>
 <p>{{ user.userEmail }}</p>
-<img src="{{ user.image }}"><br />
+<img class="avatar" src="{{ user.image }}"><br />
 <p>{{ user.location }} &nbsp; | &nbsp; {{ user.age }} years</p>
 {{#if user.userPlants}}
 {{!-- {{#each userPlants}}
