@@ -1,33 +1,9 @@
 @import 'buttons';
 @import 'dropdown';
 @import 'forms';
+@import 'dropdown';
+@import 'navbar';
 @import 'avatar';
-
-/************ MAIN LAYOUT ************/
-
-.sticky-nav {
-    width: 100vw; 
-    display: block;
-    position: sticky;
-    bottom: 0;
-    background-color: white;
-    padding: 10px 0 10px 0;
-    text-align: center;
-    ul{   
-        li{
-        display: inline;
-        margin-right: 20px;
-        a {
-        text-decoration: none;
-        color: black;
-        &:hover{
-            color: blue;
-        }
-       }
-      }
-    }
-}
-
 
 /************ HOME VIEWS ************/
 
