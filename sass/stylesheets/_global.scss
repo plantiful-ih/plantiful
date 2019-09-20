@@ -11,6 +11,16 @@ $color-text-opacity:rgba(17, 15, 36, 0.4);
 // font-family: 'Domine', serif;
 // font-family: 'Roboto', sans-serif;
 
+html, body {
+  height: 100%;
+  margin: 0;
+}
+
+.container {
+  min-height: 100%;
+  margin-bottom: -60px;
+}
+
 h1, h2, h3 {
   font-family: 'Domine', serif;
 }

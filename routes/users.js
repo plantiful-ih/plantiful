@@ -14,7 +14,8 @@ router.get('/', checkIfLoggedIn, (req, res, next) => {
   try {
     const user = req.session.currentUser;
     const numberOfPlants = user.userPlants.length;
-    res.render('auth/profile', { user, numberOfPlants });
+    const active = { profile: true };
+    res.render('auth/profile', { user, numberOfPlants, active });
   } catch (error) {
     next(error);
   }
@@ -24,8 +25,9 @@ router.get('/', checkIfLoggedIn, (req, res, next) => {
 router.get('/edit', checkIfLoggedIn, (req, res, next) => {
   try {
     const user = req.session.currentUser;
+    const active = { profile: true };
     console.log(user);
-    res.render('auth/edit', { user });
+    res.render('auth/edit', { user, active });
   } catch (error) {
     next(error);
   }

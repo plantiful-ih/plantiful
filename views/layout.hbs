@@ -11,25 +11,31 @@
 </head>
 
 <body>
+  <div class="container">
+    {{{flash}}}
+    {{{body}}}
 
-  {{{flash}}}
-  {{{body}}}
+    <nav class='sticky-nav'>
+      <ul class='menu'>
+        <li class="{{#if active.home}}active{{/if}} home">
+          <a href='/'>{{> homeicon}}</a>
+        </li>
+        <li class="{{#if active.plants}}active{{/if}} plants">
+          <a href='/mygarden'>{{> planticon}}</a>
+        </li>
+        <li class="{{#if active.profile}}active{{/if}} profile">
+          <a href='/profile'>{{> profileicon}}</a>
+        </li>
+      </ul>
+    </nav>
 
-  <nav class='sticky-nav'>
-    <ul>
-      <button onclick="goBack()" class="btn">Back</button>
-      <li><a href='/'>Home</a></li>
-      <li><a href='/mygarden'>My garden</a></li>
-      <li><a href='/profile'>Profile</a></li>
-    </ul>
-  </nav>
 
-
-  <script>
-    function goBack() {
-      window.history.back();
-    }
-  </script>
+    <script>
+      function goBack() {
+        window.history.back();
+      }
+    </script>
+  </div>
 </body>
 
 </html>

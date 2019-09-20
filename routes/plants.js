@@ -11,7 +11,7 @@ router.get('/', (req, res) => {
       data.forEach((plant) => {
         console.log(plant.commonName);
       });
-      res.render('index', { title: 'Plantiful', data });
+      res.render('index', { title: 'Plantiful', data, active: { home: true } });
     })
     .catch((err) => {
       console.log('Error while displaying homepage', err);
@@ -24,7 +24,7 @@ router.get('/:plantId', (req, res, next) => {
   Plant.findById(plantId)
     .then((plant) => {
       if (plant) {
-        res.render('plantDetail', { plant });
+        res.render('plantDetail', { plant, active: { home: true } });
       } else {
         const error = new Error('Oops, no details found.');
         Error.status = 404;

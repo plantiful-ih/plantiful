@@ -12,7 +12,7 @@ router.get('/', checkIfLoggedIn, async (req, res, next) => {
   try {
     const { _id } = req.session.currentUser;
     const user = await User.findOne({ _id }).populate('userPlants');
-    res.render('mygarden', { user });
+    res.render('mygarden', { user, active: { plants: true } });
   } catch (error) {
     next(error);
   }
@@ -22,7 +22,7 @@ router.get('/', checkIfLoggedIn, async (req, res, next) => {
 router.get('/add', (req, res) => {
   Plant.find()
     .then((plants) => {
-      res.render('addmyplant', { plants });
+      res.render('addmyplant', { plants, active: { plants: true } });
     })
     .catch((error) => {
       throw error;
@@ -62,7 +62,7 @@ router.get('/:myplantId', checkIfLoggedIn, async (req, res, next) => {
     const { myplantId } = req.params;
     const plant = await MyPlant.findOne({ _id: myplantId }).populate('typePlant');
     console.log(plant, plant.typePlant);
-    res.render('myPlantDetail', { plant });
+    res.render('myPlantDetail', { plant, active: { plants: true } });
   } catch (error) {
     next(error);
   }
