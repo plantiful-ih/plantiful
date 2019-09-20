@@ -1,19 +1,23 @@
-<form action="/login" method="POST" id="form">
-    <h2>Login</h2>
+<div id="container-login">
+  <form action="/login" method="POST" id="form">
+    <h4>Login</h4>
+    <h2 class="h2-color">Welcome back<br>Plantiful master!</h2>
 
-    <label for="userEmail">User email</label>
+    <label class="email-password" for="userEmail">User email</label>
     <input type="text" name="userEmail" placeholder="user@email.com" required>
+    <label class="email-password" for="password">Password</label>
+    <input type="password" name="password" placeholder="********" required>
 
-  <label for="password">Password</label>
-  <input type="password" name="password" placeholder="*******" required>
-  <button>Log in</button>
-  {{#if error }}
-  <div class="error-message">{{ error }}</div>
-  {{/if}}
+    <br>
 
+    <button class="btn">Log in</button>
 
-    <hr>
-    <p class="account-message">
-        Don't have an account? <a href="/signup">Sign up</a>
+    {{#if error }}
+    <div class="error-message">{{ error }}</div>
+    {{/if}}
+
+    <p class="account-message email-password">
+      Don't have an account? <a href="/signup">Sign up</a>
     </p>
-</form>
+  </form>
+</div>
