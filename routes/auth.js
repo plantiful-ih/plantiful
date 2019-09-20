@@ -6,6 +6,8 @@ const bcryptSalt = parseInt(process.env.BCRYPTSALT);
 const router = express.Router();
 const User = require('../models/User');
 
+const { checkIfNotLoggedIn } = require('../middlewares/auth');
+
 router.get('/', (req, res) => {
   res.redirect('/plants');
 });
@@ -55,7 +57,7 @@ router.post('/signup', (req, res) => {
 });
 
 /* Get Login page */
-router.get('/login', (req, res) => {
+router.get('/login', checkIfNotLoggedIn, (req, res) => {
   res.render('auth/login');
 });
 
