@@ -5,8 +5,19 @@
   flex-flow: wrap;
   justify-content: space-between;
   .plant-card{
-    flex: 0 50%;
-    margin-bottom: 2%
+    flex: 0 46%;
+    margin: 2%;
+    padding-bottom:16px;
+    border-bottom:1px solid $color-gray-dark;
+    .card-info{
+      margin-top:16px;
+      .right{
+        float:right;
+      }
+      .left{
+        float:left;
+      }
+    }
   }
   .plant-img{
   width:100%;
@@ -17,10 +28,5 @@
   h5{
     color:$color-text-opacity;
   }
-  .left{
-    float:left;
-  }
-  .riht{
-    float:right;
-  }
+
 }

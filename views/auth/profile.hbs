@@ -1,22 +1,33 @@
-<div id="container-center">
-  <h4>My profile</h4>
-  <br>
-  <h2 class="h2-color">Hi {{ user.userEmail }}</h2>
-  <br>
-  <img class="avatar" src="{{ user.image }}">
-  <br>
-  <p>{{ user.location }} &nbsp; | &nbsp; {{ user.age }} years</p>
-  <br>
-  {{#if user.userPlants}}
-  <p>Plants in your garden: {{ numberOfPlants }}</p>
-  <br>
-  <a href="/"><button class="btn">collect more plants</button></a>
-  <br>
-  </ul>
-  {{else}}
-  <p>You have 0 plants in your garden, let's start collecting!</p>
-  <a href="/"><button class="btn">Go to catalogue</button></a><br />
-  {{/if}}
+<div class="cover">
+  <div class="cover-content">
+    <button class="back-arrow" onclick="goBack()">
+      <img src="../images/back-arrow.png" alt="Go back">
+    </button>
+  </div>
+</div>
+<div class="content">
+  <div class="user-image">
+    <img class="avatar" src="{{ user.image }}">
+  </div>
+  <p class="edit-profile">
+    <a href="/profile/edit">Edit profile <img src="../images/icon-edit.png" alt="Edit profile"></a>
+  </p>
+  <div class="user-info">
+    <h2>{{ user.userName }}</h2>
+    <h5>{{ user.location }} ({{ user.age }} years)</h5>
+  </div>
+  <div class="user-plants-stats">
+    {{#if user.userPlants}}
+    <p>Plants in your garden: {{ numberOfPlants }}</p>
+    <br>
+    <a href="/"><button class="btn">collect more plants</button></a>
+    <br>
+    </ul>
+    {{else}}
+    <p>You have 0 plants in your garden, let's start collecting!</p>
+    <a href="/"><button class="btn">Go to catalogue</button></a><br />
+    {{/if}}
+  </div>
   <br>
   <a href="/profile/edit"><button class="btn">edit profile</button></a>
   <br>
