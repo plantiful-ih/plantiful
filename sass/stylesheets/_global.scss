@@ -11,14 +11,17 @@ $color-text-opacity:rgba(17, 15, 36, 0.4);
 // font-family: 'Domine', serif;
 // font-family: 'Roboto', sans-serif;
 
-html, body {
-  height: 100%;
-  margin: 0;
+body{
+  width:100%;
 }
 
-.container {
+#container {
   min-height: 100%;
   margin-bottom: -60px;
+}
+
+.content{
+  padding:1em;
 }
 
 h1, h2, h3 {
