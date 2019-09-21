@@ -1,6 +1,7 @@
 @import 'global';
 
 .avatar {
-  border: 10px solid #1A697F;
+  background-color:$color-primary;
   border-radius: 100%;
+  width:100px;
 }

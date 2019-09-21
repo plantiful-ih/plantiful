@@ -1,0 +1,33 @@
+.cover-content{
+  background-image: url(../images/hero-image.jpg);
+  min-height:120px;
+  background-position: center 70%;
+  background-repeat:no-repeat;
+  background-size:cover;
+}
+
+.content{
+  .user-image{
+    margin-top:-4em;
+    text-align:center;
+  }
+  .edit-profile{
+    float:right;
+    margin-top:-2.5em;
+    a{
+      color:$color-green;
+    }
+  }
+  .user-info{
+    text-align: center;
+    h2{
+      color:$color-primary;
+    }
+    h5{
+      color:$color-light-blue;
+    }
+  }
+  .user-plants-stats{
+    margin-top:2em;
+  }
+}
