@@ -15,6 +15,11 @@
 </ul>
 {{/each}}
 <p>Best environment: {{ plant.typePlant.place }}</p>
+<h4>{{ plant.nickname }}'s history pics:</h4>
+{{#each plant.userPics}}
+<img src="{{ this.imgPath }}" alt="Picture of a plant" class="plant-img">
+<figcaption>{{ this.date }}</figcaption>
+{{/each}}
 
 {{!-- <button class="btn"><a href="/mygarden/{{ plant._id }}/edit">Edit plant</a></button>
 <button class="btn"><a href="/mygarden/{{ plant._id }}/delete">Delete</a></button> --}}

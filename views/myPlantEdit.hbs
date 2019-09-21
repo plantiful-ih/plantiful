@@ -1,5 +1,5 @@
 <h1>Edit {{ myplant.nickname }}'s information:</h1>
-<form action="/mygarden/{{ myplant._id }}/edit" method="POST">
+<form action="/mygarden/{{ myplant._id }}/edit" method="POST" enctype="multipart/form-data">
 
   <div class="form-group">
     <label for="nickname">Your plant's nickname:</label>
@@ -28,8 +28,8 @@
   </div><br />
 
   <div class="form-group">
-    <label for="userPics">Start your plant diary:</label>
-    <input type="file" name="userPics">
+    <label for="photo">Add pictures to your plant diary:</label>
+    <input type="file" name="photo">
     {{!--This should take also the default date & push to the pictures array--}}
   </div><br />
 
