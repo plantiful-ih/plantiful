@@ -47,8 +47,8 @@ router.post('/add', uploadCloud.single('photo'), async (req, res, next) => {
   const { _id } = req.session.currentUser;
   console.log('user is:', _id);
   if (nickname === '' || rating === '' || shoppingPoint === '') {
-    req.flash('BAD', 'Please fill all fields before submitting', '/mygarden/add');
-    // res.render('/mygarden/add', { error: 'Please fill all fields before submitting' });
+    req.flash('error', 'Please fill all fields before submitting');
+    res.redirect('/mygarden/add');
   } else {
     try {
       const plant = await MyPlant.create({
@@ -58,8 +58,8 @@ router.post('/add', uploadCloud.single('photo'), async (req, res, next) => {
         $push: { userPlants: plant._id },
       }, { new: true }).populate('userPlants');
       req.session.currentUser = userUpdate;
-      req.flash('GOOD', 'Plant added', '/mygarden');
-      // res.redirect('/mygarden');
+      req.flash('success', 'Plant added');
+      res.redirect('/mygarden');
     } catch (error) {
       next(error);
     }
@@ -125,8 +125,8 @@ router.get('/:myplantId/delete', checkIfLoggedIn, async (req, res, next) => {
     const { myplantId } = req.params;
     const plant = await MyPlant.deleteOne({ _id: myplantId });
     console.log('deleted plant: ', plant);
-    req.flash('GOOD', 'Plant deleted', '/mygarden');
-    // res.redirect('/mygarden');
+    req.flash('success', 'Plant deleted');
+    res.redirect('/mygarden');
   } catch (error) {
     next(error);
   }

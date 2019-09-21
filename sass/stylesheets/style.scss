@@ -8,14 +8,27 @@
 @import 'navbar';
 @import 'avatar';
 @import 'plantCard';
+@import 'login';
+@import 'signup';
+@import 'myGarden';
+
+img {
+   width: 90vw;
+}
+
+.hero-logo {
+   img {
+      width: auto;
+   }
+}
 
  /************ ALERTS ************/
 
  .alert {
-    padding: 15px;
-    margin-bottom: 20px;
-    border: 1px solid transparent;
-    border-radius: 4px;
+   padding: 15px;
+   border: 1px solid transparent;
+   //  margin-bottom: 20px;
+   //  border-radius: 4px;
     }
     
     .alert-success {
