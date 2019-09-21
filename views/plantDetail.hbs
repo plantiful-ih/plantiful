@@ -1,8 +1,35 @@
-<h1>{{ plant.commonName }}</h1>
-<p>{{ plant.family }}</p>
-<p>{{ plant.careDifficulty }}</p>
-<p>{{ plant.watering }}</p>
-<p>{{ plant.img }}</p>
-<p>{{ plant.careTips }}</p>
-<p>{{ plant.place }}</p>
-<p>{{ plant.description }}</p>
+<div class="content">
+  <img src='{{ plant.img }}' alt="typeplant image" class="plant-centered">
+
+  <h2 class="dark-green-text">{{ plant.commonName }}</h2>
+  <p class="p-small gray-text">Family: {{ plant.family }}</p>
+  <hr>
+  <p>{{ plant.description }}</p>
+
+  <h4 class="green-text">Plant Details:</h4>
+
+  <div class="col-3">
+    <img src="../images/clock.png" class="plant-icon" alt="time icon">
+    <p>{{ plant.lifeLength }}</p>
+  </div>
+  <div class="col-3">
+    <img src="../images/drop.png" class="plant-icon" alt="time icon">
+    <p>{{ plant.watering }}</p>
+  </div>
+  <div class="col-3">
+    <img src="../images/ray.png" class="plant-icon" alt="time icon">
+    <p>{{ plant.careDifficulty }}</p>
+  </div>
+
+  <h4 class="green-text">Care tips:</h4>
+  <ul class="check-list">
+    {{#each plant.careTips}}
+    <li>{{ this }}</li>
+    {{/each}}
+  </ul>
+  <div class="hash-group">
+    {{#each plant.place}}
+    <span class="hashtag">#{{ this }}</span>
+    {{/each}}
+  </div>
+</div>
