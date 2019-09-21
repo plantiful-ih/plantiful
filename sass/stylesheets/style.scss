@@ -1,4 +1,4 @@
-// @import 'reset';
+@import 'reset';
 @import 'heroimage';
 @import 'typography';
 @import 'buttons';
@@ -13,13 +13,22 @@
 @import 'myGarden';
 
 
+img {
+   width: 90vw;
+}
+
+.hero-logo {
+   img {
+      width: auto;
+   }
+}
 
  /************ ALERTS ************/
 
  .alert {
-    padding: 15px;
-    margin-bottom: 20px;
-    border: 1px solid transparent;
+   padding: 15px;
+   border: 1px solid transparent;
+   //  margin-bottom: 20px;
    //  border-radius: 4px;
     }
     
