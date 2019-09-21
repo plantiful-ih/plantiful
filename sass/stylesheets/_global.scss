@@ -16,9 +16,14 @@ body{
   font-size:16px;
 }
 
+//Don't turn purple anything visited
+a:visited {
+    text-decoration: none; 
+}
+
 #container {
   min-height: 100%;
-  margin-bottom: -60px;
+  margin-bottom: 60px;
   font-size:1rem;
   min-height:100vh;
 }
