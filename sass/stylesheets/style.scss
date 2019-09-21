@@ -12,13 +12,17 @@
 @import 'plantDetail';
 
 img {
-   width: 90vw;
+   max-width: 90vw;
 }
 
 .hero-logo {
    img {
       width: auto;
    }
+}
+
+h4 {
+   margin: 0;
 }
 
  /************ ALERTS ************/
