@@ -7,21 +7,12 @@
       Pick a plant and start your collection
     </h5>
     <span class="hero-logo"><img src="./images/plantiful_logo.png"></span>
-    {{!-- <button type="btn-small" class="hero-button">
-      Add a plant
-    </button> --}}
   </div>
 </section>
 <div class="content">
   <div class="plants-showcase">
     {{#each this.data}}
-    <div class="plant-card">
-      <h3>{{this.commonName}}</h3>
-      <img class="plant-img" src="{{this.img}}">
-      <a href="/plants/{{this._id}}">
-        <button class="btn btn-round">+</button>
-      </a>
-    </div>
+    {{> plantcard this}}
     {{/each}}
   </div>
 </div>
