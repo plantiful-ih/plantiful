@@ -1,11 +1,21 @@
-<h1>My garden</h1>
-<p>Welcome {{ user.userEmail }}!</p>
-<p>Plants in my garden:</p>
-
-{{#each user.userPlants}}
-<h3>{{ this.nickname }}</h3>
-<p>{{ this.shoppingPoint }}</p>
-<p>Rating: {{ this.rating }}</p>
-{{/each}}
-
-<button><a href="mygarden/add">Add plant</a></button>
+<div id="container-center">
+  <h4>My garden</h4>
+  <h2 class="h2-color-margin">Hi {{ user.userEmail }}</h2>
+  <div class="form-group">
+    {{#if user.userPlants}}
+    <p class="subtitle-margin">Plants in my garden:</p>
+    <div class="myplant-card">
+      {{#each user.userPlants}}
+      <h3 class="margin"><a href="/mygarden/{{ this._id }}">{{ this.nickname }}</a></h3>
+      {{#each this.userPics}}
+      <img src="{{ this.imgPath }}" alt="Picture of a plant" class="plant-img">
+      {{/each}}
+      {{/each}}
+    </div>
+    {{else}}
+    <p>You don't have any plant, why don't you start now?</p>
+    <a href="/">Go to the catalogue</a>
+    {{/if}}
+  </div><br />
+  <a href="/mygarden/add"><button class="btn">Add plant</button></a>
+</div>

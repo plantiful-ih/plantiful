@@ -1,0 +1,75 @@
+@import 'global';
+
+//These are the default parameters
+@mixin btn-default(){
+  background: #1A697F;
+  border-radius: 4px;
+  font-family: Roboto;
+  font-style: normal;
+  font-weight: 500;
+  font-size: 18px;
+  line-height: 24px;
+  text-align: center;
+  color: #F6F6F9;
+  padding-top: 1em;
+  padding-bottom: 1em;
+  padding-left: 1.563em;
+  padding-right: 1.563em;
+}
+
+.btn {
+  @include btn-default();
+}
+
+.btn-round {
+  @include btn-default();
+  border-radius: 100%;
+  padding-left: 1.383em;
+  padding-right: 1.383em;
+  background: #62C890;
+}
+
+.btn-secondary {
+  @include btn-default();
+  background: #77A3B1;
+}
+
+.btn-outlined {
+  @include btn-default();
+  border: 2px solid #1A697F;
+  box-sizing: border-box;
+  color: #1A697F;
+  background: #F6F6F9;
+}
+
+.btn-disabled {
+  @include btn-default();
+  color: #F6F6F9;
+  background: #CCCED0;
+}
+
+.btn-medium {
+  @include btn-default();
+  padding-top: 0.5em;
+  padding-bottom: 0.5em;
+  padding-left: 1.063em;
+  padding-right: 1.063em;
+}
+
+.btn-small {
+  @include btn-default();
+  padding-top: 0.250em;
+  padding-bottom: 0.250em;
+  padding-left: 0.813em;
+  padding-right: 0.813em;
+}
+
+.btn-hover {
+  @include btn-default();
+  background: #134958;
+}
+
+.btn-pressed {
+  @include btn-default();
+  background: #77A3B1;
+}

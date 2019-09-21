@@ -1,0 +1,73 @@
+@import 'global';
+@import url('https://fonts.googleapis.com/icon?family=Material+Icons');
+
+label{
+  font-size:.875em; /*variable small-paragraph*/
+  font-family:roboto; /*variable font-roboto*/
+  display:block;
+  margin-bottom:16px; /*variable unit-size*/
+}
+
+/*** Select Field ***/
+.select-field{
+  width:100%;
+  height:56px;
+  margin:0px;
+  padding:0px;
+  background-color:transparent;
+  border-bottom:1px solid $color-text;
+  position:relative;
+  z-index:1;
+    &:after{
+      content:'keyboard_arrow_down';
+      font-family:'material icons';
+      font-size:1.5em;
+      color:$color-text-opacity;
+      transform:translateY(-50%);
+      position:absolute;
+      top:50%;
+      right:12px;
+      z-index:2;
+      pointer-events:none;
+      line-height:3em;
+      height:50px;
+    }
+
+  select{
+    width:100%;
+    border:0px;
+    background-color:transparent;
+    font-family:roboto;
+    font-size:1em;
+    color: $color-text-opacity;
+    z-index:3;
+    outline:none;
+    cursor:pointer;
+    /*background: url(../images/icon-arrow-down.png) 100% / 8% no-repeat transparent;*/
+    
+    /*reset default styles*/
+    margin:0px;
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+  }
+    option{
+      padding:12px;
+    }
+    &::-ms-expand{
+      display:none;
+    }
+    &:focus{
+      outline:none;
+    }
+
+}
+
+
+
+
+
+
+

@@ -1,0 +1,21 @@
+@import 'global';
+
+.hero-content{
+  background-image: url(../images/hero-image.jpg);
+  height:40%;
+  min-height:250px;
+  background-position: top center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  position: relative;
+  padding:1em;
+  .hero-title{
+    color:$color-primary;
+  }
+  .hero-subtitle{
+    color:$color-primary;
+    width:50%;
+    margin-top:.5em;
+    margin-bottom:1.5em;
+  }
+}

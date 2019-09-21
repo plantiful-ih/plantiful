@@ -1,0 +1,44 @@
+<div id="container-center">
+  <h2 class="h2-color">Edit {{ myplant.nickname }}'s information:</h2>
+
+  <form action="/mygarden/{{ myplant._id }}/edit" method="POST" enctype="multipart/form-data">
+
+    <div class="form-group">
+      <label class="email-password" for="nickname">Your plant's nickname:</label>
+      <input type="text" name="nickname" placeholder="{{ myplant.nickname }}" value="{{ myplant.nickname }}">
+    </div>
+
+    <div class="form-group">
+      <div class="select-field">
+        <label class="email-password" for="typePlant">Is it not a {{ myplant.typePlant.commonName }}?</label>
+        <select name='typePlant'>
+          <option value={{ myplant.typePlant._id }} selected="selected">{{ myplant.typePlant.commonName }}</option>
+          {{#each plants}}
+          <option value={{ this._id }}>{{ this.commonName }}</option>
+          {{/each}}
+        </select>
+      </div>
+    </div>
+    <br>
+    <div class="form-group">
+      <label class="email-password" for="shoppingPoint">Where did you get this plant?:</label>
+      <input type="text" name="shoppingPoint" placeholder="{{ myplant.shoppingPoint }}"
+        value="{{ myplant.shoppingPoint }}">
+    </div>
+
+    <div class="form-group">
+      <label class="email-password" for="rating">Rate this plant:</label>
+      <input type="range" name="rating" min="0" max="5" value="{{ myplant.rating }}">
+    </div>
+
+    <div class="form-group">
+      <label class="email-password" for="photo">Add pictures to your plant diary:</label>
+      <button id="imageAdd" onclick="document.getElementById('uploadImage').click()" <title="Click or Drag Image">Upload
+        image</button>
+      <input id="uploadImage" type="file" name="photo" />
+    </div>
+    <br>
+    <button type="submit" class="btn">Update</button>
+    <a href="/mygarden"><button type="submit" class="btn-outlined">Cancel</button></a>
+  </form>
+</div>

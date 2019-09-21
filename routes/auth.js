@@ -4,9 +4,9 @@ const bcrypt = require('bcrypt');
 
 const bcryptSalt = parseInt(process.env.BCRYPTSALT);
 const router = express.Router();
-// const session = require('express-session');
-// const MongoStore = require('connect-mongo')(session);
 const User = require('../models/User');
+
+const { checkIfNotLoggedIn } = require('../middlewares/auth');
 
 router.get('/', (req, res) => {
   res.redirect('/plants');
@@ -26,18 +26,21 @@ router.post('/signup', (req, res) => {
     User.findOne({ userEmail })
       .then((email) => {
         if (email) {
-          console.log('this email already exists');
-          res.render('auth/signup', { error: 'This email is already registered.' });
+          // console.log('this email already exists');
+          req.flash('error', 'This email is already registered.');
+          res.redirect('/signup');
+          // res.render('auth/signup', { error: 'This email is already registered.' });
         } else {
-          console.log('email does not exist', email);
+          // console.log('email does not exist', email);
           /* Password encryptation */
           const salt = bcrypt.genSaltSync(bcryptSalt);
           const hashedPassword = bcrypt.hashSync(password, salt);
           /* New user */
           User.create({ userEmail, hashedPassword })
             .then(() => {
-              console.log('new user has been created');
-              res.redirect('/');
+              // console.log('new user has been created');
+              req.flash('success', 'New user has been created. Now you can login.');
+              res.redirect('/plants');
             })
             .catch((error) => {
               throw error;
@@ -45,19 +48,20 @@ router.post('/signup', (req, res) => {
         }
       })
       .catch((error) => {
-        console.log(error);
-        res.render('auth/signup', { error: 'error try again' });
+        // console.log(error);
+        req.flash('error', 'Error try again.');
+        res.redirect('/signup');
       });
   } else {
-    res.render('auth/signup', { error: 'all the fields must be filled' });
+    req.flash('error', 'All fields must be filled.');
+    res.redirect('/signup');
   }
 });
 
 /* Get Login page */
-router.get('/login', (req, res) => {
+router.get('/login', checkIfNotLoggedIn, (req, res) => {
   res.render('auth/login');
 });
-
 
 router.post('/login', (req, res) => {
   const { userEmail, password } = req.body;
@@ -69,20 +73,26 @@ router.post('/login', (req, res) => {
             // password valido
             // guardo la session
             req.session.currentUser = user;
+            console.log(user);
+            req.flash('success', 'You are connected with your plants 🎉.');
             res.redirect('/mygarden');
           } else {
             // password invalido
-            res.render('auth/login', { error: 'Wrong email or password.' });
+            req.flash('error', 'Wrong email or password.');
+            res.redirect('/login');
           }
         } else {
-          res.redirect('/signup', { error: 'User does not exist, please sign up.' });
+          req.flash('error', 'User does not exist, please sign up.');
+          res.redirect('/signup');
         }
       })
       .catch(() => {
-        res.render('auth/login', { error: 'There was an error. Please try again.' });
+        req.flash('error', 'There was an error. Please try again.');
+        res.redirect('/login');
       });
   } else {
-    res.render('auth/login', { error: 'All fields must be filled' });
+    req.flash('error', 'All fields must be filled');
+    res.redirect('/login');
   }
 });
 
@@ -90,6 +100,7 @@ router.post('/login', (req, res) => {
 router.get('/logout', (req, res, next) => {
   // req.session.currentUser = null;
   req.session.destroy();
+  // req.flash('success', 'See you next time!');
   res.redirect('/login');
   // req.session.destroy((err) => {
   //   // cannot access session here

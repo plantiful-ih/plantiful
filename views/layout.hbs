@@ -1,26 +1,42 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 
 <head>
+  <meta name='viewport' charset='utf-8' content='width=device-width, initial-scale=1.0'>
+  <meta name='description' content='The plantiful app'>
+  <meta name="author" content="Superdev Girls">
   <title>Plantiful</title>
-  <meta name="viewport" content='width=device-width, initial-scale=1.0'>
   <link rel='stylesheet' href='/stylesheets/style.css' />
-  <link rel='icon' src='../public/images/plantiful_logo.png' alt='Plantiful logo' />
+  <link href="https://fonts.googleapis.com/css?family=Domine:400,700|Roboto:300,400,700&display=swap&subset=latin-ext"
+    rel="stylesheet">
+  <link rel='shortcut icon' type="image/png" href="./images/favicon.png" alt='Plantiful logo' />
 </head>
 
 <body>
-  {{{body}}}
+  <div id="container">
+    {{> flash}}
+    {{{body}}}
 
-  <nav class='sticky-nav'>
-    <ul>
-      <li>Back</li>
-      <li><a href='/'>Home</a></li>
-      <li><a href='/mygarden'>My garden</a></li>
-      <li><a href='/profile'>Profile</a></li>
-    </ul>
-  </nav>
+    <nav class='sticky-nav'>
+      <ul class='menu'>
+        <li class="{{#if active.home}}active{{/if}} home">
+          <a href='/'>{{> homeicon}}</a>
+        </li>
+        <li class="{{#if active.plants}}active{{/if}} plants">
+          <a href='/mygarden'>{{> planticon}}</a>
+        </li>
+        <li class="{{#if active.profile}}active{{/if}} profile">
+          <a href='/profile'>{{> profileicon}}</a>
+        </li>
+      </ul>
+    </nav>
 
-  </nav>
+    <script>
+      function goBack() {
+        window.history.back();
+      }
+    </script>
+  </div>
 </body>
 
 </html>

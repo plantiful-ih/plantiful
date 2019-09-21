@@ -1,45 +1,53 @@
-// Estos son los colores del moodboard para usarlos por estos nombres en vez del código hexadecimal
-$blue: #006981;
-$green: #00c98e;
-$lightgreen: #cdf0bb;
+@import 'reset';
+@import 'heroimage';
+@import 'typography';
+@import 'buttons';
+@import 'dropdown';
+@import 'forms';
+@import 'dropdown';
+@import 'navbar';
+@import 'avatar';
+@import 'plantCard';
+@import 'profile';
+@import 'plantDetail';
 
-/************ MAIN LAYOUT ************/
-
-.sticky-nav {
-    width: 100vw; 
-    display: block;
-    position: sticky;
-    bottom: 0;
-    background-color: white;
-    padding: 10px 0 10px 0;
-    text-align: center;
-    ul{   
-        li{
-        display: inline;
-        margin-right: 20px;
-        a {
-        text-decoration: none;
-        color: black;
-        &:hover {
-            color: $blue;
-        }
-       }
-      }
-    }
+img {
+   max-width: 90vw;
 }
 
+.hero-logo {
+   img {
+      width: auto;
+   }
+}
 
-/************ HOME VIEWS ************/
+h4 {
+   margin: 0;
+}
 
-.plants-showcase {
-    display: flex;
-    flex-flow: row wrap;
-    justify-content: space-between;
-    .plant-card{
-    width: 30%;
-    margin: 1em;
+ /************ ALERTS ************/
+
+ .alert {
+   padding: 15px;
+   border: 1px solid transparent;
+   //  margin-bottom: 20px;
+   //  border-radius: 4px;
     }
-    .plant-img{
-    width:100%;
+    
+    .alert-success {
+    color: #fff;
+    background-color: #19b698;
+    border-color: #0fac8e;
     }
- }
+    
+    .alert-info {
+    color: #fff;
+    background-color: #4aa3df;
+    border-color: #4099d5;
+    }
+    
+    .alert-danger {
+    color: #fff;
+    background-color: #ea6153;
+    border-color: #e05749;
+    }

@@ -1,0 +1,113 @@
+$color-primary: #1A697F;
+$color-green: #62C890;
+$color-light-green:#d7f0bc;
+$color-light-blue: #77A3B1;
+$color-text: #110F24;
+$color-gray-dark: #CCCED0;
+$color-gray-medium: #ECECEE;
+$color-gray-light: #F6F6F9;
+$color-text-opacity:rgba(17, 15, 36, 0.4);
+
+// font-family: 'Domine', serif;
+// font-family: 'Roboto', sans-serif;
+
+body{
+  width:100%;
+  font-size:16px;
+}
+
+//Don't turn purple anything visited
+a:visited {
+    text-decoration: none; 
+}
+
+.back-arrow{
+  margin:1.5em;
+  cursor: pointer;
+}
+
+
+
+#container {
+  min-height: 100%;
+  margin-bottom: 60px;
+  font-size:1rem;
+  min-height:100vh;
+}
+
+.content{
+  margin:1em;
+}
+
+
+///*** DESKTOP MINIMUN ***///
+@media (min-width: 1024px) {
+  .content{
+    width:1020px;
+    margin:0 auto;
+  }
+  
+}
+
+#container-center {
+  background-color: #ECECEE;;
+  margin: auto;
+  text-align: center;
+  min-height:100vh;
+}
+
+.h2-color {
+  color: #1A697F;
+  font-family: Domine;
+  font-style: normal;
+  font-weight: bold;
+  font-size: 28px;
+  line-height: 34px;
+  text-align: center;
+}
+
+.h2-color-margin {
+  color: #1A697F;
+  font-family: Domine;
+  font-style: normal;
+  font-weight: bold;
+  font-size: 28px;
+  line-height: 34px;
+  text-align: center;
+  margin-top: 0.938em;
+  margin-bottom: 0.938em;
+}
+
+.email-password {
+  font-family: Roboto;
+  font-style: normal;
+  font-weight: normal;
+  font-size: 12px;
+  line-height: 24px;
+  color: #110F24;
+}
+
+.subtitle {
+  color: #62C890;
+  font-family: Roboto;
+  font-style: normal;
+  font-weight: 500;
+  font-size: 1.125em;
+  line-height: 1.5px;
+}
+
+.subtitle-margin {
+  color: #62C890;
+  font-family: Roboto;
+  font-style: normal;
+  font-weight: 500;
+  font-size: 1.125em;
+  line-height: 1.5px;
+  margin-top: 0.938em;
+  margin-bottom: 0.938em;
+}
+
+.margin {
+  margin-top: 0.938em;
+  margin-bottom: 0.938em;
+}

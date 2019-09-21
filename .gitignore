@@ -61,3 +61,7 @@ typings/
 .next
 .DS_Store
 public/.DS_Store
+
+# ignore stylesheets
+
+public/stylesheets/

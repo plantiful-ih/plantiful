@@ -1,13 +1,24 @@
-<form id="form" action="/signup" method="POST">
-    <label for="userEmail">User email</label><br>
-    <input type="text" name="userEmail" placeholder="user@email.com" required>
+<div id="container-center">
+    <form id="form" action="/signup" method="POST">
+        <h4>Sign up</h4>
+        <br>
+        <h2 class="h2-color">Start making your <br> life greenier.</h2>
 
-    <label for="password">Password</label><br>
-    <input type="password" name="password" placeholder="********" required>
+        <label class="email-password" for="userEmail">User email</label>
+        <input type="text" name="userEmail" placeholder="user@email.com" required>
 
-    <button type="submit">Create account</button>
-</form>
+        <label class="email-password" for="password">Password</label>
+        <input type="password" name="password" placeholder="********" required>
 
-{{#if error}}
-<div class="error-message">{{ error }}</div>
-{{/if}}
+        <br>
+
+        <button type="submit" class="btn">Create account</button>
+        {{#if error}}
+        <div class="error-message">{{ error }}</div>
+        {{/if}}
+
+        <p class="account-message email-password">
+            You are already a plantiful master? <a href="/login">Log in</a>
+        </p>
+    </form>
+</div>

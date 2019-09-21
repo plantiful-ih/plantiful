@@ -1,13 +1,18 @@
-<h1>{{title}}</h1>
-<div id="container">
+<section class="hero">
+  <div class="hero-content">
+    <h2 class="hero-title">
+      Life is beautiful with plants
+    </h2>
+    <h5 class="hero-subtitle">
+      Pick a plant and start your collection
+    </h5>
+    <span class="hero-logo"><img src="./images/plantiful_logo.png"></span>
+  </div>
+</section>
+<div class="content">
   <div class="plants-showcase">
     {{#each this.data}}
-    <div class="plant-card">
-      <a href="/plants/{{this._id}}">
-        <h3>{{this.commonName}}</h3>
-      </a>
-      <a href="#"><img class="plant-img" src="{{this.img}}"></a>
-    </div>
+    {{> plantcard this}}
     {{/each}}
   </div>
 </div>
