@@ -1,25 +1,10 @@
-const flashNotificationOptions = {
-  beforeSingleRender(item, callback) {
-    if (item.type) {
-      switch (item.type) {
-        case 'GOOD':
-          item.type = 'Success';
-          item.alertClass = 'alert-success';
-          break;
-        case 'OK':
-          item.type = 'Info';
-          item.alertClass = 'alert-info';
-          break;
-        case 'BAD':
-          item.type = 'Error';
-          item.alertClass = 'alert-danger';
-          break;
-      }
-    }
-    callback(null, item);
-  },
+const notifications = () => (req, res, next) => {
+  res.locals.errorMessages = req.flash('error');
+  res.locals.infoMessages = req.flash('info');
+  res.locals.successMessages = req.flash('success');
+  res.locals.dangerMessages = req.flash('danger');
+  res.locals.warningMessages = req.flash('warning');
+  next();
 };
 
-// alert_class
-
-module.exports = flashNotificationOptions;
+module.exports = notifications;
