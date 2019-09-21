@@ -36,9 +36,14 @@ router.post('/add', uploadCloud.single('photo'), async (req, res, next) => {
     nickname, rating, shoppingPoint, typePlant,
   } = req.body;
   const imgPath = req.file.url;
-  const when = new Date();
-  const date = when.getTime();
-  const userPics = [{ imgPath, date }];
+
+  const date = new Date();
+  const day = date.getDay();
+  const month = date.getMonth();
+  const year = date.getFullYear();
+  const pictureDate = { day, month, year };
+
+  const userPics = [{ imgPath, pictureDate }];
   const { _id } = req.session.currentUser;
   console.log('user is:', _id);
   if (nickname === '' || rating === '' || shoppingPoint === '') {

@@ -7,7 +7,7 @@
 <p>{{ plant.typePlant.commonName }}'s care difficulty: {{ plant.typePlant.careDifficulty }}</p>
 <p>Should be watered {{ plant.typePlant.watering }}</p>
 <p>This plant can live up tp {{ plant.typePlant.lifeLength }}</p>
-<p>{{ plant.typePlant.img }}</p>
+<img src='{{ plant.typePlant.img }}' alt="typeplant image" class="plant-img">
 <p>Care tips:</p>
 {{#each plant.typePlant.careTips}}
 <ul>
@@ -18,7 +18,7 @@
 <h4>{{ plant.nickname }}'s history pics:</h4>
 {{#each plant.userPics}}
 <img src="{{ this.imgPath }}" alt="Picture of a plant" class="plant-img">
-<figcaption>{{ this.date }}</figcaption>
+<figcaption>{{ plant.timestamps.updatedAt }}</figcaption>
 {{/each}}
 
 {{!-- <button class="btn"><a href="/mygarden/{{ plant._id }}/edit">Edit plant</a></button>

@@ -30,8 +30,9 @@
 
   <div class="form-group">
     <label for="photo">Start your plant diary:</label>
-    <input type="file" name="photo">
-    {{!--This should take also the default date & push to the pictures array--}}
+    <button id="imageAdd" onclick="document.getElementById('uploadImage').click()" <title="Click or Drag Image">Upload
+      image</button>
+    <input id="uploadImage" type="file" name="photo" />
   </div><br />
 
   <button type="submit" class="btn">Save</button>
