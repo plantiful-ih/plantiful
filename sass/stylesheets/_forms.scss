@@ -1,6 +1,6 @@
 @import 'global';
 
-input[type=text], input[type=password] {
+input[type=text], input[type=password], input[type = number] {
  font-family: 'Roboto', sans-serif;
  border: none;
  border-bottom: 2px solid #1A697F;
@@ -69,5 +69,27 @@ input[type=range] {
     background: $color-primary;
     cursor: pointer;
     }
+}
+
+#imageAdd {      
+  background: $color-gray-light;
+  width:250px;
+  height:30px;
+  font-size:15px;
+  font-family: 'Roboto', sans-serif;
+  border-radius: 5px;
+  border:2px solid $color-primary;
+  margin-left: 24px;
+}
+
+#uploadImage{
+  visibility: hidden;
+  height:0px;
+  width: 0px;
+}
+
+label {
+  margin-left: 24px;
+  margin-bottom: -10px;
 }
 

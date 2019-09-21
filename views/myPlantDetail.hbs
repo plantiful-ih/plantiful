@@ -1,28 +1,41 @@
-<h3>{{ plant.nickname }}</h3>
-<p>Plant type: {{ plant.typePlant.commonName }}</p>
-<p>{{ plant.typePlant.description }}</p>
-<p>Bought in {{ plant.shoppingPoint }}</p>
-<p>Rating: {{ plant.rating }}</p>
-<p>Family: {{ plant.typePlant.family }}</p>
-<p>{{ plant.typePlant.commonName }}'s care difficulty: {{ plant.typePlant.careDifficulty }}</p>
-<p>Should be watered {{ plant.typePlant.watering }}</p>
-<p>This plant can live up tp {{ plant.typePlant.lifeLength }}</p>
-<p>{{ plant.typePlant.img }}</p>
-<p>Care tips:</p>
-{{#each plant.typePlant.careTips}}
-<ul>
-  <li>{{ this }}</li>
-</ul>
-{{/each}}
-<p>Best environment: {{ plant.typePlant.place }}</p>
-<h4>{{ plant.nickname }}'s history pics:</h4>
-{{#each plant.userPics}}
-<img src="{{ this.imgPath }}" alt="Picture of a plant" class="plant-img">
-<figcaption>{{ this.date }}</figcaption>
-{{/each}}
-
-{{!-- <button class="btn"><a href="/mygarden/{{ plant._id }}/edit">Edit plant</a></button>
-<button class="btn"><a href="/mygarden/{{ plant._id }}/delete">Delete</a></button> --}}
-
-<a href="/mygarden/{{ plant._id }}/edit"><button class="btn">Edit plant</button></a>
-<a href="/mygarden/{{ plant._id }}/delete"><button class="btn">Delete</button></a>
+<div id="container-center">
+  <h2 class="h2-color">My Plant</h2>
+  <br>
+  <h3>{{ plant.nickname }}</h3>
+  <br>
+  <p>Plant type: {{ plant.typePlant.commonName }}</p>
+  <br>
+  <p>{{ plant.typePlant.description }}</p>
+  <br>
+  <p>Bought in {{ plant.shoppingPoint }}</p>
+  <br>
+  <p>Rating: {{ plant.rating }}</p>
+  <br>
+  <p>Family: {{ plant.typePlant.family }}</p>
+  <br>
+  <p>{{ plant.typePlant.commonName }}'s care difficulty: {{ plant.typePlant.careDifficulty }}</p>
+  <br>
+  <p>Should be watered {{ plant.typePlant.watering }}</p>
+  <br>
+  <p>This plant can live up tp {{ plant.typePlant.lifeLength }}</p>
+  <br>
+  <img src='{{ plant.typePlant.img }}' alt="typeplant image" class="plant-img">
+  <br>
+  <p>Care tips:</p>
+  <br>
+  {{#each plant.typePlant.careTips}}
+  <ul>
+    <li>{{ this }}</li>
+  </ul>
+  {{/each}}
+  <p>Best environment: {{ plant.typePlant.place }}</p>
+  <br>
+  <h4>{{ plant.nickname }}'s history pics:</h4>
+  <br>
+  {{#each plant.userPics}}
+  <img src="{{ this.imgPath }}" alt="Picture of a plant" class="plant-img">
+  <figcaption>{{ this.date }}</figcaption>
+  {{/each}}
+  <a href="/mygarden/{{ plant._id }}/edit"><button class="btn">Edit plant</button></a>
+  <a href="/mygarden/{{ plant._id }}/delete"><button class="btn-outlined">Delete</button></a>
+</div>

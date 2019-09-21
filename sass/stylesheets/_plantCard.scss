@@ -1,7 +1,26 @@
 @import 'global';
 
-.plant-img {
-  width: 200px;
-  display: inline-block;
-  margin: 10px;
+.plants-showcase {
+  display: flex;
+  flex-flow: wrap;
+  justify-content: space-between;
+  .plant-card{
+    flex: 0 50%;
+    margin-bottom: 2%
+  }
+  .plant-img{
+  width:100%;
+  }
+  h4{
+    color:$color-green;
+  }
+  h5{
+    color:$color-text-opacity;
+  }
+  .left{
+    float:left;
+  }
+  .riht{
+    float:right;
+  }
 }

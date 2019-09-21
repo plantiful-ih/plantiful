@@ -1,4 +1,4 @@
-@import 'reset';
+// @import 'reset';
 @import 'heroimage';
 @import 'typography';
 @import 'buttons';
@@ -10,21 +10,9 @@
 @import 'plantCard';
 @import 'login';
 @import 'signup';
+@import 'myGarden';
 
-/************ HOME VIEWS ************/
 
-.plants-showcase {
-    display: flex;
-    flex-flow: row wrap;
-    justify-content: space-between;
-    .plant-card{
-    width: 30%;
-    margin: 1em;
-    }
-    .plant-img{
-    width:100%;
-    }
- }
 
  /************ ALERTS ************/
 

@@ -1,39 +1,43 @@
-<h1>Add new plant to my garden</h1>
-<form action="/mygarden/add" method="POST" enctype="multipart/form-data">
+<div id="container-center">
+  <h2 class="h2-color">Add new plant to my garden</h2>
+  <br>
+  <form action="/mygarden/add" method="POST" enctype="multipart/form-data">
 
-  <div class="form-group">
-    <label for="nickname">Your plant's nickname:</label>
-    <input type="text" name="nickname" placeholder="How would you call this plant?">
-  </div><br />
+    <div class="form-group">
+      <label class="email-password" for="nickname">Your plant's nickname:</label>
+      <input type="text" name="nickname" placeholder="How would you call this plant?">
+    </div><br />
 
-  <div class="form-group">
-    <div class="select-field">
-      <label for="typePlant">Type of plant</label>
-      <select name='typePlant'>
-        <option selected hidden>Choose a plant</option>
-        {{#each plants}}
-        <option value={{ this._id }}>{{ this.commonName }}</option>
-        {{/each}}
-      </select>
-    </div>
-  </div><br />
+    <div class="form-group">
+      <div class="select-field">
+        <label class="email-password" for="typePlant">Type of plant</label>
+        <select name='typePlant'>
+          <option selected hidden>Choose a plant</option>
+          {{#each plants}}
+          <option value={{ this._id }}>{{ this.commonName }}</option>
+          {{/each}}
+        </select>
+      </div>
+    </div><br />
 
-  <div class="form-group">
-    <label for="shoppingPoint">Where did you get this plant?:</label>
-    <input type="text" name="shoppingPoint" placeholder="Nevermind St. 34">
-  </div><br />
+    <div class="form-group">
+      <label class="email-password" for="shoppingPoint">Where did you get this plant?:</label>
+      <input type="text" name="shoppingPoint" placeholder="Nevermind St. 34">
+    </div><br />
 
-  <div class="form-group">
-    <label for="rating">Rate this plant:</label>
-    <input type="range" name="rating" min="0" max="5">
-  </div><br />
+    <div class="form-group">
+      <label class="email-password" for="rating">Rate this plant:</label>
+      <input type="range" name="rating" min="0" max="5">
+    </div><br />
 
   <div class="form-group">
     <label for="photo">Start your plant diary:</label>
-    <input type="file" name="photo">
-    {{!--This should take also the default date & push to the pictures array--}}
+    <button id="imageAdd" onclick="document.getElementById('uploadImage').click()" <title="Click or Drag Image">Upload
+      image</button>
+    <input id="uploadImage" type="file" name="photo" />
   </div><br />
 
-  <button type="submit" class="btn">Save</button>
-  <a href="/mygarden"><button type="submit" class="btn-outlined">Cancel</button></a>
-</form>
+    <button type="submit" class="btn">Save</button>
+    <a href="/mygarden"><button type="submit" class="btn-outlined">Cancel</button></a>
+  </form>
+</div>

@@ -1,49 +1,47 @@
-<h1>Edit your profile</h1>
-<form action="/profile/edit" method="POST">
+
+<div id="container-center">
+<h1 class="h2-color">Edit your profile</h1>
+<form action="/profile/edit" method="POST" enctype="multipart/form-data">
   <div class="form-group">
     <img src="{{user.image}}" alt="{{user.name}}">
-    <p>Change your current photo</p>
-    <input type="file">
-  </div><br />
-  <div class="form-group">
-    <label for="username">Username:</label>
-    {{#if user.userName}}
-    <input type="text" name="username" placeholder="{{user.userName}}" value="{{user.userName}}">
-    {{else}}
-    <input type="text" name="username" placeholder="My username">
-    {{/if}}
-  </div><br />
-  <div class="form-group">
-    <label for="mail">E-mail:</label>
-    <input type="text" name="mail" placeholder="{{ user.userEmail }}" value="{{user.userEmail}}">
-  </div><br />
-  <div class="form-group">
-    <label for="age">Age:</label>
-    {{#if user.age}}
-    <input type="number" name="age" placeholder="{{user.age}}">
-    {{else}}
-    <input type="number" name="age" placeholder="My age">
-    {{/if}}
-  </div><br />
-  <div class="form-group">
-    <label for="location">Location:</label>
-    {{#if user.location}}
-    <input type="text" name="location" placeholder="{{#each user.location}}<span>{{this}}</span>{{/each}}">
-    {{else}}
-    <input type="text" name="location" placeholder="My location">
-    {{/if}}
-  </div><br />
-  <div class="form-group">
-    <label for="plants">Plants:</label>
-    {{#if user.plants}}
-    {{#each}}
-    <li name="plants">{{this}}</li>
-    {{/each}}
-    {{else}}
-    <p>You don't have any plant, why don't you start now?</p>
-    <a href="/">Go to the catalogue</a>
-    {{/if}}
-  </div><br />
+    <div class="form-group">
+      <label for="image" class="subtitle">Upload a new profile picture:</label>
+      <button id="imageAdd" onclick="document.getElementById('uploadImage').click()" <title="Click or Drag Image">Upload
+        image</button>
+      <input id="uploadImage" type="file" name="photo" />
+    </div><br />
+    <div class="form-group">
+      <label for="username">Username:</label>
 
-  <button type="submit" class="btn">Update</button>
+      {{#if user.userName}}
+      <input type="text" name="username" placeholder="{{user.userName}}" value="{{user.userName}}">
+      {{else}}
+      <input type="text" name="username" placeholder="My username">
+      {{/if}}
+    </div><br />
+    <div class="form-group">
+      <label class="email-password" for="mail">E-mail:</label>
+      <input type="text" name="mail" placeholder="{{ user.userEmail }}" value="{{user.userEmail}}">
+    </div><br />
+    <div class="form-group">
+      <label class="email-password" for="age">Age:</label>
+      {{#if user.age}}
+      <input type="number" name="age" placeholder="{{user.age}}">
+      {{else}}
+      <input type="number" name="age" placeholder="My age">
+      {{/if}}
+    </div><br />
+    <div class="form-group">
+    
+      <label class="email-password" for="location">Location:</label>
+      {{#if user.location}}
+      <input type="text" name="location" placeholder="{{ user.location }}">
+
+      {{else}}
+      <input type="text" name="location" placeholder="My location">
+      {{/if}}
+    </div><br />
+
+    <button type="submit" class="btn">Update</button>
 </form>
+</div>
