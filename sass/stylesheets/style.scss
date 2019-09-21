@@ -27,27 +27,38 @@ h4 {
 
  /************ ALERTS ************/
 
+.fixed {
+   position: absolute;
+}
+
  .alert {
    padding: 15px;
    border: 1px solid transparent;
-   //  margin-bottom: 20px;
-   //  border-radius: 4px;
-    }
+   margin-top: -100px;
+   width: 100vw;
+   position: fixed;
+   color: #fff;
+   text-align: center;
+   animation: moveInBottom 5s ease-out;
+}
+
+@keyframes moveInBottom {
+   0% { margin-top: 0px; }
+   80% { margin-top: 0px; }
+   100% { margin-top: -100px; }
+ }
     
-    .alert-success {
-    color: #fff;
-    background-color: #19b698;
-    border-color: #0fac8e;
-    }
-    
-    .alert-info {
-    color: #fff;
-    background-color: #4aa3df;
-    border-color: #4099d5;
-    }
-    
-    .alert-danger {
-    color: #fff;
-    background-color: #ea6153;
-    border-color: #e05749;
-    }
+.alert-success {
+   background-color: #62C890;
+   border-color: #62C890;
+}
+
+.alert-info {
+   background-color: #1A697F;
+   border-color: #1A697F;
+}
+
+.alert-danger {
+   background-color: #C84040;
+   border-color: #C84040;
+}
