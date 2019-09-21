@@ -6,6 +6,9 @@
   {{#each user.userPlants}}
   {{!-- Should display a picture --}}
   <h3><a href="/mygarden/{{ this._id }}">{{ this.nickname }}</a></h3>
+  {{#each this.userPics}}
+  <img src="{{ this.imgPath }}" alt="Picture of a plant" class="plant-img">
+  {{/each}}
   {{/each}}
 </div>
 

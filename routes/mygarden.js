@@ -5,6 +5,7 @@ const router = express.Router();
 const MyPlant = require('../models/MyPlant');
 const User = require('../models/User');
 const Plant = require('../models/Plant');
+const uploadCloud = require('../config/cloudinary');
 const { checkIfLoggedIn } = require('../middlewares/auth');
 
 /* GET myGarden view. */
@@ -19,7 +20,7 @@ router.get('/', checkIfLoggedIn, async (req, res, next) => {
 });
 
 /* GET myGarden add form view */
-router.get('/add', (req, res) => {
+router.get('/add', uploadCloud.single('photo'), (req, res) => {
   Plant.find()
     .then((plants) => {
       res.render('addmyplant', { plants, active: { plants: true } });
@@ -30,10 +31,14 @@ router.get('/add', (req, res) => {
 });
 
 /* POST myGarden send form information */
-router.post('/add', checkIfLoggedIn, async (req, res, next) => {
+router.post('/add', uploadCloud.single('photo'), async (req, res, next) => {
   const {
     nickname, rating, shoppingPoint, typePlant,
   } = req.body;
+  const imgPath = req.file.url;
+  const when = new Date();
+  const date = when.getTime();
+  const userPics = [{ imgPath, date }];
   const { _id } = req.session.currentUser;
   console.log('user is:', _id);
   if (nickname === '' || rating === '' || shoppingPoint === '') {
@@ -42,7 +47,7 @@ router.post('/add', checkIfLoggedIn, async (req, res, next) => {
   } else {
     try {
       const plant = await MyPlant.create({
-        nickname, rating, shoppingPoint, typePlant,
+        nickname, rating, shoppingPoint, typePlant, userPics,
       });
       const userUpdate = await User.findByIdAndUpdate(_id, {
         $push: { userPlants: plant._id },
@@ -69,7 +74,7 @@ router.get('/:myplantId', checkIfLoggedIn, async (req, res, next) => {
 });
 
 /* GET PlantId EDIT view. */
-router.get('/:myplantId/edit', checkIfLoggedIn, async (req, res, next) => {
+router.get('/:myplantId/edit', uploadCloud.single('photo'), async (req, res, next) => {
   try {
     const { myplantId } = req.params;
     const plants = await Plant.find();
@@ -81,17 +86,27 @@ router.get('/:myplantId/edit', checkIfLoggedIn, async (req, res, next) => {
 });
 
 /* POST PlantId EDIT. */
-router.post('/:myplantId/edit', checkIfLoggedIn, async (req, res, next) => {
+router.post('/:myplantId/edit', uploadCloud.single('photo'), async (req, res, next) => {
   const {
     nickname, rating, shoppingPoint, typePlant,
   } = req.body;
   const { myplantId } = req.params;
+  // Take form's data for the pic
+  const imgPath = req.file.url;
+  const when = new Date();
+  const date = when.getTime();
+  const userNewPic = { imgPath, date };
+  // Update info (must substitute)
   try {
     await MyPlant.findByIdAndUpdate(myplantId, {
       nickname,
       rating,
       shoppingPoint,
       typePlant,
+    }, { new: true });
+    // Add pic (should not substitute)
+    await MyPlant.findByIdAndUpdate(myplantId, {
+      $push: { userPics: userNewPic },
     }, { new: true });
     res.redirect(`/mygarden/${myplantId}`);
   } catch (error) {

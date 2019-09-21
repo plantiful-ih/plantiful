@@ -2,7 +2,7 @@
   background-color: white;
   border-top:1px solid $color-gray-medium;
   position: -webkit-sticky; /* Safari */ 
-  position:sticky;
+  position:fixed;
   z-index:999999;
   bottom:0;
   width:100%;
