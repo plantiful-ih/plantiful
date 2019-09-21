@@ -7,7 +7,7 @@ const userSchema = new Schema(
     userEmail: { type: String, required: true, unique: true },
     hashedPassword: String,
     userName: String,
-    location: Array,
+    location: String,
     age: Number,
     image: {
       type: String,

@@ -19,7 +19,7 @@
   <br>
   <p>This plant can live up tp {{ plant.typePlant.lifeLength }}</p>
   <br>
-  <p>{{ plant.typePlant.img }}</p>
+  <img src='{{ plant.typePlant.img }}' alt="typeplant image" class="plant-img">
   <br>
   <p>Care tips:</p>
   <br>
@@ -36,10 +36,6 @@
   <img src="{{ this.imgPath }}" alt="Picture of a plant" class="plant-img">
   <figcaption>{{ this.date }}</figcaption>
   {{/each}}
-
-  {{!-- <button class="btn"><a href="/mygarden/{{ plant._id }}/edit">Edit plant</a></button>
-<button class="btn"><a href="/mygarden/{{ plant._id }}/delete">Delete</a></button> --}}
-
   <a href="/mygarden/{{ plant._id }}/edit"><button class="btn">Edit plant</button></a>
   <a href="/mygarden/{{ plant._id }}/delete"><button class="btn-outlined">Delete</button></a>
 </div>

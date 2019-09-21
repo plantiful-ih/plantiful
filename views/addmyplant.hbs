@@ -30,11 +30,12 @@
       <input type="range" name="rating" min="0" max="5">
     </div><br />
 
-    <div class="form-group">
-      <label class="email-password" for="photo">Start your plant diary:</label>
-      <input type="file" name="photo">
-      {{!--This should take also the default date & push to the pictures array--}}
-    </div><br />
+  <div class="form-group">
+    <label for="photo">Start your plant diary:</label>
+    <button id="imageAdd" onclick="document.getElementById('uploadImage').click()" <title="Click or Drag Image">Upload
+      image</button>
+    <input id="uploadImage" type="file" name="photo" />
+  </div><br />
 
     <button type="submit" class="btn">Save</button>
     <a href="/mygarden"><button type="submit" class="btn-outlined">Cancel</button></a>

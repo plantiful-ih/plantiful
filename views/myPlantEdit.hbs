@@ -7,13 +7,15 @@
   </div><br />
 
   <div class="form-group">
-    <label for="typePlant">Is it not a {{ myplant.typePlant.commonName }}?</label>
-    <select name='typePlant'>
-      <option value={{ myplant.typePlant._id }} selected="selected">{{ myplant.typePlant.commonName }}</option>
-      {{#each plants}}
-      <option value={{ this._id }}>{{ this.commonName }}</option>
-      {{/each}}
-    </select>
+    <div class="select-field">
+      <label for="typePlant">Is it not a {{ myplant.typePlant.commonName }}?</label>
+      <select name='typePlant'>
+        <option value={{ myplant.typePlant._id }} selected="selected">{{ myplant.typePlant.commonName }}</option>
+        {{#each plants}}
+        <option value={{ this._id }}>{{ this.commonName }}</option>
+        {{/each}}
+      </select>
+    </div>
   </div><br />
 
   <div class="form-group">
@@ -29,8 +31,11 @@
 
   <div class="form-group">
     <label for="photo">Add pictures to your plant diary:</label>
-    <input type="file" name="photo">
-    {{!--This should take also the default date & push to the pictures array--}}
+    <button id="imageAdd" onclick="document.getElementById('uploadImage').click()" <title="Click or Drag Image">Upload
+      image</button>
+    <input id="uploadImage" type="file" name="photo" />
+  </div><br />
+
   </div><br />
 
   <button type="submit" class="btn">Update</button>
