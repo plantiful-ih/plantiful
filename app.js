@@ -9,15 +9,14 @@ const sassMiddleware = require('node-sass-middleware');
 const mongoose = require('mongoose');
 const session = require('express-session');
 const MongoStore = require('connect-mongo')(session);
+const flash = require('connect-flash');
+const notifications = require('./middlewares/flash');
 require('dotenv').config();
-const flash = require("express-flash-notification");
-const flashNotificationOptions = require("./middlewares/flash");
 
 mongoose
   .connect(process.env.MONGODB, { useNewUrlParser: true, useCreateIndex: true })
   .then(() => console.log('Connected to Mongo!'))
   .catch((err) => console.error('Error connecting to mongo', err));
-
 
 // const indexRouter = require('./routes/index');
 const authRouter = require('./routes/auth');
@@ -60,8 +59,8 @@ app.use(
     },
   }),
 );
-
-app.use(flash(app, flashNotificationOptions));
+app.use(flash());
+app.use(notifications(app));
 
 app.use((req, res, next) => {
   app.locals.currentUser = req.session.currentUser;
@@ -81,7 +80,7 @@ app.use((req, res, next) => {
 });
 
 // error handler
-app.use((err, req, res, next) => {
+app.use((err, req, res) => {
   // set locals, only providing error in development
   res.locals.message = err.message;
   res.locals.error = req.app.get('env') === 'development' ? err : {};

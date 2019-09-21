@@ -49,6 +49,65 @@ a:visited {
   
 }
 
+#container-center {
+  background-color: #ECECEE;;
+  margin: auto;
+  text-align: center;
+  min-height:100vh;
+}
 
+.h2-color {
+  color: #1A697F;
+  font-family: Domine;
+  font-style: normal;
+  font-weight: bold;
+  font-size: 28px;
+  line-height: 34px;
+  text-align: center;
+}
 
+.h2-color-margin {
+  color: #1A697F;
+  font-family: Domine;
+  font-style: normal;
+  font-weight: bold;
+  font-size: 28px;
+  line-height: 34px;
+  text-align: center;
+  margin-top: 0.938em;
+  margin-bottom: 0.938em;
+}
 
+.email-password {
+  font-family: Roboto;
+  font-style: normal;
+  font-weight: normal;
+  font-size: 12px;
+  line-height: 24px;
+  color: #110F24;
+}
+
+.subtitle {
+  color: #62C890;
+  font-family: Roboto;
+  font-style: normal;
+  font-weight: 500;
+  font-size: 1.125em;
+  line-height: 1.5px;
+}
+
+.subtitle-margin {
+  color: #62C890;
+  font-family: Roboto;
+  font-style: normal;
+  font-weight: 500;
+  font-size: 1.125em;
+  line-height: 1.5px;
+  margin-top: 0.938em;
+  margin-bottom: 0.938em;
+}
+
+.margin {
+  margin-top: 0.938em;
+  margin-bottom: 0.938em;
+}

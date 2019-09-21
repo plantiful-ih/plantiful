@@ -51,8 +51,8 @@ router.post('/edit', checkIfLoggedIn, uploadCloud.single('photo'), async (req, r
       image: imgPath,
     }, { new: true });
     req.session.currentUser = userUpdate;
-    req.flash('GOOD', 'Updated', '/profile');
-    // res.redirect('/profile');
+    req.flash('success', 'Updated');
+    res.redirect('/profile');
   } catch (error) {
     next(error);
   }

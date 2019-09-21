@@ -27,7 +27,8 @@ router.post('/signup', (req, res) => {
       .then((email) => {
         if (email) {
           // console.log('this email already exists');
-          req.flash('BAD', 'This email is already registered.', '/signup');
+          req.flash('error', 'This email is already registered.');
+          res.redirect('/signup');
           // res.render('auth/signup', { error: 'This email is already registered.' });
         } else {
           // console.log('email does not exist', email);
@@ -38,8 +39,8 @@ router.post('/signup', (req, res) => {
           User.create({ userEmail, hashedPassword })
             .then(() => {
               // console.log('new user has been created');
-              req.flash('GOOD', 'New user has been created. Now you can login.', '/plants');
-              // res.redirect('/');
+              req.flash('success', 'New user has been created. Now you can login.');
+              res.redirect('/plants');
             })
             .catch((error) => {
               throw error;
@@ -48,11 +49,12 @@ router.post('/signup', (req, res) => {
       })
       .catch((error) => {
         // console.log(error);
-        res.render('auth/signup', { error: 'error try again' });
+        req.flash('error', 'Error try again.');
+        res.redirect('/signup');
       });
   } else {
-    req.flash('BAD', 'All fields must be filled', '/signup');
-    // res.render('auth/signup', { error: 'all the fields must be filled' });
+    req.flash('error', 'All fields must be filled.');
+    res.redirect('/signup');
   }
 });
 
@@ -60,7 +62,6 @@ router.post('/signup', (req, res) => {
 router.get('/login', checkIfNotLoggedIn, (req, res) => {
   res.render('auth/login');
 });
-
 
 router.post('/login', (req, res) => {
   const { userEmail, password } = req.body;
@@ -72,26 +73,26 @@ router.post('/login', (req, res) => {
             // password valido
             // guardo la session
             req.session.currentUser = user;
-            req.flash('GOOD', 'You are connected with your plants :).', '/mygarden');
             console.log(user);
-            // res.redirect('/mygarden');
+            req.flash('success', 'You are connected with your plants 🎉.');
+            res.redirect('/mygarden');
           } else {
             // password invalido
-            req.flash('BAD', 'Wrong email or password.', '/login');
-            // res.render('auth/login', { error: 'Wrong email or password.' });
+            req.flash('error', 'Wrong email or password.');
+            res.redirect('/login');
           }
         } else {
-          req.flash('BAD', 'User does not exist, please sign up.', '/signup');
-          // res.redirect('/signup', { error: 'User does not exist, please sign up.' });
+          req.flash('error', 'User does not exist, please sign up.');
+          res.redirect('/signup');
         }
       })
       .catch(() => {
-        req.flash('BAD', 'There was an error. Please try again.', '/login');
-        // res.render('auth/login', { error: 'There was an error. Please try again.' });
+        req.flash('error', 'There was an error. Please try again.');
+        res.redirect('/login');
       });
   } else {
-    req.flash('BAD', 'All fields must be filled', '/login');
-    // res.render('auth/login', { error: 'All fields must be filled' });
+    req.flash('error', 'All fields must be filled');
+    res.redirect('/login');
   }
 });
 
@@ -99,7 +100,7 @@ router.post('/login', (req, res) => {
 router.get('/logout', (req, res, next) => {
   // req.session.currentUser = null;
   req.session.destroy();
-  // req.flash('GOOD', 'See you next time!', '/login');
+  // req.flash('success', 'See you next time!');
   res.redirect('/login');
   // req.session.destroy((err) => {
   //   // cannot access session here
