@@ -30,12 +30,14 @@ h5{
   font-weight:100;
 }
 
-
+.underlined {
+  text-decoration: underline;
+  color: $color-primary;
+}
 
 
 ///*** DESKTOP ***///
 @media (min-width: 1024px) {
-
   h1 {
     font-size: 3em;
   } 

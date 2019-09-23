@@ -1,24 +1,31 @@
-<div id="container-center">
-    <form id="form" action="/signup" method="POST">
-        <h4>Sign up</h4>
-        <br>
-        <h2 class="h2-color">Start making your <br> life greenier.</h2>
+<div class="bg" style="min-height: 100vh;">
+  <div class="header">
+    <button class="back-arrow" onclick="goBack()">
+      <img src="../images/back-arrow.png" alt="Go back">
+    </button>
+  </div>
+  <h4 class="centered" style="margin-top: -50px">Sign up</h4>
+  <form id="form" action="/signup" method="POST">
+    <br>
+    <img src="../images/plantiful_logo.png" class="icon" alt="Plantiful logo"
+      style="display: block; margin: 0 auto; width: 80px">
+    <h2 class="h2-color">Start making your <br> life greenier.</h2>
 
-        <label class="email-password" for="userEmail">User email</label>
-        <input type="text" name="userEmail" placeholder="user@email.com" required>
+    <label class="email-password" for="userEmail">User email</label>
+    <input type="text" name="userEmail" placeholder="user@email.com" required>
 
-        <label class="email-password" for="password">Password</label>
-        <input type="password" name="password" placeholder="********" required>
+    <label class="email-password" for="password">Password</label>
+    <input type="password" name="password" placeholder="********" required>
 
-        <br>
+    <br>
 
-        <button type="submit" class="btn">Create account</button>
-        {{#if error}}
-        <div class="error-message">{{ error }}</div>
-        {{/if}}
+    <button type="submit" class="btn" style="display: block; margin: 10px auto;">Create account</button>
+    {{#if error}}
+    <div class="error-message">{{ error }}</div>
+    {{/if}}
 
-        <p class="account-message email-password">
-            You are already a plantiful master? <a href="/login">Log in</a>
-        </p>
-    </form>
+    <p class="small" style="text-align: center; margin: 30px auto;">
+      You are already a plantiful master? <a class="underlined" style="text-align: center;" href="/login">Log in</a>
+    </p>
+  </form>
 </div>
