@@ -18,7 +18,7 @@ hr {
   p {
     margin: 0;
   }
-  &:last-child {
+  .col-3 last-of-type {
     border-right: 0px;
   }
 }
@@ -51,4 +51,17 @@ hr {
 
 .hash-group {
   margin-top: 30px;
+}
+
+.myplant-img {
+  max-width: 30vw;
+  margin-right: 5px;
+  border: 1px solid $color-primary;
+  border-radius: 5px;
+}
+
+.myplant-gallery {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
 }

@@ -41,7 +41,7 @@ router.post('/edit', checkIfLoggedIn, uploadCloud.single('photo'), async (req, r
   } = req.body;
   const { _id } = req.session.currentUser;
   const imgPath = req.file.url;
-  console.log('user is:', _id);
+  console.log(imgPath);
   try {
     const userUpdate = await User.findByIdAndUpdate(_id, {
       userName: username,

@@ -31,3 +31,11 @@
     margin-top:2em;
   }
 }
+
+.bg {
+  background-color: $color-gray-medium;
+  background-image: url(../images/watercolor.png);
+  background-repeat: no-repeat;
+  background-position: right bottom -60px;
+  background-size: 60vw;
+}

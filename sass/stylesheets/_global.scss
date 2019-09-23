@@ -26,8 +26,6 @@ a:visited {
   cursor: pointer;
 }
 
-
-
 #container {
   min-height: 100%;
   margin-bottom: 60px;
@@ -39,7 +37,6 @@ a:visited {
   margin:1em;
 }
 
-
 ///*** DESKTOP MINIMUN ***///
 @media (min-width: 1024px) {
   .content{
@@ -50,7 +47,7 @@ a:visited {
 }
 
 #container-center {
-  background-color: #ECECEE;;
+  background-color: $color-gray-medium;
   margin: auto;
   text-align: center;
   min-height:100vh;

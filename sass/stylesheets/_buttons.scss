@@ -73,3 +73,14 @@
   @include btn-default();
   background: #77A3B1;
 }
+
+@media (max-width: 600px){
+  .btn-round {
+    width: 60%;
+  }
+}
+
+.btn-container {
+  margin-top: 20px;
+  text-align: center;
+}
