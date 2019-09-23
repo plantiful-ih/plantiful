@@ -93,3 +93,45 @@ label {
   margin-bottom: -10px;
 }
 
+.search-content{
+  width:100%;
+  position:relative;
+}
+
+input[type=search] {
+  background-color: transparent;
+  font-family: 'Roboto', sans-serif;
+  line-height:1.2em;
+  border:2px solid $color-gray-dark;
+  border-radius: 25px;
+  height:50px;
+  outline:none;
+  margin:1em 0;
+  width:100%;
+  padding:12px 12px 12px 32px;
+  cursor:pointer;
+  &:focus{
+    color: $color-primary;
+    border-color: $color-primary;
+  }
+}
+
+.search-icon{
+  position:absolute;
+  margin-top:32px;
+  margin-left:12px;
+  &:hover
+    path{
+      fill:$color-primary;
+    }
+  &:focus{
+    fill:$color-primary;
+  }
+  path{
+    fill:$color-text-opacity;
+    transform:scale(1);
+    transition: fill .05s;
+  }
+}
+
+
