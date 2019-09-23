@@ -5,6 +5,7 @@ const bcrypt = require('bcrypt');
 const bcryptSalt = parseInt(process.env.BCRYPTSALT);
 const router = express.Router();
 const User = require('../models/User');
+const Plant = require('../models/Plant');
 
 const { checkIfNotLoggedIn } = require('../middlewares/auth');
 
@@ -15,6 +16,33 @@ router.get('/', (req, res) => {
 /* Get Sign up page */
 router.get('/signup', (req, res) => {
   res.render('auth/signup');
+});
+
+/* Search results field */
+function escapeRegex(text) {
+  return text.replace(/[-[\]{}()*+?.,\\^$|#\s]/g, '\\$&');
+}
+
+router.get('/search', (req, res, next) => {
+  const { q } = req.query;
+  const regex = new RegExp(escapeRegex(q), 'gi');
+
+  Plant.findOne({ commonName: regex })
+    .then((plant) => {
+      if (plant) {
+        console.log(plant);
+        res.render('search', { plant, active: { home: true } });
+      } else {
+        // req.flash('error', 'No plants match that query, please try again.');
+        const error = new Error('Sorry, we don\'t have that plant yet');
+        Error.status = 404;
+        res.render('search', { error });
+        throw error;
+      }
+    })
+    .catch((err) => {
+      console.log('Error while looking for the plant', err);
+    });
 });
 
 /* Create a User */

@@ -1,0 +1,15 @@
+@import 'global';
+
+.error-message{
+  text-align: center;
+  margin-top:2em;
+  h3{
+    color:$color-primary;
+    margin:0px;
+    line-height:1.4em;
+  }
+  h5{
+    color:$color-green;
+    margin:16px 0px;
+  }
+}

@@ -21,6 +21,12 @@ a:visited {
     text-decoration: none; 
 }
 
+.back-section{
+  min-height:50px;
+  position:absolute;
+  z-index:999;
+}
+
 .back-arrow{
   margin:1.5em;
   cursor: pointer;
