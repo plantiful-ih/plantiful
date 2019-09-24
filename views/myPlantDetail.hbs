@@ -1,13 +1,11 @@
 <div class="cover">
-  <div class="cover-content">
-    <button class="back-arrow" onclick="goBack()">
-      <img src="../images/back-arrow.png" alt="Go back">
-    </button>
-  </div>
+  <button class="back-arrow" onclick="goBack()">
+    <img src="../images/back-arrow.png" alt="Go back">
+  </button>
 </div>
 
 <div class="content">
-  <h2 class="centered">{{ plant.nickname }}</h2>
+  <h2 class="centered title dark-green-text">{{ plant.nickname }}</h2>
   <img src='{{ plant.typePlant.img }}' alt="typeplant image" class="plant-img">
 
   <div class="myplant-gallery">
@@ -51,6 +49,6 @@
     {{/each}}
   </div>
 
-  <a href="/mygarden/{{ plant._id }}/edit"><button class="btn">Edit plant</button></a>
+  <a href="/mygarden/{{ plant._id }}/edit"><button class="btn btn-margin">Edit plant</button></a>
   <a href="/mygarden/{{ plant._id }}/delete"><button class="btn-outlined">Delete</button></a>
 </div>

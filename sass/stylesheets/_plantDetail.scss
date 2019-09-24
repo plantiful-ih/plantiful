@@ -10,7 +10,7 @@ hr {
 }
 
 .col-3 {
-  width: 30vw;
+  width: 28vw;
   display: inline-block;
   border-right: 1px solid $color-gray-medium;
   text-align: center;
@@ -18,8 +18,11 @@ hr {
   p {
     margin: 0;
   }
-  .col-3 last-of-type {
+  &:last-child {
     border-right: 0px;
+  }
+  img {
+    max-width: 28vw;
   }
 }
 

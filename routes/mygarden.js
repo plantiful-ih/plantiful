@@ -13,7 +13,8 @@ router.get('/', checkIfLoggedIn, async (req, res, next) => {
   try {
     const { _id } = req.session.currentUser;
     const user = await User.findOne({ _id }).populate('userPlants');
-    res.render('mygarden', { user, active: { plants: true } });
+    const numberOfPlants = user.userPlants.length;
+    res.render('mygarden', { user, numberOfPlants, active: { plants: true } });
   } catch (error) {
     next(error);
   }
@@ -36,7 +37,6 @@ router.post('/add', uploadCloud.single('photo'), async (req, res, next) => {
     nickname, rating, shoppingPoint, typePlant,
   } = req.body;
   const imgPath = req.file.url;
-
   const date = new Date();
   const day = date.getDay();
   const month = date.getMonth();

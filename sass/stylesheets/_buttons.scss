@@ -24,8 +24,7 @@
 .btn-round {
   @include btn-default();
   border-radius: 100%;
-  padding-left: 1.383em;
-  padding-right: 1.383em;
+  padding: 0.6em;
   background: #62C890;
 }
 
@@ -83,4 +82,22 @@
 .btn-container {
   margin-top: 20px;
   text-align: center;
+}
+
+.btn-margin {
+  margin: 30px 10px 30px 30px;
+}
+
+.btn-plus {
+  font-size: 30px;
+  font-family: 'Roboto', sans-serif;
+  border-radius: 100%;
+  background-color: $color-green;
+  padding: 0.1em 0.35em 0.1em 0.35em;
+  color: white;
+}
+
+.btn-centered {
+  display: block;
+  margin: 20px auto;
 }

@@ -26,19 +26,13 @@ router.post('/signup', (req, res) => {
     User.findOne({ userEmail })
       .then((email) => {
         if (email) {
-          // console.log('this email already exists');
           req.flash('error', 'This email is already registered.');
           res.redirect('/signup');
-          // res.render('auth/signup', { error: 'This email is already registered.' });
         } else {
-          // console.log('email does not exist', email);
-          /* Password encryptation */
           const salt = bcrypt.genSaltSync(bcryptSalt);
           const hashedPassword = bcrypt.hashSync(password, salt);
-          /* New user */
           User.create({ userEmail, hashedPassword })
             .then(() => {
-              // console.log('new user has been created');
               req.flash('success', 'New user has been created. Now you can login.');
               res.redirect('/plants');
             })
@@ -48,7 +42,6 @@ router.post('/signup', (req, res) => {
         }
       })
       .catch((error) => {
-        // console.log(error);
         req.flash('error', 'Error try again.');
         res.redirect('/signup');
       });
@@ -70,14 +63,11 @@ router.post('/login', (req, res) => {
       .then((user) => {
         if (user) {
           if (bcrypt.compareSync(password, user.hashedPassword)) {
-            // password valido
-            // guardo la session
             req.session.currentUser = user;
             console.log(user);
             req.flash('success', 'You are connected with your plants 🎉.');
             res.redirect('/mygarden');
           } else {
-            // password invalido
             req.flash('error', 'Wrong email or password.');
             res.redirect('/login');
           }
@@ -98,17 +88,12 @@ router.post('/login', (req, res) => {
 
 /* Get logout page */
 router.get('/logout', (req, res, next) => {
-  // req.session.currentUser = null;
-  req.session.destroy();
-  // req.flash('success', 'See you next time!');
-  res.redirect('/login');
-  // req.session.destroy((err) => {
-  //   // cannot access session here
-  //   if (err) {
-  //     next(err);
-  //   }
-  //   res.redirect('/login');
-  // });
+  req.session.destroy((err) => {
+    if (err) {
+      next(err);
+    }
+    res.redirect('/login');
+  });
 });
 
 module.exports = router;
