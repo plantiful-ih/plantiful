@@ -45,6 +45,24 @@ router.get('/search', (req, res, next) => {
     });
 });
 
+/* Tags results field */
+router.get('/tagged/:place', (req, res, next) => {
+  const { place } = req.params;
+
+  Plant.find({ place: { $elemMatch: { $eq: place } } })
+    .then((data) => {
+      data.forEach((plant) => {
+        console.log(plant.commonName);
+      });
+      res.render('index', {
+        title: 'Plantiful', data, active: { home: true }, tagActive: { place: true },
+      });
+    })
+    .catch((err) => {
+      console.log('Error while looking for the plant', err);
+    });
+});
+
 /* Create a User */
 router.post('/signup', (req, res) => {
   const { userEmail, password } = req.body;
