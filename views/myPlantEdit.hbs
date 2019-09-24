@@ -16,7 +16,7 @@
 
     <div class="form-group" style="display: block; margin-left: 24px;">
       <div class="select-field">
-        <label for="typePlant">Is it not a {{ myplant.typePlant.commonName }}?</label>
+        <label for="typePlant" style="margin-left: -3px;">Is it not a {{ myplant.typePlant.commonName }}?</label>
         <select name='typePlant'>
           <option value={{ myplant.typePlant._id }} selected="selected">{{ myplant.typePlant.commonName }}</option>
           {{#each plants}}
