@@ -17,9 +17,20 @@
           d="M17.6574 17.6646C17.4339 17.8882 17.1545 18 16.8751 18C16.5957 18 16.3163 17.8882 16.0928 17.6646L10.6727 12.2422C9.55511 13.0248 8.21404 13.472 6.76122 13.472C3.0174 13.472 1.9265e-07 10.4534 1.9265e-07 6.70807C1.9265e-07 2.96273 3.0174 0 6.76122 0C10.4492 0 13.5224 3.01863 13.5224 6.76398C13.5224 8.21739 13.0754 9.55901 12.2931 10.677L17.7133 16.0994C18.1044 16.4907 18.1044 17.2174 17.6574 17.6646ZM11.2314 6.76398C11.2314 4.30435 9.21984 2.29193 6.76122 2.29193C4.30259 2.29193 2.29099 4.30435 2.29099 6.76398C2.29099 9.2236 4.30259 11.236 6.76122 11.236C9.21984 11.236 11.2314 9.2236 11.2314 6.76398Z"
           fill="#CCCED0" />
       </svg>
-      <input type="search" results="5" name="q" class="searchInput" placeholder="Type a plant" required>
-      {{!-- <button type="submit" class="btn">SEARCH</button> --}}
+      <input type="search" results="5" name="q" class="searchInput" placeholder="Type a plant" required
+        inputmode="search">
     </form>
+    <div class="places-tags" id="tag-container">
+      <ul>
+        <li class="active"><a href="/plants">All</a></li>
+        <li class="{{#if tagActive.kitchen}}active{{/if}}"><a href="/tagged/kitchen">Kitchen</a></li>
+        <li class="{{#if tagActive.bedroom}}active{{/if}}"><a href="/tagged/bedroom">Bedroom</a></li>
+        <li class="{{#if tagActive.bathroom}}active{{/if}}"><a href="/tagged/bathroom">Bathroom</a></li>
+        <li class="{{#if tagActive.livingroom}}active{{/if}}"><a href="/tagged/livingroom">Living Room</a>
+        </li>
+        <li class="{{#if tagActive.terrace}}active{{/if}}"><a href="/tagged/terrace">Terrace</a></li>
+      </ul>
+    </div>
   </div>
   <div class="plants-showcase">
     {{#each this.data}}

@@ -134,4 +134,36 @@ input[type=search] {
   }
 }
 
+.places-tags{
+  ul{
+    overflow-x: scroll;
+    overflow-y: hidden;
+    white-space: nowrap;
+    padding-bottom:16px;
+    /*for iOS scrolling*/
+    -webkit-overflow-scrolling: touch;
+    &::-webkit-scrollbar {
+      display: none;
+    }
+    li{
+      border-radius: 25px;
+      background-color:$color-gray-light;
+      padding:12px 16px;
+      display:inline-block;
+      font-family: 'Roboto', sans-serif;
+      color:$color-text-opacity;
+      font-size:.9em;
+      margin-right:12px;
+    }
+    .active{
+      background-color:$color-light-blue;
+      color:$color-gray-light;
+    }
+    &:focus{
+      background-color:$color-light-blue;
+      color:$color-gray-light;
+    }
+  }
+}
+
 
