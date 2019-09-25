@@ -71,8 +71,16 @@ router.get('/:myplantId', checkIfLoggedIn, async (req, res, next) => {
   try {
     const { myplantId } = req.params;
     const plant = await MyPlant.findOne({ _id: myplantId }).populate('typePlant');
-    console.log(plant, plant.typePlant);
-    res.render('myPlantDetail', { plant, active: { plants: true } });
+    const rating = [];
+    for (let i = 0; i < plant.rating; i++) {
+      rating.push('../images/star.png');
+    }
+    if (plant.rating < 5) {
+      for (let x = plant.rating; x < 5; x++) {
+        rating.push('../images/star_empty.png');
+      }
+    }
+    res.render('myPlantDetail', { plant, rating, active: { plants: true } });
   } catch (error) {
     next(error);
   }

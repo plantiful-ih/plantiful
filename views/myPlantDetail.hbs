@@ -15,9 +15,14 @@
     {{/each}}
   </div>
 
-  <p>Plant type: {{ plant.typePlant.commonName }}</p>
-  <p>Rating: {{ plant.rating }}</p>
-  <p>Family: {{ plant.typePlant.family }}</p>
+  <h3 class="dark-green-text rating" style="margin: 10px;">{{ plant.typePlant.commonName }}</h3>
+  <span class="rating">
+    {{#each rating}}
+    <img src="{{ this }}" alt="star icon">
+    {{/each}}
+
+  </span>
+  <p class="dark-gray-text">Family: {{ plant.typePlant.family }}</p>
   <hr>
   <p>{{ plant.typePlant.description }}</p>
   <h4 class="green-text">Plant Details:</h4>
