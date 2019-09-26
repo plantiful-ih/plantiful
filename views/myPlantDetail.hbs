@@ -1,41 +1,59 @@
-<div id="container-center">
-  <h2 class="h2-color">My Plant</h2>
-  <br>
-  <h3>{{ plant.nickname }}</h3>
-  <br>
-  <p>Plant type: {{ plant.typePlant.commonName }}</p>
-  <br>
-  <p>{{ plant.typePlant.description }}</p>
-  <br>
-  <p>Bought in {{ plant.shoppingPoint }}</p>
-  <br>
-  <p>Rating: {{ plant.rating }}</p>
-  <br>
-  <p>Family: {{ plant.typePlant.family }}</p>
-  <br>
-  <p>{{ plant.typePlant.commonName }}'s care difficulty: {{ plant.typePlant.careDifficulty }}</p>
-  <br>
-  <p>Should be watered {{ plant.typePlant.watering }}</p>
-  <br>
-  <p>This plant can live up tp {{ plant.typePlant.lifeLength }}</p>
-  <br>
+<div class="cover">
+  <button class="back-arrow" onclick="goBack()">
+    <img src="../images/back-arrow.png" alt="Go back">
+  </button>
+</div>
+
+<div class="content">
+  <h2 class="centered title dark-green-text">{{ plant.nickname }}</h2>
   <img src='{{ plant.typePlant.img }}' alt="typeplant image" class="plant-img">
-  <br>
-  <p>Care tips:</p>
-  <br>
-  {{#each plant.typePlant.careTips}}
-  <ul>
+
+  <div class="myplant-gallery">
+    {{#each plant.userPics}}
+    <img src="{{ this.imgPath }}" alt="Picture of a plant" class="myplant-img">
+    {{!-- <figcaption>{{ this.date }}</figcaption> --}}
+    {{/each}}
+  </div>
+
+  <h3 class="dark-green-text rating" style="margin: 10px;">{{ plant.typePlant.commonName }}</h3>
+  <span class="rating">
+    {{#each rating}}
+    <img src="{{ this }}" alt="star icon">
+    {{/each}}
+
+  </span>
+  <p class="dark-gray-text">Family: {{ plant.typePlant.family }}</p>
+  <hr>
+  <p>{{ plant.typePlant.description }}</p>
+  <h4 class="green-text">Plant Details:</h4>
+
+  <div class="col-3">
+    <img src="../images/clock.png" class="plant-icon" alt="time icon">
+    <p>{{ plant.typePlant.lifeLength }}</p>
+  </div>
+  <div class="col-3">
+    <img src="../images/drop.png" class="plant-icon" alt="time icon">
+    <p>{{ plant.typePlant.watering }}</p>
+  </div>
+  <div class="col-3">
+    <img src="../images/ray.png" class="plant-icon" alt="time icon">
+    <p>{{ plant.typePlant.careDifficulty }}</p>
+  </div>
+
+  <p>Bought in {{ plant.shoppingPoint }}</p>
+
+  <h4 class="green-text">Care tips:</h4>
+  <ul class="check-list">
+    {{#each plant.typePlant.careTips}}
     <li>{{ this }}</li>
+    {{/each}}
   </ul>
-  {{/each}}
-  <p>Best environment: {{ plant.typePlant.place }}</p>
-  <br>
-  <h4>{{ plant.nickname }}'s history pics:</h4>
-  <br>
-  {{#each plant.userPics}}
-  <img src="{{ this.imgPath }}" alt="Picture of a plant" class="plant-img">
-  <figcaption>{{ this.date }}</figcaption>
-  {{/each}}
-  <a href="/mygarden/{{ plant._id }}/edit"><button class="btn">Edit plant</button></a>
+  <div class="hash-group">
+    {{#each plant.typePlant.place}}
+    <span class="hashtag">#{{ this }}</span>
+    {{/each}}
+  </div>
+
+  <a href="/mygarden/{{ plant._id }}/edit"><button class="btn btn-margin">Edit plant</button></a>
   <a href="/mygarden/{{ plant._id }}/delete"><button class="btn-outlined">Delete</button></a>
 </div>

@@ -11,12 +11,15 @@ const { checkIfLoggedIn } = require('../middlewares/auth');
 const uploadCloud = require('../config/cloudinary');
 
 /* Get profile page with user info */
-router.get('/', checkIfLoggedIn, (req, res, next) => {
+router.get('/', checkIfLoggedIn, async (req, res, next) => {
   try {
-    const user = req.session.currentUser;
-    const numberOfPlants = user.userPlants.length;
+    // const user = req.session.currentUser;
+    // const numberOfPlants = user.userPlants.length;
+    const { _id } = req.session.currentUser;
+    const user = await User.findOne({ _id }).populate('userPlants');
     const active = { profile: true };
-    res.render('auth/profile', { user, numberOfPlants, active });
+
+    res.render('auth/profile', { user, active });
   } catch (error) {
     next(error);
   }
@@ -41,7 +44,7 @@ router.post('/edit', checkIfLoggedIn, uploadCloud.single('photo'), async (req, r
   } = req.body;
   const { _id } = req.session.currentUser;
   const imgPath = req.file.url;
-  console.log('user is:', _id);
+  console.log(imgPath);
   try {
     const userUpdate = await User.findByIdAndUpdate(_id, {
       userName: username,

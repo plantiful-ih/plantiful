@@ -10,7 +10,7 @@ hr {
 }
 
 .col-3 {
-  width: 30vw;
+  width: 28vw;
   display: inline-block;
   border-right: 1px solid $color-gray-medium;
   text-align: center;
@@ -20,6 +20,9 @@ hr {
   }
   &:last-child {
     border-right: 0px;
+  }
+  img {
+    max-width: 28vw;
   }
 }
 
@@ -51,4 +54,25 @@ hr {
 
 .hash-group {
   margin-top: 30px;
+}
+
+.myplant-img {
+  max-width: 28vw;
+  margin-right: 5px;
+  border: 1px solid $color-primary;
+  border-radius: 5px;
+}
+
+.myplant-gallery {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  margin-bottom: 20px;
+}
+
+.rating {
+  display: inline;
+  &:last-child {
+    margin-left: 10px;
+  }
 }

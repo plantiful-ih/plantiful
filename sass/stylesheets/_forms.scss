@@ -4,15 +4,17 @@ input[type=text], input[type=password], input[type = number] {
  font-family: 'Roboto', sans-serif;
  border: none;
  border-bottom: 2px solid #1A697F;
- width: 280px; //Relative
+ width: 80vw; //Relative
+ max-width: 300px;
  padding: 12px;
- margin: 24px;
+ margin: 10px 24px;
  font-size: 16px;
  line-height: 24px;
  color: $color-text;
   &::placeholder {
   color: $color-gray-dark;
  }
+ background: transparent;
 }
 
 .input-error {
@@ -43,14 +45,21 @@ input[type=text], input[type=password], input[type = number] {
   color: $color-green;
 }
 
+.form-group {
+  margin-bottom: 20px;
+}
+
 input[type=range] {
   -webkit-appearance: none;
-  width: 327px;
+  width: 80vw;
+  max-width: 300px;
   height: 8px;
   border-radius: 5px;  
   background: $color-gray-medium; 
   outline: none;
   opacity: 0.7;
+  margin-left: 24px;
+  margin-bottom: 24px;
   -webkit-transition: .2s;
   transition: opacity .2s;
     &::-webkit-slider-thumb   { 
@@ -71,16 +80,16 @@ input[type=range] {
     }
 }
 
-#imageAdd {      
-  background: $color-gray-light;
-  width:250px;
-  height:30px;
-  font-size:15px;
-  font-family: 'Roboto', sans-serif;
-  border-radius: 5px;
-  border:2px solid $color-primary;
-  margin-left: 24px;
-}
+// #imageAdd {      
+//   background: $color-gray-light;
+//   width:250px;
+//   height:30px;
+//   font-size:15px;
+//   font-family: 'Roboto', sans-serif;
+//   border-radius: 5px;
+//   border:2px solid $color-primary;
+//   margin-left: 24px;
+// }
 
 #uploadImage{
   visibility: hidden;
@@ -90,7 +99,7 @@ input[type=range] {
 
 label {
   margin-left: 24px;
-  margin-bottom: -10px;
+  margin-bottom: -20px;
 }
 
 .search-content{

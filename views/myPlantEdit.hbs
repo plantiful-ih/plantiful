@@ -1,16 +1,22 @@
-<div id="container-center">
-  <h2 class="h2-color">Edit {{ myplant.nickname }}'s information:</h2>
+<div class="cover">
+  <button class="back-arrow" onclick="goBack()">
+    <img src="../images/back-arrow.png" alt="Go back">
+  </button>
+</div>
+
+<div class="content">
+  <h4 class="centered title" style="margin-bottom: 60px;">Edit my plant {{ myplant.nickname }}</h4>
 
   <form action="/mygarden/{{ myplant._id }}/edit" method="POST" enctype="multipart/form-data">
 
     <div class="form-group">
-      <label class="email-password" for="nickname">Your plant's nickname:</label>
+      <label for="nickname">Your plant's nickname:</label>
       <input type="text" name="nickname" placeholder="{{ myplant.nickname }}" value="{{ myplant.nickname }}">
     </div>
 
-    <div class="form-group">
+    <div class="form-group" style="display: block; margin-left: 24px;">
       <div class="select-field">
-        <label class="email-password" for="typePlant">Is it not a {{ myplant.typePlant.commonName }}?</label>
+        <label for="typePlant" style="margin-left: -3px;">Is it not a {{ myplant.typePlant.commonName }}?</label>
         <select name='typePlant'>
           <option value={{ myplant.typePlant._id }} selected="selected">{{ myplant.typePlant.commonName }}</option>
           {{#each plants}}
@@ -19,26 +25,27 @@
         </select>
       </div>
     </div>
-    <br>
+
     <div class="form-group">
-      <label class="email-password" for="shoppingPoint">Where did you get this plant?:</label>
+      <label for="shoppingPoint">Where did you get this plant?:</label>
       <input type="text" name="shoppingPoint" placeholder="{{ myplant.shoppingPoint }}"
         value="{{ myplant.shoppingPoint }}">
     </div>
 
     <div class="form-group">
-      <label class="email-password" for="rating">Rate this plant:</label>
+      <label for="rating">Rate this plant:</label>
       <input type="range" name="rating" min="0" max="5" value="{{ myplant.rating }}">
     </div>
 
     <div class="form-group">
-      <label class="email-password" for="photo">Add pictures to your plant diary:</label>
-      <button id="imageAdd" onclick="document.getElementById('uploadImage').click()" <title="Click or Drag Image">Upload
-        image</button>
+      <button onclick="document.getElementById('uploadImage').click()" class="btn btn-outlined"
+        style="display: block; margin: 20px auto 0 auto;">Add diary picture</button>
       <input id="uploadImage" type="file" name="photo" />
     </div>
-    <br>
-    <button type="submit" class="btn">Update</button>
-    <a href="/mygarden"><button type="submit" class="btn-outlined">Cancel</button></a>
+
+    <div class="btn-container">
+      <button type="submit" class="btn">Update</button>
+      <a href="/mygarden"><button type="submit" class="btn-outlined">Cancel</button></a>
+    </div>
   </form>
 </div>

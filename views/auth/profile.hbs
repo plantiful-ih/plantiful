@@ -13,24 +13,43 @@
     <a href="/profile/edit">Edit profile <img src="../images/icon-edit.png" alt="Edit profile"></a>
   </p>
   <div class="user-info">
+    {{#if user.userName}}
     <h2>{{ user.userName }}</h2>
+    {{else}}
+    <h2>{{ user.userEmail }}</h2>
+    {{/if}}
     <h5>{{ user.location }} ({{ user.age }} years)</h5>
   </div>
-  <div class="user-plants-stats">
+
+  <div class="plants-showcase">
     {{#if user.userPlants}}
-    <p>Plants in your garden: {{ numberOfPlants }}</p>
-    <br>
-    <a href="/"><button class="btn">collect more plants</button></a>
-    <br>
-    </ul>
-    {{else}}
-    <p>You have 0 plants in your garden, let's start collecting!</p>
-    <a href="/"><button class="btn">Go to catalogue</button></a><br />
-    {{/if}}
+    {{#each user.userPlants}}
+
+    <div class="plant-card">
+      <img class="plant-img" src="{{this.userPics.[0].imgPath}}">
+      <div class="card-info">
+        <div class="left">
+          <h4 class="no-margin">{{this.nickname}}</h4>
+          <h5 class="no-margin">{{this.family}}</h5>
+        </div>
+        <div class="right">
+          <a href="/mygarden/{{this._id}}">
+            <button class="btn-plus">+</button>
+          </a>
+        </div>
+      </div>
+    </div>
+
+    {{/each}}
   </div>
-  <br>
-  <a href="/profile/edit"><button class="btn">edit profile</button></a>
-  <br>
-  <br>
-  <a href="/logout"><button class="btn">log out</button></a>
+  {{else}}
+
+  <p>You have 0 plants in your garden, let's start collecting!</p>
+  <a href="/"><button class="btn">Go to catalogue</button></a><br />
+  {{/if}}
+  <div class="centered">
+    <a href="/"><button class="btn btn-centered">collect more plants</button></a>
+    <a href="/profile/edit"><button class="btn btn-outlined btn-centered">edit profile</button></a>
+    <a href="/logout"><button class="btn btn-centered">log out</button></a>
+  </div>
 </div>

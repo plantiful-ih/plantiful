@@ -1,8 +1,16 @@
+<div class="cover">
+  <div class="cover-content">
+    <button class="back-arrow" onclick="goBack()">
+      <img src="../images/back-arrow.png" alt="Go back">
+    </button>
+  </div>
+</div>
+
 <div class="content">
   <img src='{{ plant.img }}' alt="typeplant image" class="plant-centered">
 
   <h2 class="dark-green-text">{{ plant.commonName }}</h2>
-  <p class="p-small gray-text">Family: {{ plant.family }}</p>
+  <p class="p-small dark-gray-text">Family: {{ plant.family }}</p>
   <hr>
   <p>{{ plant.description }}</p>
 

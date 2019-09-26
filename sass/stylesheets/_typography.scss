@@ -30,12 +30,18 @@ h5{
   font-weight:100;
 }
 
+.underlined {
+  text-decoration: underline;
+  color: $color-primary;
+}
 
+.no-margin {
+  margin: 0;
+}
 
 
 ///*** DESKTOP ***///
 @media (min-width: 1024px) {
-
   h1 {
     font-size: 3em;
   } 
@@ -75,6 +81,15 @@ h1, h2, h3, h4, h5, p {
   margin: 20px 0 20px 16px;
 }
 
+.centered {
+  text-align: center;
+}
+
+.title {
+    margin-top: -65px;
+    margin-bottom: 40px;
+}
+
 //*** Colors ****/
 
 .dark-green-text {
@@ -87,4 +102,8 @@ h1, h2, h3, h4, h5, p {
 
 .light-gray-text {
   color: $color-gray-medium;
+}
+
+.dark-gray-text {
+  color: $color-gray-dark;
 }

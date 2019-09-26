@@ -1,21 +1,44 @@
-<div id="container-center">
-  <h4>My garden</h4>
-  <h2 class="h2-color-margin">Hi {{ user.userEmail }}</h2>
-  <div class="form-group">
-    {{#if user.userPlants}}
-    <p class="subtitle-margin">Plants in my garden:</p>
-    <div class="myplant-card">
-      {{#each user.userPlants}}
-      <h3 class="margin"><a href="/mygarden/{{ this._id }}">{{ this.nickname }}</a></h3>
-      {{#each this.userPics}}
-      <img src="{{ this.imgPath }}" alt="Picture of a plant" class="plant-img">
-      {{/each}}
-      {{/each}}
-    </div>
-    {{else}}
-    <p>You don't have any plant, why don't you start now?</p>
-    <a href="/">Go to the catalogue</a>
-    {{/if}}
-  </div><br />
-  <a href="/mygarden/add"><button class="btn">Add plant</button></a>
+<div class="cover">
+  <button class="back-arrow" onclick="goBack()">
+    <img src="../images/back-arrow.png" alt="Go back">
+  </button>
 </div>
+
+<div class="content">
+  {{#if user.userName}}
+  <h3 class="centered dark-green-text title">Hi {{ user.userName }}!</h3>
+  {{else}}
+  <h3 class="centeted dark-green-text title">{{ user.userEmail }}</h3>
+  {{/if}}
+
+  <p class="subtitle-margin" style="text-align: center;">{{ numberOfPlants }} plants in your garden</p>
+
+  <div class="plants-showcase">
+    {{#if user.userPlants}}
+    {{#each user.userPlants}}
+
+    <div class="plant-card">
+      <img class="plant-img" src="{{this.userPics.[0].imgPath}}">
+      <div class="card-info">
+        <div class="left">
+          <h4 class="no-margin">{{this.nickname}}</h4>
+          <h5 class="no-margin">{{this.family}}</h5>
+        </div>
+        <div class="right">
+          <a href="/mygarden/{{this._id}}">
+            <button class="btn-plus">+</button>
+          </a>
+        </div>
+      </div>
+    </div>
+
+    {{/each}}
+  </div>
+  {{else}}
+
+  <p>You have 0 plants in your garden, let's start collecting!</p>
+  <a href="/"><button class="btn btn-centered">Go to catalogue</button></a><br />
+  {{/if}}
+
+</div>
+<a href="/mygarden/add"><button class="btn btn-centered">Add more plants</button></a>
