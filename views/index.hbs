@@ -31,6 +31,20 @@
         <li class="{{#if tagActive.terrace}}active{{/if}}"><a href="/tagged/terrace">Terrace</a></li>
       </ul>
     </div>
+    <div class="filters-content">
+      <h5>Plantiful has <strong>{{data.length}} plants</strong></h5>
+      {{!-- <div class="select-filters">
+        <select>
+          <option selected hidden>Order by</option>
+          <option>A to Z</option>
+          <option>Z to A</option>
+          <option>Care difficulty</option>
+          <option>Life Length</option>
+          <option>Popularity</option>
+          <option>Rating</option>
+        </select>
+      </div> --}}
+    </div>
   </div>
   <div class="plants-showcase">
     {{#each this.data}}

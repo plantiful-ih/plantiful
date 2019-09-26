@@ -166,4 +166,51 @@ input[type=search] {
   }
 }
 
+.filters-content{
+  display:flex;
+  justify-content: space-between;
+  margin-top:16px;
+  h5{
+    margin:0;
+    color: $color-primary;
+  }
+  .select-filters{
+    width:100px;
+    height:25px;
+    margin:0px;
+    padding:0px;
+    background-color:transparent;
+    // border-bottom:1px solid $color-text;
+    select{
+      width:100%;
+      border:0px;
+      background-color:transparent;
+      font-family:roboto;
+      font-size:1em;
+      color: $color-primary;
+      z-index:3;
+      outline:none;
+      cursor:pointer;
+      background: url(../images/icon-arrow-down.png) 100% / 8% no-repeat transparent;
+      
+      /*reset default styles*/
+      margin:0px;
+      -webkit-box-sizing: border-box;
+      -moz-box-sizing: border-box;
+      box-sizing: border-box;
+      -webkit-appearance: none;
+      -moz-appearance: none;
+    }
+    option{
+      padding:12px;
+    }
+    &::-ms-expand{
+      display:none;
+    }
+    &:focus{
+      outline:none;
+    }
+  }
+}
+
 
