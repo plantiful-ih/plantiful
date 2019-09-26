@@ -73,6 +73,7 @@ app.use((req, res, next) => {
 app.use('/', authRouter);
 app.use('/profile', usersRouter);
 app.use('/plants', plantsRouter);
+app.use('/mygarden', mygardenRouter);
 app.use('/map', mapRouter);
 
 // catch 404 and forward to error handler
