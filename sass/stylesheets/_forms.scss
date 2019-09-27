@@ -1,20 +1,27 @@
 @import 'global';
 
+form{
+  width:90%;
+  margin:0 auto;
+}
+
 input[type=text], input[type=password], input[type = number] {
- font-family: 'Roboto', sans-serif;
- border: none;
- border-bottom: 2px solid #1A697F;
- width: 80vw; //Relative
- max-width: 300px;
- padding: 12px;
- margin: 10px 24px;
- font-size: 16px;
- line-height: 24px;
- color: $color-text;
-  &::placeholder {
-  color: $color-gray-dark;
- }
- background: transparent;
+  font-family: 'Roboto', sans-serif;
+  border: none;
+  border-bottom: 2px solid $color-text;
+  width: 100%;
+  padding: 12px;
+  margin-bottom:32px;
+  font-size: 16px;
+  color: $color-text;
+    &::placeholder {
+    color: $color-gray-dark;
+    }
+    &:focus{
+    outline:none;
+    background-color: transparent;
+    }
+  background: transparent;
 }
 
 .input-error {
@@ -95,11 +102,6 @@ input[type=range] {
   visibility: hidden;
   height:0px;
   width: 0px;
-}
-
-label {
-  margin-left: 24px;
-  margin-bottom: -20px;
 }
 
 .search-content{
@@ -220,6 +222,32 @@ input[type=search] {
       outline:none;
     }
   }
+}
+
+/* LOGIN */
+
+.login-section{
+  height:120vh;
+  h3{
+    color:$color-primary;
+    margin:$space-l auto;
+    text-align: center;
+  }
+}
+.login-section::after{
+  content: "";
+  background:url(../images/form-bg.png);
+  background-color: $color-gray-medium;
+  background-repeat: no-repeat;
+  background-position:bottom right;
+  opacity: 0.2;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  right: 0;
+  position: absolute;
+  z-index: -1;   
+  height:120vh;
 }
 
 

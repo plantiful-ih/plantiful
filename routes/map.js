@@ -5,7 +5,7 @@ const router = express.Router();
 
 /* GET map. */
 router.get('/', (req, res, next) => {
-  res.render('map');
+  res.render('map', { active: { shop: true } });
 });
 
 module.exports = router;

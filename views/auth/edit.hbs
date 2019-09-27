@@ -23,12 +23,12 @@
       </div><br />
       <div class="form-group">
         <label class="email-password" for="mail">E-mail:</label>
-        <input type="text" name="mail" placeholder="{{ user.userEmail }}" value="{{user.userEmail}}">
+        <input type="text" name="mail" placeholder="{{ user.userEmail }}" value="{{ user.userEmail }}">
       </div><br />
       <div class="form-group">
         <label class="email-password" for="age">Age:</label>
         {{#if user.age}}
-        <input type="number" name="age" placeholder="{{user.age}}">
+        <input type="number" name="age" placeholder="{{user.age}}" value="{{ user.age }}">
         {{else}}
         <input type="number" name="age" placeholder="My age">
         {{/if}}
@@ -37,19 +37,17 @@
 
         <label class="email-password" for="location">Location:</label>
         {{#if user.location}}
-        <input type="text" name="location" placeholder="{{ user.location }}">
-
+        <input type="text" name="location" placeholder="{{ user.location }}" value="{{ user.location }}">
         {{else}}
         <input type="text" name="location" placeholder="My location">
         {{/if}}
       </div><br />
-
-      <div class="form-group">
+      {{!-- <div class="form-group">
         <button id="imageAdd" onclick="document.getElementById('uploadImage').click()" class="btn btn-outlined"
           style="display: block; margin: 0 auto;">Change
           profile picture</button>
-        <input id="uploadImage" type="file" name="photo" />
-      </div><br />
+        <input id="uploadImage" type="file" name="photo">
+      </div><br /> --}}
 
       <div class="btn-container">
         <button type="submit" class="btn">Update</button>

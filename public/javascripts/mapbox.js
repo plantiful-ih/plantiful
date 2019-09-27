@@ -1,7 +1,8 @@
 // require('dotenv').config();
 
 // The basics for the map
-mapboxgl.accessToken = 'pk.eyJ1IjoidGFzaGJjbiIsImEiOiJjazEyZ2V5ajYwMmZoM2FxeWw0dWlsdzc5In0.HTBQfyb6ItNiZbNcjF6RMw';
+
+mapboxgl.accessToken = 'pk.eyJ1IjoidGFzaGJjbiIsImEiOiJjazB2MnNxc3AwczVuM2NwY3ZmMnFtcGtsIn0.gS1ialg1lO0d8qk5P9Z2pw';
 const map = new mapboxgl.Map({
   container: 'map',
   style: 'mapbox://styles/mapbox/streets-v10',
