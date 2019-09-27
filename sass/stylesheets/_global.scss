@@ -121,3 +121,8 @@ a:visited {
   bottom: 0; 
   width: 100%; 
 }
+
+.mapboxgl-popup {
+  max-width: 400px;
+  font: 10px/20px 'Helvetica Neue', Arial, Helvetica, sans-serif;
+}
