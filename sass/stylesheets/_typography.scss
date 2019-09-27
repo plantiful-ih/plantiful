@@ -20,8 +20,9 @@ h3{
 }
 
 h4{
-  font-size:1.4em;
+  font-size:1.2em;
   font-weight:400;
+  line-height: 1.4em;
 }
 
 h5{
@@ -30,14 +31,20 @@ h5{
   font-weight:100;
 }
 
+p{
+  font-size:.9em;
+}
+
 .underlined {
   text-decoration: underline;
   color: $color-primary;
+  font-weight: bold;
+  cursor: pointer;
 }
 
-.no-margin {
-  margin: 0;
-}
+// .no-margin {
+//   margin: 0;
+// }
 
 
 ///*** DESKTOP ***///
@@ -77,9 +84,9 @@ h5{
   }
 }
 
-h1, h2, h3, h4, h5, p {
-  margin: 20px 0 20px 16px;
-}
+// h1, h2, h3, h4, h5, p {
+//   margin: 20px 0 20px 16px;
+// }
 
 .centered {
   text-align: center;

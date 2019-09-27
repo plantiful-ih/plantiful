@@ -1,3 +1,4 @@
+/* COLORS */
 $color-primary: #1A697F;
 $color-green: #62C890;
 $color-light-green:#d7f0bc;
@@ -11,6 +12,13 @@ $color-text-opacity:rgba(17, 15, 36, 0.4);
 // font-family: 'Domine', serif;
 // font-family: 'Roboto', sans-serif;
 
+/* SPACING */
+$space-xs: 12px;
+$space-s: 16px;
+$space-m: 18px;
+$space-l: 24px;
+$space-xl: 32px;
+
 body{
   width:100%;
   font-size:16px;
@@ -21,16 +29,7 @@ a:visited {
     text-decoration: none; 
 }
 
-.back-section{
-  min-height:50px;
-  position:absolute;
-  z-index:999;
-}
 
-.back-arrow{
-  margin:1.5em;
-  cursor: pointer;
-}
 
 #container {
   min-height: 100%;
@@ -40,7 +39,11 @@ a:visited {
 }
 
 .content{
-  margin:1em;
+  padding:1em;
+}
+
+.content-top{
+  padding:14vh 1em;
 }
 
 ///*** DESKTOP MINIMUN ***///
@@ -81,14 +84,14 @@ a:visited {
   margin-bottom: 0.938em;
 }
 
-.email-password {
-  font-family: Roboto;
-  font-style: normal;
-  font-weight: normal;
-  font-size: 12px;
-  line-height: 24px;
-  color: #110F24;
-}
+// .email-password {
+//   font-family: Roboto;
+//   font-style: normal;
+//   font-weight: normal;
+//   font-size: 12px;
+//   line-height: 24px;
+//   color: #110F24;
+// }
 
 .subtitle {
   color: #62C890;

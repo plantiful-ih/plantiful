@@ -101,3 +101,16 @@
   display: block;
   margin: 20px auto;
 }
+
+.btn-view {
+  margin-left:$space-xs;
+  border-radius: 100%;
+  background-color: $color-green;
+  width:32px;
+  height:32px;
+  svg{
+    path{
+      stroke:white;
+    }
+  }
+}

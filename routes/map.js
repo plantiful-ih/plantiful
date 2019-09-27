@@ -6,7 +6,7 @@ const Plant = require('../models/Plant');
 
 /* GET map. */
 router.get('/', (req, res, next) => {
-  res.render('map');
+  res.render('map', { active: { shop: true } });
 });
 
 module.exports = router;
