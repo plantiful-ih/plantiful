@@ -20,6 +20,7 @@ router.get('/', (req, res) => {
     });
 });
 
+/* GET plant view */
 router.get('/:plantId', (req, res, next) => {
   const { plantId } = req.params;
 
@@ -35,5 +36,6 @@ router.get('/:plantId', (req, res, next) => {
     })
     .catch(next);
 });
+
 
 module.exports = router;
