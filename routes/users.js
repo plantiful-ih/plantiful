@@ -13,12 +13,11 @@ const uploadCloud = require('../config/cloudinary');
 /* Get profile page with user info */
 router.get('/', checkIfLoggedIn, async (req, res, next) => {
   try {
-    // const user = req.session.currentUser;
+    // const currentuser = req.session.currentUser;
     // const numberOfPlants = user.userPlants.length;
     const { _id } = req.session.currentUser;
     const user = await User.findOne({ _id }).populate('userPlants');
     const active = { profile: true };
-
     res.render('auth/profile', { user, active });
   } catch (error) {
     next(error);

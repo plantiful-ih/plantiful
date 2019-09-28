@@ -15,12 +15,13 @@ router.get('/', (req, res) => {
 
 /* Get Sign up page */
 router.get('/signup', (req, res) => {
-  res.render('auth/signup');
+  const active = { profile: true };
+  res.render('auth/signup', { active });
 });
 
 /* Search results field */
 function escapeRegex(text) {
-  return text.replace(/[-[\]{}()*+?.,\\^$|#\s]/g, '\\$&');
+  return text.replace(/[-[\]()*+?.,\\^$|#\s]/g, '\\$&');
 }
 
 router.get('/search', (req, res, next) => {
@@ -99,7 +100,8 @@ router.post('/signup', (req, res) => {
 
 /* Get Login page */
 router.get('/login', checkIfNotLoggedIn, (req, res) => {
-  res.render('auth/login');
+  const active = { profile: true };
+  res.render('auth/login', { active });
 });
 
 router.post('/login', (req, res) => {
