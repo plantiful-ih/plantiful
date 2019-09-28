@@ -120,8 +120,8 @@ User model
 ### Git
 
 URls for the project repo and deploy
-[Link Repo]()
-[Link Deploy]()
+[Link Repo](https://github.com/plantiful/plantiful)
+[Link Deploy](https://plantifulapp.herokuapp.com/plants)
 
 ### Wireframes
 
@@ -130,4 +130,4 @@ URls for the project repo and deploy
 ### Slides
 
 URls for the project presentation (slides)
-[Link Slides.com]()
+[Link Slides.com](https://slides.com/tashbcn/plantiful#/)
