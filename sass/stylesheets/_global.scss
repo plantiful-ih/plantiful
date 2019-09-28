@@ -118,6 +118,36 @@ a:visited {
   margin-bottom: 0.938em;
 }
 
+/* Mapbox */
+
+.mapboxgl-ctrl-geocoder{
+  padding:0 16px;
+  font-family:Roboto;
+  background-color:$color-gray-light;
+  input{
+    padding-left: $space-l;
+    padding-bottom:5px;
+    margin-bottom:$space-m;
+  }
+}
+
+.mapboxgl-popup-close-button{
+  margin-right:5px;
+  font-size:2em;
+  color:$color-primary;
+}
+
+.mapboxgl-popup{
+  strong{
+    font-size:16px;
+    color:$color-primary;
+  }
+  p{
+    color:$color-green;
+    font-size:14px;
+  }
+}
+
 #map { 
   position: absolute; 
   top: 0; 
