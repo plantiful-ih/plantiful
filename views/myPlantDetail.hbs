@@ -1,59 +1,67 @@
-<div class="cover">
+<div class="top-section" id="top">
   <button class="back-arrow" onclick="goBack()">
     <img src="../images/back-arrow.png" alt="Go back">
   </button>
 </div>
 
-<div class="content">
-  <h2 class="centered title dark-green-text">{{ plant.nickname }}</h2>
-  <img src='{{ plant.typePlant.img }}' alt="typeplant image" class="plant-img">
-
+<div class="content-top">
+  <h2 class="centered title">{{ plant.nickname }}</h2>
+  <div class="myplant-image">
+    <img src='{{ plant.typePlant.img }}' alt="typeplant image">
+  </div>
+  <a href="/mygarden/{{ plant._id }}/edit" class="edit-image">
+    <button class="btn-view">
+      <svg width="20" height="20" viewBox="-2 -2 26 26" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <path
+          d="M17.0444 3.62318L18.7099 5.28869M19.2651 10.2852V18.7793C19.2651 20.0007 18.2658 21 17.0444 21H3.22068C1.99931 21 1 20.0007 1 18.7793V4.40042C1 3.45663 1.72172 2.73491 2.66551 2.73491L11.2706 2.67939M8.88341 9.95212L7.88411 14.0049L11.9368 13.0056L20.2644 4.678C21.0972 3.84525 21.0972 2.45732 20.2644 1.62457C19.4316 0.791811 18.0437 0.791811 17.211 1.62457L8.88341 9.95212Z"
+          stroke="#fff" stroke-width="2" stroke-miterlimit="10" stroke-linecap="round" stroke-linejoin="round" />
+      </svg>
+    </button>
+  </a>
   <div class="myplant-gallery">
     {{#each plant.userPics}}
     <img src="{{ this.imgPath }}" alt="Picture of a plant" class="myplant-img">
     {{!-- <figcaption>{{ this.date }}</figcaption> --}}
     {{/each}}
   </div>
-
-  <h3 class="dark-green-text rating" style="margin: 10px;">{{ plant.typePlant.commonName }}</h3>
-  <span class="rating">
-    {{#each rating}}
-    <img src="{{ this }}" alt="star icon">
-    {{/each}}
-
-  </span>
-  <p class="dark-gray-text">Family: {{ plant.typePlant.family }}</p>
-  <hr>
-  <p>{{ plant.typePlant.description }}</p>
-  <h4 class="green-text">Plant Details:</h4>
-
-  <div class="col-3">
-    <img src="../images/clock.png" class="plant-icon" alt="time icon">
-    <p>{{ plant.typePlant.lifeLength }}</p>
+  <div class="myplant-data">
+    <h3 class="rating">{{ plant.typePlant.commonName }}</h3>
+    <span class="rating">
+      {{#each rating}}
+      <img src="{{ this }}" alt="star icon">
+      {{/each}}
+    </span>
+    <p class="family">Family: {{ plant.typePlant.family }}</p>
+    <p>{{ plant.typePlant.description }}</p>
+    <h4>Plant Details:</h4>
+    <div class="details">
+      <div class="col-3">
+        <img src="../images/clock.png" class="plant-icon" alt="time icon">
+        <p>{{ plant.typePlant.lifeLength }}</p>
+      </div>
+      <div class="col-3">
+        <img src="../images/drop.png" class="plant-icon" alt="time icon">
+        <p>{{ plant.typePlant.watering }}</p>
+      </div>
+      <div class="col-3">
+        <img src="../images/ray.png" class="plant-icon" alt="time icon">
+        <p>{{ plant.typePlant.careDifficulty }}</p>
+      </div>
+    </div>
+    <h4>Shopping point:</h4>
+    <p>Bought in {{ plant.shoppingPoint }}</p>
+    <h4>Care tips:</h4>
+    <ul class="check-list">
+      {{#each plant.typePlant.careTips}}
+      <li>{{ this }}</li>
+      {{/each}}
+    </ul>
+    <div class="myplant-tags">
+      {{#each plant.typePlant.place}}
+      <span>{{ this }}</span>
+      {{/each}}
+    </div>
+    <a href="/mygarden/{{ plant._id }}/edit"><button class="btn btn-margin">Edit plant</button></a>
+    <a href="/mygarden/{{ plant._id }}/delete"><button class="btn-outlined">Delete</button></a>
   </div>
-  <div class="col-3">
-    <img src="../images/drop.png" class="plant-icon" alt="time icon">
-    <p>{{ plant.typePlant.watering }}</p>
-  </div>
-  <div class="col-3">
-    <img src="../images/ray.png" class="plant-icon" alt="time icon">
-    <p>{{ plant.typePlant.careDifficulty }}</p>
-  </div>
-
-  <p>Bought in {{ plant.shoppingPoint }}</p>
-
-  <h4 class="green-text">Care tips:</h4>
-  <ul class="check-list">
-    {{#each plant.typePlant.careTips}}
-    <li>{{ this }}</li>
-    {{/each}}
-  </ul>
-  <div class="hash-group">
-    {{#each plant.typePlant.place}}
-    <span class="hashtag">#{{ this }}</span>
-    {{/each}}
-  </div>
-
-  <a href="/mygarden/{{ plant._id }}/edit"><button class="btn btn-margin">Edit plant</button></a>
-  <a href="/mygarden/{{ plant._id }}/delete"><button class="btn-outlined">Delete</button></a>
 </div>

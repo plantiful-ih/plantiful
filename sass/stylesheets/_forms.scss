@@ -15,7 +15,7 @@ input[type=text], input[type=password], input[type = number] {
   font-size: 16px;
   color: $color-text;
     &::placeholder {
-    color: $color-gray-dark;
+    color: $color-text-opacity;
     }
     &:focus{
     outline:none;
@@ -52,20 +52,15 @@ input[type=text], input[type=password], input[type = number] {
   color: $color-green;
 }
 
-.form-group {
-  margin-bottom: 20px;
-}
-
 input[type=range] {
   -webkit-appearance: none;
-  width: 80vw;
+  width: 100%;
   max-width: 300px;
   height: 8px;
   border-radius: 5px;  
-  background: $color-gray-medium; 
+  background: $color-gray-dark; 
   outline: none;
   opacity: 0.7;
-  margin-left: 24px;
   margin-bottom: 24px;
   -webkit-transition: .2s;
   transition: opacity .2s;
@@ -249,5 +244,12 @@ input[type=search] {
   z-index: -1;   
   height:120vh;
 }
+
+
+/* ADD A PLANT SECTION */
+.addplant-section{
+  margin-top:$space-xl;
+}
+
 
 

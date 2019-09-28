@@ -1,32 +1,30 @@
-<div class="cover">
-  <div class="cover-content">
-    <button class="back-arrow" onclick="goBack()">
-      <img src="../images/back-arrow.png" alt="Go back">
-    </button>
-  </div>
+<div class="top-section" id="top">
+  <button class="back-arrow" onclick="goBack()">
+    <img src="../images/back-arrow.png" alt="Go back">
+  </button>
 </div>
 
-<div class="content">
+<div class="content-top plant-section">
   <img src='{{ plant.img }}' alt="typeplant image" class="plant-centered">
-
-  <h2 class="dark-green-text">{{ plant.commonName }}</h2>
-  <p class="p-small dark-gray-text">Family: {{ plant.family }}</p>
-  <hr>
+  <h2 class="title-plant">{{ plant.commonName }}</h2>
+  <p class="family">Family: {{ plant.family }}</p>
   <p>{{ plant.description }}</p>
 
   <h4 class="green-text">Plant Details:</h4>
 
-  <div class="col-3">
-    <img src="../images/clock.png" class="plant-icon" alt="time icon">
-    <p>{{ plant.lifeLength }}</p>
-  </div>
-  <div class="col-3">
-    <img src="../images/drop.png" class="plant-icon" alt="time icon">
-    <p>{{ plant.watering }}</p>
-  </div>
-  <div class="col-3">
-    <img src="../images/ray.png" class="plant-icon" alt="time icon">
-    <p>{{ plant.careDifficulty }}</p>
+  <div class="details">
+    <div class="col-3">
+      <img src="../images/clock.png" class="plant-icon" alt="time icon">
+      <p>{{ plant.lifeLength }}</p>
+    </div>
+    <div class="col-3">
+      <img src="../images/drop.png" class="plant-icon" alt="time icon">
+      <p>{{ plant.watering }}</p>
+    </div>
+    <div class="col-3">
+      <img src="../images/ray.png" class="plant-icon" alt="time icon">
+      <p>{{ plant.careDifficulty }}</p>
+    </div>
   </div>
 
   <h4 class="green-text">Care tips:</h4>
@@ -35,9 +33,9 @@
     <li>{{ this }}</li>
     {{/each}}
   </ul>
-  <div class="hash-group">
+  <div class="myplant-tags">
     {{#each plant.place}}
-    <span class="hashtag">#{{ this }}</span>
+    <span>{{ this }}</span>
     {{/each}}
   </div>
 </div>
