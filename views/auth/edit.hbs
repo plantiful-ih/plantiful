@@ -4,53 +4,50 @@
   </button>
   <h4>Edit my profile</h4>
 </div>
-<div class="content-top login-section">
-  <div class="content">
-    <div class="user-image">
-      <img class="avatar" style="margin-top: 65px;" src="{{ user.image }}">
-    </div>
-    <form action="/profile/edit" method="POST" enctype="multipart/form-data">
-      <div class="form-group">
-        <label for="username">Username:</label>
-        {{#if user.userName}}
-        <input type="text" name="username" placeholder="{{user.userName}}" value="{{user.userName}}">
-        {{else}}
-        <input type="text" name="username" placeholder="My username">
-        {{/if}}
-      </div>
-      <div class="form-group">
-        <label class="email-password" for="mail">E-mail:</label>
-        <input type="text" name="mail" placeholder="{{ user.userEmail }}" value="{{ user.userEmail }}">
-      </div>
-      <div class="form-group">
-        <label class="email-password" for="age">Age:</label>
-        {{#if user.age}}
-        <input type="number" name="age" placeholder="{{user.age}}" value="{{ user.age }}">
-        {{else}}
-        <input type="number" name="age" placeholder="My age">
-        {{/if}}
-      </div>
-      <div class="form-group">
-        <label class="email-password" for="location">Location:</label>
-        {{#if user.location}}
-        <input type="text" name="location" placeholder="{{ user.location }}" value="{{ user.location }}">
-
-        {{else}}
-        <input type="text" name="location" placeholder="My location">
-        {{/if}}
-      </div><br />
-
-      <div class="form-group">
-        <button id="imageAdd" onclick="document.getElementById('uploadImage').click()" class="btn btn-outlined"
-          style="display: block; margin: 0 auto;">Change
-          profile picture</button>
-        <input id="uploadImage" type="file" name="photo" />
-      </div><br />
-
-      <div class="btn-container">
-        <button type="submit" class="btn">Update</button>
-      </div>
-
-    </form>
+<div class="content-top editprofile-section">
+  <div class="user-image centered">
+    <img class="avatar" src="{{ user.image }}">
   </div>
+  <form action="/profile/edit" method="POST" enctype="multipart/form-data">
+    <div class="form-group">
+      <label for="username">Username:</label>
+      {{#if user.userName}}
+      <input type="text" name="username" placeholder="{{user.userName}}" value="{{user.userName}}">
+      {{else}}
+      <input type="text" name="username" placeholder="My username">
+      {{/if}}
+    </div>
+    <div class="form-group">
+      <label class="email-password" for="mail">E-mail:</label>
+      <input type="text" name="mail" placeholder="{{ user.userEmail }}" value="{{ user.userEmail }}">
+    </div>
+    <div class="form-group">
+      <label class="email-password" for="age">Age:</label>
+      {{#if user.age}}
+      <input type="number" name="age" placeholder="{{user.age}}" value="{{ user.age }}">
+      {{else}}
+      <input type="number" name="age" placeholder="My age">
+      {{/if}}
+    </div>
+    <div class="form-group">
+      <label class="email-password" for="location">Location:</label>
+      {{#if user.location}}
+      <input type="text" name="location" placeholder="{{ user.location }}" value="{{ user.location }}">
+
+      {{else}}
+      <input type="text" name="location" placeholder="My location">
+      {{/if}}
+    </div>
+    <div class="form-group">
+      <button id="imageAdd" onclick="document.getElementById('uploadImage').click()" class="btn btn-outlined"
+        style="display: block; margin: 0 auto;">Change
+        profile picture</button>
+      <input id="uploadImage" type="file" name="photo" />
+    </div>
+
+    <div class="btn-container">
+      <button type="submit" class="btn">Update</button>
+    </div>
+
+  </form>
 </div>

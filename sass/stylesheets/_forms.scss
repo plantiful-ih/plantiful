@@ -251,5 +251,30 @@ input[type=search] {
   margin-top:$space-xl;
 }
 
+/* EDIT PROFILE SECTION */
+.editprofile-section{
+  height:120vh;
+  h3{
+    color:$color-primary;
+    margin:$space-l auto;
+    text-align: center;
+  }
+}
+.editprofile-section::after{
+  content: "";
+  background:url(../images/form-bg.png);
+  background-color: $color-gray-medium;
+  background-repeat: no-repeat;
+  background-position:bottom right;
+  opacity: 0.2;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  right: 0;
+  position: absolute;
+  z-index: -1;   
+  height:160vh;
+}
+
 
 
