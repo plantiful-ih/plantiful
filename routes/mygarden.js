@@ -13,7 +13,8 @@ router.get('/', checkIfLoggedIn, async (req, res, next) => {
   try {
     const { _id } = req.session.currentUser;
     const user = await User.findOne({ _id }).populate('userPlants');
-    res.render('mygarden', { user, active: { plants: true } });
+    const numberOfPlants = user.userPlants.length;
+    res.render('mygarden', { user, numberOfPlants, active: { plants: true } });
   } catch (error) {
     next(error);
   }
@@ -36,7 +37,6 @@ router.post('/add', uploadCloud.single('photo'), async (req, res, next) => {
     nickname, rating, shoppingPoint, typePlant,
   } = req.body;
   const imgPath = req.file.url;
-
   const date = new Date();
   const day = date.getDay();
   const month = date.getMonth();
@@ -71,8 +71,16 @@ router.get('/:myplantId', checkIfLoggedIn, async (req, res, next) => {
   try {
     const { myplantId } = req.params;
     const plant = await MyPlant.findOne({ _id: myplantId }).populate('typePlant');
-    console.log(plant, plant.typePlant);
-    res.render('myPlantDetail', { plant, active: { plants: true } });
+    const rating = [];
+    for (let i = 0; i < plant.rating; i++) {
+      rating.push('../images/star.png');
+    }
+    if (plant.rating < 5) {
+      for (let x = plant.rating; x < 5; x++) {
+        rating.push('../images/star_empty.png');
+      }
+    }
+    res.render('myPlantDetail', { plant, rating, active: { plants: true } });
   } catch (error) {
     next(error);
   }

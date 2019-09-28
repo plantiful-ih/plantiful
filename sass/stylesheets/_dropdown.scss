@@ -2,7 +2,7 @@
 @import url('https://fonts.googleapis.com/icon?family=Material+Icons');
 
 label{
-  font-size:.875em; /*variable small-paragraph*/
+  font-size:.8em; /*variable small-paragraph*/
   font-family:roboto; /*variable font-roboto*/
   display:block;
   margin-bottom:16px; /*variable unit-size*/
@@ -15,9 +15,10 @@ label{
   margin:0px;
   padding:0px;
   background-color:transparent;
-  border-bottom:1px solid $color-text;
+  border-bottom:2px solid $color-text;
   position:relative;
   z-index:1;
+  margin-bottom:$space-xl;
     &:after{
       content:'keyboard_arrow_down';
       font-family:'material icons';
@@ -34,6 +35,7 @@ label{
     }
 
   select{
+    padding:0 12px;
     width:100%;
     border:0px;
     background-color:transparent;

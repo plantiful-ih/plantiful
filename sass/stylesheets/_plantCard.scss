@@ -4,28 +4,27 @@
   display: flex;
   flex-flow: wrap;
   justify-content: space-between;
+  margin-bottom:3em;
   .plant-card{
     flex: 0 46%;
     margin: 2%;
-    padding-bottom:16px;
+    padding-bottom:$space-s;
     border-bottom:1px solid $color-gray-dark;
     .card-info{
-      margin-top:16px;
-      .right{
-        float:right;
-      }
-      .left{
-        float:left;
-      }
+      margin-top:$space-s;
+      display:flex;
+      justify-content: space-between;
     }
   }
   .plant-img{
   width:100%;
+  border-radius:6px;
+  max-height:158px;
   }
   h4{
     color:$color-green;
   }
-  h5{
+  p{
     color:$color-text-opacity;
   }
 

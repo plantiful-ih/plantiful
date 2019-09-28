@@ -6,10 +6,12 @@ const Plant = require('../models/Plant');
 
 /* GET home page. */
 router.get('/', (req, res) => {
+  console.log('Select status:', req.body);
   Plant.find()
     .then((data) => {
       data.forEach((plant) => {
         console.log(plant.commonName);
+        console.log('Plantiful plants:', data.length);
       });
       res.render('index', { title: 'Plantiful', data, active: { home: true } });
     })
@@ -18,6 +20,7 @@ router.get('/', (req, res) => {
     });
 });
 
+/* GET plant view */
 router.get('/:plantId', (req, res, next) => {
   const { plantId } = req.params;
 
@@ -33,5 +36,6 @@ router.get('/:plantId', (req, res, next) => {
     })
     .catch(next);
 });
+
 
 module.exports = router;

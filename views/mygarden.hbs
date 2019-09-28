@@ -1,21 +1,49 @@
-<div id="container-center">
-  <h4>My garden</h4>
-  <h2 class="h2-color-margin">Hi {{ user.userEmail }}</h2>
-  <div class="form-group">
+<div class="top-section" id="top">
+  <button class="back-arrow" onclick="goBack()">
+    <img src="../images/back-arrow.png" alt="Go back">
+  </button>
+</div>
+
+<div class="content-top">
+
+  {{#if user.userName}}
+  <h3 class="centered title">Hi {{ user.userName }}!</h3>
+  {{else}}
+  <h3 class="centeted title">{{ user.userEmail }}</h3>
+  {{/if}}
+  <p class="subtitle centered">{{ numberOfPlants }} plants in your garden</p>
+
+  <div class="plants-showcase">
     {{#if user.userPlants}}
-    <p class="subtitle-margin">Plants in my garden:</p>
-    <div class="myplant-card">
-      {{#each user.userPlants}}
-      <h3 class="margin"><a href="/mygarden/{{ this._id }}">{{ this.nickname }}</a></h3>
-      {{#each this.userPics}}
-      <img src="{{ this.imgPath }}" alt="Picture of a plant" class="plant-img">
-      {{/each}}
-      {{/each}}
+    {{#each user.userPlants}}
+    <div class="plant-card">
+      <a href="/mygarden/{{this._id}}">
+        <img class="plant-img" src="{{this.userPics.[0].imgPath}}">
+      </a>
+      <div class="card-info">
+        <div class="left">
+          <h4 class="no-margin">{{this.nickname}}</h4>
+          <h5 class="no-margin">{{this.shoppingPoint}}</h5>
+        </div>
+        <div class="right">
+          <a href="/mygarden/{{this._id}}">
+            <button class="btn-view">
+              <svg width="20" height="20" viewBox="0 -5 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path
+                  d="M13.2222 1.06111C12.7944 1 12.4278 1 12 1C7.29444 1 3.2 3.93333 1 8.21111C3.2 12.4889 7.29444 15.4222 12 15.4222C16.7056 15.4222 20.8 12.4889 23 8.21111C21.4722 5.15556 18.9667 2.83333 15.9111 1.73333M15.0556 8.21111C15.0556 9.89865 13.6875 11.2667 12 11.2667C10.3125 11.2667 8.94444 9.89865 8.94444 8.21111C8.94444 6.52357 10.3125 5.15556 12 5.15556C13.6875 5.15556 15.0556 6.52357 15.0556 8.21111Z"
+                  stroke="#110F24" stroke-width="2" stroke-miterlimit="10" stroke-linecap="round"
+                  stroke-linejoin="round" />
+              </svg>
+            </button>
+          </a>
+        </div>
+      </div>
     </div>
+    {{/each}}
     {{else}}
-    <p>You don't have any plant, why don't you start now?</p>
-    <a href="/">Go to the catalogue</a>
+    <p>You have 0 plants in your garden, let's start collecting!</p>
+    <a href="/"><button class="btn btn-centered">Go to catalogue</button></a><br />
     {{/if}}
-  </div><br />
-  <a href="/mygarden/add"><button class="btn">Add plant</button></a>
+  </div>
+  <a href="/mygarden/add"><button class="btn btn-centered">Add more plants</button></a>
 </div>

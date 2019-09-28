@@ -1,16 +1,21 @@
-<div id="container-center">
-  <h2 class="h2-color">Add new plant to my garden</h2>
-  <br>
+<div class="top-section" id="top">
+  <button class="back-arrow" onclick="goBack()">
+    <img src="../images/back-arrow.png" alt="Go back">
+  </button>
+  <h4>Add new plant to my garden</h4>
+</div>
+
+<div class="content-top addplant-section">
   <form action="/mygarden/add" method="POST" enctype="multipart/form-data">
 
     <div class="form-group">
-      <label class="email-password" for="nickname">Your plant's nickname:</label>
+      <label for="nickname">Your plant's nickname:</label>
       <input type="text" name="nickname" placeholder="How would you call this plant?">
-    </div><br />
+    </div>
 
     <div class="form-group">
       <div class="select-field">
-        <label class="email-password" for="typePlant">Type of plant</label>
+        <label for="typePlant" style="margin-left: -3px;">Type of plant</label>
         <select name='typePlant'>
           <option selected hidden>Choose a plant</option>
           {{#each plants}}
@@ -18,26 +23,29 @@
           {{/each}}
         </select>
       </div>
-    </div><br />
+    </div>
 
     <div class="form-group">
-      <label class="email-password" for="shoppingPoint">Where did you get this plant?:</label>
+      <label for="shoppingPoint">Where did you get this plant?:</label>
       <input type="text" name="shoppingPoint" placeholder="Nevermind St. 34">
-    </div><br />
+    </div>
 
     <div class="form-group">
-      <label class="email-password" for="rating">Rate this plant:</label>
+      <label for="rating">Rate this plant:</label>
       <input type="range" name="rating" min="0" max="5">
-    </div><br />
+    </div>
 
-  <div class="form-group">
-    <label for="photo">Start your plant diary:</label>
-    <button id="imageAdd" onclick="document.getElementById('uploadImage').click()" <title="Click or Drag Image">Upload
-      image</button>
-    <input id="uploadImage" type="file" name="photo" />
-  </div><br />
+    <div class="form-group">
+      <label for="photo">Start your plant diary:</label>
+      <button class="btn btn-outlined" onclick="document.getElementById('uploadImage').click()"
+        style="display: block; margin: 20px auto 0 auto;">Upload
+        image</button>
+      <input id="uploadImage" type="file" name="photo" />
+    </div>
 
-    <button type="submit" class="btn">Save</button>
-    <a href="/mygarden"><button type="submit" class="btn-outlined">Cancel</button></a>
+    <div class="btn-container">
+      <button type="submit" class="btn">Save</button>
+      <a href="/mygarden"><button type="submit" class="btn-outlined">Cancel</button></a>
   </form>
+</div>
 </div>

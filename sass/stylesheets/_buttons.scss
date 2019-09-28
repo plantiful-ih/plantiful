@@ -7,7 +7,7 @@
   font-family: Roboto;
   font-style: normal;
   font-weight: 500;
-  font-size: 18px;
+  font-size: 16px;
   line-height: 24px;
   text-align: center;
   color: #F6F6F9;
@@ -15,6 +15,7 @@
   padding-bottom: 1em;
   padding-left: 1.563em;
   padding-right: 1.563em;
+  margin:.5em;
 }
 
 .btn {
@@ -24,8 +25,7 @@
 .btn-round {
   @include btn-default();
   border-radius: 100%;
-  padding-left: 1.383em;
-  padding-right: 1.383em;
+  padding: 0.6em;
   background: #62C890;
 }
 
@@ -39,7 +39,7 @@
   border: 2px solid #1A697F;
   box-sizing: border-box;
   color: #1A697F;
-  background: #F6F6F9;
+  background: transparent;
 }
 
 .btn-disabled {
@@ -72,4 +72,46 @@
 .btn-pressed {
   @include btn-default();
   background: #77A3B1;
+}
+
+@media (max-width: 600px){
+  .btn-round {
+    width: 60%;
+  }
+}
+
+.btn-container {
+  margin-top: 20px;
+  text-align: center;
+}
+
+.btn-margin {
+  margin: 30px 10px 30px 30px;
+}
+
+.btn-plus {
+  font-size: 30px;
+  font-family: 'Roboto', sans-serif;
+  border-radius: 100%;
+  background-color: $color-green;
+  padding: 0.1em 0.35em 0.1em 0.35em;
+  color: white;
+}
+
+.btn-centered {
+  display: block;
+  margin: 20px auto;
+}
+
+.btn-view {
+  margin-left:$space-xs;
+  border-radius: 100%;
+  background-color: $color-green;
+  width:32px;
+  height:32px;
+  svg{
+    path{
+      stroke:white;
+    }
+  }
 }

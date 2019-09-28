@@ -10,6 +10,13 @@
   <link href="https://fonts.googleapis.com/css?family=Domine:400,700|Roboto:300,400,700&display=swap&subset=latin-ext"
     rel="stylesheet">
   <link rel='shortcut icon' type="image/png" href="./images/favicon.png" alt='Plantiful logo' />
+  <script src='https://api.mapbox.com/mapbox-gl-js/v1.3.1/mapbox-gl.js'></script>
+  <link href='https://api.mapbox.com/mapbox-gl-js/v1.3.1/mapbox-gl.css' rel='stylesheet' />
+  <script
+    src='https://api.mapbox.com/mapbox-gl-js/plugins/mapbox-gl-geocoder/v4.4.1/mapbox-gl-geocoder.min.js'></script>
+  <link rel='stylesheet'
+    href='https://api.mapbox.com/mapbox-gl-js/plugins/mapbox-gl-geocoder/v4.4.1/mapbox-gl-geocoder.css'
+    type='text/css' />
 </head>
 
 <body>
@@ -25,6 +32,9 @@
         <li class="{{#if active.plants}}active{{/if}} plants">
           <a href='/mygarden'>{{> planticon}}</a>
         </li>
+        <li class="{{#if active.shop}}active{{/if}} shop">
+          <a href='/map'>{{> shopicon}}</a>
+        </li>
         <li class="{{#if active.profile}}active{{/if}} profile">
           <a href='/profile'>{{> profileicon}}</a>
         </li>
@@ -34,6 +44,17 @@
     <script>
       function goBack() {
         window.history.back();
+      }
+      /* Script to hide top section when scrolling down */
+      var prevScrollpos = window.pageYOffset;
+      window.onscroll = function () {
+        var currentScrollPos = window.pageYOffset;
+        if (prevScrollpos > currentScrollPos) {
+          document.getElementById("top").style.top = "0";
+        } else {
+          document.getElementById("top").style.top = "-50px";
+        }
+        prevScrollpos = currentScrollPos;
       }
     </script>
   </div>

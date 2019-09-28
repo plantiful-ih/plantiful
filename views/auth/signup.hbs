@@ -1,24 +1,31 @@
-<div id="container-center">
-    <form id="form" action="/signup" method="POST">
-        <h4>Sign up</h4>
-        <br>
-        <h2 class="h2-color">Start making your <br> life greenier.</h2>
+<div class="top-section" id="top">
+  <button class="back-arrow" onclick="goBack()">
+    <img src="../images/back-arrow.png" alt="Go back">
+  </button>
+  <h4>Sign up</h4>
+</div>
+<div class="content-top login-section">
+  <div class="centered">
+    <img src="../images/plantiful-logo-big.png" alt="Plantiful logo">
+  </div>
+  <h3 class="h2-color">Start making your <br> life greenier.</h3>
+  <form id="form" action="/signup" method="POST">
 
-        <label class="email-password" for="userEmail">User email</label>
-        <input type="text" name="userEmail" placeholder="user@email.com" required>
+    <label class="email-password" for="userEmail">User email</label>
+    <input type="text" name="userEmail" placeholder="user@email.com" required>
 
-        <label class="email-password" for="password">Password</label>
-        <input type="password" name="password" placeholder="********" required>
+    <label class="email-password" for="password">Password</label>
+    <input type="password" name="password" placeholder="********" required>
 
-        <br>
+    <br>
 
-        <button type="submit" class="btn">Create account</button>
-        {{#if error}}
-        <div class="error-message">{{ error }}</div>
-        {{/if}}
+    <button type="submit" class="btn" style="display: block; margin: 10px auto;">Create account</button>
+    {{#if error}}
+    <div class="error-message">{{ error }}</div>
+    {{/if}}
 
-        <p class="account-message email-password">
-            You are already a plantiful master? <a href="/login">Log in</a>
-        </p>
-    </form>
+    <p class="small" style="text-align: center; margin: 30px auto;">
+      You are already a plantiful master? <a class="underlined" style="text-align: center;" href="/login">Log in</a>
+    </p>
+  </form>
 </div>

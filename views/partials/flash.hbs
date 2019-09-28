@@ -1,17 +1,23 @@
 {{#if infoMessages}}
-  <div class="alert alert-info">
-    <p>{{infoMessages}}</p>
+  <div class="fixed">
+    <div class="alert alert-info">
+      <p>{{infoMessages}}</p>
+    </div>
   </div>
 {{/if}}
 
 {{#if errorMessages}}
-  <div class="alert alert-danger">
-    <p>{{errorMessages}}</p>
+  <div class="fixed">
+    <div class="alert alert-danger">
+      <p>{{errorMessages}}</p>
+    </div>
   </div>
 {{/if }}
 
 {{#if successMessages}}
-  <div class="alert alert-success">
-    <p>{{successMessages}}</p>
+  <div class="fixed">
+    <div class="alert alert-success">
+      <p>{{successMessages}}</p>
+    </div>
   </div>
 {{/if}}

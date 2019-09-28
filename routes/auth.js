@@ -5,6 +5,7 @@ const bcrypt = require('bcrypt');
 const bcryptSalt = parseInt(process.env.BCRYPTSALT);
 const router = express.Router();
 const User = require('../models/User');
+const Plant = require('../models/Plant');
 
 const { checkIfNotLoggedIn } = require('../middlewares/auth');
 
@@ -14,7 +15,53 @@ router.get('/', (req, res) => {
 
 /* Get Sign up page */
 router.get('/signup', (req, res) => {
-  res.render('auth/signup');
+  const active = { profile: true };
+  res.render('auth/signup', { active });
+});
+
+/* Search results field */
+function escapeRegex(text) {
+  return text.replace(/[-[\]()*+?.,\\^$|#\s]/g, '\\$&');
+}
+
+router.get('/search', (req, res, next) => {
+  const { q } = req.query;
+  const regex = new RegExp(escapeRegex(q), 'gi');
+
+  Plant.findOne({ commonName: regex })
+    .then((plant) => {
+      if (plant) {
+        console.log(plant);
+        res.render('search', { plant, active: { home: true } });
+      } else {
+        // req.flash('error', 'No plants match that query, please try again.');
+        const error = new Error('Sorry, we don\'t have that plant yet');
+        Error.status = 404;
+        res.render('search', { error });
+        throw error;
+      }
+    })
+    .catch((err) => {
+      console.log('Error while looking for the plant', err);
+    });
+});
+
+/* Tags results field */
+router.get('/tagged/:place', (req, res, next) => {
+  const { place } = req.params;
+
+  Plant.find({ place: { $elemMatch: { $eq: place } } })
+    .then((data) => {
+      data.forEach((plant) => {
+        console.log(plant.commonName);
+      });
+      res.render('index', {
+        title: 'Plantiful', data, active: { home: true }, tagActive: { place: true },
+      });
+    })
+    .catch((err) => {
+      console.log('Error while looking for the plant', err);
+    });
 });
 
 /* Create a User */
@@ -26,19 +73,13 @@ router.post('/signup', (req, res) => {
     User.findOne({ userEmail })
       .then((email) => {
         if (email) {
-          // console.log('this email already exists');
           req.flash('error', 'This email is already registered.');
           res.redirect('/signup');
-          // res.render('auth/signup', { error: 'This email is already registered.' });
         } else {
-          // console.log('email does not exist', email);
-          /* Password encryptation */
           const salt = bcrypt.genSaltSync(bcryptSalt);
           const hashedPassword = bcrypt.hashSync(password, salt);
-          /* New user */
           User.create({ userEmail, hashedPassword })
             .then(() => {
-              // console.log('new user has been created');
               req.flash('success', 'New user has been created. Now you can login.');
               res.redirect('/plants');
             })
@@ -48,7 +89,6 @@ router.post('/signup', (req, res) => {
         }
       })
       .catch((error) => {
-        // console.log(error);
         req.flash('error', 'Error try again.');
         res.redirect('/signup');
       });
@@ -60,7 +100,8 @@ router.post('/signup', (req, res) => {
 
 /* Get Login page */
 router.get('/login', checkIfNotLoggedIn, (req, res) => {
-  res.render('auth/login');
+  const active = { profile: true };
+  res.render('auth/login', { active });
 });
 
 router.post('/login', (req, res) => {
@@ -70,14 +111,11 @@ router.post('/login', (req, res) => {
       .then((user) => {
         if (user) {
           if (bcrypt.compareSync(password, user.hashedPassword)) {
-            // password valido
-            // guardo la session
             req.session.currentUser = user;
             console.log(user);
             req.flash('success', 'You are connected with your plants 🎉.');
             res.redirect('/mygarden');
           } else {
-            // password invalido
             req.flash('error', 'Wrong email or password.');
             res.redirect('/login');
           }
@@ -98,17 +136,12 @@ router.post('/login', (req, res) => {
 
 /* Get logout page */
 router.get('/logout', (req, res, next) => {
-  // req.session.currentUser = null;
-  req.session.destroy();
-  // req.flash('success', 'See you next time!');
-  res.redirect('/login');
-  // req.session.destroy((err) => {
-  //   // cannot access session here
-  //   if (err) {
-  //     next(err);
-  //   }
-  //   res.redirect('/login');
-  // });
+  req.session.destroy((err) => {
+    if (err) {
+      next(err);
+    }
+    res.redirect('/login');
+  });
 });
 
 module.exports = router;

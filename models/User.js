@@ -13,7 +13,7 @@ const userSchema = new Schema(
       type: String,
       default: './images/default_profile_pic.png',
     },
-    userPlants: [{ type: Schema.Types.ObjectId, ref: 'MyPlant' }]
+    userPlants: [{ type: Schema.Types.ObjectId, ref: 'MyPlant' }],
   },
   {
     timestamps: {

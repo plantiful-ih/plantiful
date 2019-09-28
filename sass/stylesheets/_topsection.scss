@@ -1,0 +1,24 @@
+@import 'global';
+
+.back-section{
+  min-height:50px;
+  position:absolute;
+  z-index:999;
+}
+
+.back-arrow{
+  margin:1.5em;
+  cursor: pointer;
+}
+
+.top-section{
+  height:50px;
+  width:100%;
+  position:fixed;
+  top:0;
+  transition: top 0.3s;
+  h4{
+    text-align:center;
+    margin-top:-50px;
+  }
+}

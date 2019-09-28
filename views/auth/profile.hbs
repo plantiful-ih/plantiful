@@ -13,24 +13,52 @@
     <a href="/profile/edit">Edit profile <img src="../images/icon-edit.png" alt="Edit profile"></a>
   </p>
   <div class="user-info">
+    {{#if user.userName}}
     <h2>{{ user.userName }}</h2>
+    {{else}}
+    <h2>{{ user.userEmail }}</h2>
+    {{/if}}
     <h5>{{ user.location }} ({{ user.age }} years)</h5>
   </div>
-  <div class="user-plants-stats">
+
+  <div class="plants-showcase">
     {{#if user.userPlants}}
-    <p>Plants in your garden: {{ numberOfPlants }}</p>
-    <br>
-    <a href="/"><button class="btn">collect more plants</button></a>
-    <br>
-    </ul>
-    {{else}}
-    <p>You have 0 plants in your garden, let's start collecting!</p>
-    <a href="/"><button class="btn">Go to catalogue</button></a><br />
-    {{/if}}
+    {{#each user.userPlants}}
+
+    <div class="plant-card">
+      <a href="/mygarden/{{this._id}}">
+        <img class="plant-img" src="{{this.userPics.[0].imgPath}}">
+      </a>
+      <div class="card-info">
+        <div class="left">
+          <h4 class="no-margin">{{this.nickname}}</h4>
+          <h5 class="no-margin">{{this.shoppingPoint}}</h5>
+        </div>
+        <div class="right">
+          <a href="/mygarden/{{this._id}}">
+            <button class="btn-view">
+              <svg width="20" height="20" viewBox="0 -5 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path
+                  d="M13.2222 1.06111C12.7944 1 12.4278 1 12 1C7.29444 1 3.2 3.93333 1 8.21111C3.2 12.4889 7.29444 15.4222 12 15.4222C16.7056 15.4222 20.8 12.4889 23 8.21111C21.4722 5.15556 18.9667 2.83333 15.9111 1.73333M15.0556 8.21111C15.0556 9.89865 13.6875 11.2667 12 11.2667C10.3125 11.2667 8.94444 9.89865 8.94444 8.21111C8.94444 6.52357 10.3125 5.15556 12 5.15556C13.6875 5.15556 15.0556 6.52357 15.0556 8.21111Z"
+                  stroke="#110F24" stroke-width="2" stroke-miterlimit="10" stroke-linecap="round"
+                  stroke-linejoin="round" />
+              </svg>
+            </button>
+          </a>
+        </div>
+      </div>
+    </div>
+
+    {{/each}}
   </div>
-  <br>
-  <a href="/profile/edit"><button class="btn">edit profile</button></a>
-  <br>
-  <br>
-  <a href="/logout"><button class="btn">log out</button></a>
+  {{else}}
+
+  <p>You have 0 plants in your garden, let's start collecting!</p>
+  <a href="/"><button class="btn">Go to catalogue</button></a><br />
+  {{/if}}
+  <div class="centered">
+    <a href="/"><button class="btn btn-centered">collect more plants</button></a>
+    <a href="/profile/edit"><button class="btn btn-outlined btn-centered">edit profile</button></a>
+    <a href="/logout"><button class="btn btn-centered">log out</button></a>
+  </div>
 </div>
