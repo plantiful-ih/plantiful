@@ -1,30 +1,27 @@
-<div class="bg">
-  <div class="header">
-    <button class="back-arrow" onclick="goBack()">
-      <img src="../images/back-arrow.png" alt="Go back">
-    </button>
-  </div>
-  <h4 class="centered" style="margin-top: -50px">Edit profile</h4>
+<div class="top-section" id="top">
+  <button class="back-arrow" onclick="goBack()">
+    <img src="../images/back-arrow.png" alt="Go back">
+  </button>
+  <h4>Edit my profile</h4>
+</div>
+<div class="content-top login-section">
   <div class="content">
     <div class="user-image">
       <img class="avatar" style="margin-top: 65px;" src="{{ user.image }}">
     </div>
-
     <form action="/profile/edit" method="POST" enctype="multipart/form-data">
-
       <div class="form-group">
         <label for="username">Username:</label>
-
         {{#if user.userName}}
         <input type="text" name="username" placeholder="{{user.userName}}" value="{{user.userName}}">
         {{else}}
         <input type="text" name="username" placeholder="My username">
         {{/if}}
-      </div><br />
+      </div>
       <div class="form-group">
         <label class="email-password" for="mail">E-mail:</label>
         <input type="text" name="mail" placeholder="{{ user.userEmail }}" value="{{ user.userEmail }}">
-      </div><br />
+      </div>
       <div class="form-group">
         <label class="email-password" for="age">Age:</label>
         {{#if user.age}}
@@ -32,9 +29,8 @@
         {{else}}
         <input type="number" name="age" placeholder="My age">
         {{/if}}
-      </div><br />
+      </div>
       <div class="form-group">
-
         <label class="email-password" for="location">Location:</label>
         {{#if user.location}}
         <input type="text" name="location" placeholder="{{ user.location }}" value="{{ user.location }}">
@@ -48,7 +44,6 @@
           profile picture</button>
         <input id="uploadImage" type="file" name="photo">
       </div><br /> --}}
-
       <div class="btn-container">
         <button type="submit" class="btn">Update</button>
       </div>

@@ -32,7 +32,7 @@ hr {
 }
 
 .check-list {
-  margin-left: 40px;
+  margin-left: $space-l;;
   list-style-image: url('../images/check.png');
   font-family: 'Roboto', sans-serif;
   li {
@@ -57,22 +57,103 @@ hr {
 }
 
 .myplant-img {
-  max-width: 28vw;
-  margin-right: 5px;
-  border: 1px solid $color-primary;
-  border-radius: 5px;
+  flex: 0 32%;
+  height: 100px;
+  border-radius: 6px;
+  margin-bottom:$space-xs;
 }
 
 .myplant-gallery {
   display: flex;
-  flex-direction: row;
   flex-wrap: wrap;
-  margin-bottom: 20px;
+  justify-content: space-between;
+  margin-bottom: $space-l;
+  margin-top:$space-xl;
 }
 
-.rating {
-  display: inline;
-  &:last-child {
-    margin-left: 10px;
+.myplant-data{
+  .rating {
+    display: inline;
+    color:$color-green;
+    margin-right:$space-xs;
+    &:last-child {
+      margin-left: 10px;
+    }
+  }
+  h4{
+    color:$color-green;
+    margin-top:$space-m;
+    margin-bottom:$space-xs;
+  }
+  p{
+    line-height: 1.3;
+  }
+  ul{
+    li{
+      font-size:.875em;
+    }
+  }
+}
+
+.family{
+  color:$color-text-opacity;
+  border-bottom:1px solid $color-text-opacity;
+  padding-bottom:$space-s;
+  margin-bottom:$space-l;
+}
+
+.details{
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  .col-3{
+    flex: 0 32%;
+    height: 100px;
+    margin-bottom: 2%;
+  }
+}
+
+.myplant-tags{
+  margin-top:$space-l;
+  span{
+    border-radius: 25px;
+    background-color:$color-gray-light;
+    padding:12px 16px;
+    display:inline-block;
+    font-family: 'Roboto', sans-serif;
+    color:$color-text-opacity;
+    font-size:.9em;
+    margin-right:12px;
+    margin-bottom:$space-s;
+  }
+  .active{
+    background-color:$color-light-blue;
+    color:$color-gray-light;
+  }
+  &:focus{
+    background-color:$color-light-blue;
+    color:$color-gray-light;
+  }
+}
+
+/* PLANT SECTION */
+.plant-section{
+  margin-top:-60px;
+  margin-bottom:$space-xs;
+  .title-plant{
+    color: #1A697F;
+  }
+  h4{
+    color:$color-green;
+    margin-top:$space-m;
+    margin-bottom:$space-xs;
+  }
+  p{
+    line-height: 1.3;
+  }
+  ul{
+    li{
+      font-size:.875em;
+    }
   }
 }

@@ -129,3 +129,20 @@ a:visited {
   max-width: 400px;
   font: 10px/20px 'Helvetica Neue', Arial, Helvetica, sans-serif;
 }
+
+/* My garden */
+.myplant-image{
+  margin-left: calc(50% - 50vw);
+  margin-right: calc(50% - 50vw);
+  margin-top:-20px;
+  img{
+    width:100vw;
+    min-width:100%;
+  }
+}
+.edit-image{
+  text-align:right;
+  float:right;
+  margin-top:-3em;
+  position:relative;
+}

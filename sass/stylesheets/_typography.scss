@@ -42,10 +42,6 @@ p{
   cursor: pointer;
 }
 
-// .no-margin {
-//   margin: 0;
-// }
-
 
 ///*** DESKTOP ***///
 @media (min-width: 1024px) {
@@ -84,17 +80,21 @@ p{
   }
 }
 
-// h1, h2, h3, h4, h5, p {
-//   margin: 20px 0 20px 16px;
-// }
-
 .centered {
   text-align: center;
 }
 
 .title {
-    margin-top: -65px;
+    color:$color-primary;
+    margin-top: -60px;
     margin-bottom: 40px;
+}
+
+.subtitle{
+  color:$color-green;
+  font-family: Roboto;
+  margin-top:-16px;
+  margin-bottom:$space-xl;
 }
 
 //*** Colors ****/

@@ -10,16 +10,15 @@ label{
 
 /*** Select Field ***/
 .select-field{
-  width:80vw;
-  max-width: 300px;
-  margin-right: 24px;
+  width:100%;
   height:56px;
   margin:0px;
   padding:0px;
   background-color:transparent;
-  border-bottom:1px solid $color-text;
+  border-bottom:2px solid $color-text;
   position:relative;
   z-index:1;
+  margin-bottom:$space-xl;
     &:after{
       content:'keyboard_arrow_down';
       font-family:'material icons';
@@ -36,6 +35,7 @@ label{
     }
 
   select{
+    padding:0 12px;
     width:100%;
     border:0px;
     background-color:transparent;
